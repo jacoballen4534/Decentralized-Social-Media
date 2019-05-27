@@ -17,8 +17,9 @@ import cherrypy
 import server
 
 # The address we listen for connections on
-LISTEN_IP = "0.0.0.0"
-LISTEN_PORT = 1234
+LISTEN_IP = "192.168.1.68"
+LISTEN_PORT = 80
+
 
 def runMainApp():
     #set up the config
