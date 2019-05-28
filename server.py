@@ -1,7 +1,7 @@
 import pprint
 import urllib.request
 import cherrypy
-import apiHelpers as acc
+import exampleApiAccess.apiHelpers as acc
 import json
 
 startHTML = "<html><head><title>CS302 example</title><link rel='stylesheet' href='/static/example.css' /></head><body>"
@@ -110,6 +110,7 @@ def authoriseUserLogin(username, password):
     if private_data_object['response'] == 'ok':
         """Precede to getting the key -> set hex key, or skip that step and set private key"""
         print("Your private data was retrieved, however, jall229 key will be used for now")
+	# Check pubkey is valid with check_pubkey
         hex_key = b'bae8e8311801aabe5d4eb4c85f3ba53a54c7a2fffbc561e59a6ff53765dfe138'
     elif private_data_object['response'] == 'no privatedata available':
         print("There doesnt appear to be any private data on the server.")
