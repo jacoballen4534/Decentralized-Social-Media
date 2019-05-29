@@ -18,7 +18,7 @@ import server
 
 # The address we listen for connections on
 LISTEN_IP = "192.168.1.68"
-LISTEN_PORT = 80
+LISTEN_PORT = 5000
 
 
 def runMainApp():
@@ -75,6 +75,7 @@ def runMainApp():
 
     # And stop doing anything else. Let the web server take over.
     cherrypy.engine.block()
+
 
 #Run the function to start everything
 if __name__ == '__main__':

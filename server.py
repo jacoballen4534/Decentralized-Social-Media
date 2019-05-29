@@ -4,7 +4,9 @@ import cherrypy
 import exampleApiAccess.apiHelpers as acc
 import json
 
+
 startHTML = "<html><head><title>CS302 example</title><link rel='stylesheet' href='/static/example.css' /></head><body>"
+
 
 class MainApp(object):
     # CherryPy Configuration
@@ -41,8 +43,22 @@ class MainApp(object):
 
         Page += '<form action="/signin" method="post" enctype="multipart/form-data">'
         Page += 'Username: <input type="text" name="username"/><br/>'
-        Page += 'Password: <input type="text" name="password"/>'
+        Page += 'Password: <input type="password" name="password"/><br/>'
+        Page += 'Encryption Password: <input type="password" name="second_password"/><br/>'
+        Page += 'Allow private data overwrite: <input type="checkbox" name="allow_overwrite"/><br/>'
         Page += '<input type="submit" value="Login"/></form>'
+        Page += '<br/><p> Note. If you tick allow private data overwrite, this will overwride your current private' \
+                'data, and create a new public private key pair for you. Your existing keys will still work.</br>' \
+                'This will occur in any of the following circumstances:</br>' \
+                '<ul>' \
+                '<li>No private data at all.</li>' \
+                '<li>Empty string private data.</li>' \
+                '<li>Unable to decrypt existing private data.</li>' \
+                '<li>No private key in private data.</li>' \
+                '<li>Invalid private key</li>' \
+                '<li>Invalid Encryption Password</li>' \
+                '</ul></br>' \
+                'This is designed to encrypt your private data so you can test your decryption implementation</p>'
         return Page
 
     @cherrypy.expose
@@ -52,9 +68,9 @@ class MainApp(object):
 
     # LOGGING IN AND OUT
     @cherrypy.expose
-    def signin(self, username=None, password=None):
+    def signin(self, username=None, password=None, second_password = None, allow_overwrite=None):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
-        success = authoriseUserLogin(username, password)
+        success = authorise_user_login(username, password, second_password, allow_overwrite)
         if success:
             cherrypy.session['username'] = username
             raise cherrypy.HTTPRedirect('/')
@@ -76,59 +92,43 @@ class MainApp(object):
 ### Functions only after here
 ###
 
-def authoriseUserLogin(username, password):
-    # Deal with no values being passed in. (user manually calls "/"
-    # if 'username' in cherrypy.session
-    print("Checking if the server is online")
-    ping_url = "http://cs302.kiwi.land/api/ping"
-    try:
-        check_online_req = urllib.request.Request(url=ping_url)
-        json_object = acc.query_server(check_online_req)
-        if json_object['response'] == 'ok':
-            print("Server is online and reachable.")
-        else:
-            print("Sorry, it appears the server is not reachable at this time")
-            exit()
-    except urllib.error.HTTPError as error:
-        print(error.read())
-        exit()
-
-    print("Checking if the provided username and password is valid")
-    header = acc.create_header(username, password)
-    check_credentials_req = urllib.request.Request(url=ping_url, headers=header)
-    json_object = acc.query_server(check_credentials_req)
-    if json_object['authentication'] == 'basic':
-        print("These credentials are valid. Processing to get private data. (private key)")
-    else:
-        print("It doesnt look like those are valid credentials")
-        print("Try again")
+def authorise_user_login(username, password, second_password, allow_overwrite):
+    # _______________________________Check server is online __________________________________
+    if not acc.ping_central_server():
+        return False  # Need to return message to display
+    # ____________________Check username pass with http basic________________________________
+    if not acc.ping_central_server(username, password):
         return False
+    # _________________________ Retrieve private data _______________________________________
 
-    get_private_data_url = "http://cs302.kiwi.land/api/get_privatedata"
-    get_private_data_req = urllib.request.Request(url=get_private_data_url, headers=header)
-    private_data_object = acc.query_server(get_private_data_req)
-    if private_data_object['response'] == 'ok':
-        """Precede to getting the key -> set hex key, or skip that step and set private key"""
-        print("Your private data was retrieved, however, jall229 key will be used for now")
-	# Check pubkey is valid with check_pubkey
-        hex_key = b'bae8e8311801aabe5d4eb4c85f3ba53a54c7a2fffbc561e59a6ff53765dfe138'
-    elif private_data_object['response'] == 'no privatedata available':
-        print("There doesnt appear to be any private data on the server.")
-        print("Generating a new private public key pair and registering it to the server")
-        """Make new private key -> public key -> add via add_pupkey -> add private key to privatedata -> Can replace hex key step"""
 
-        print("Until this is implemented, using jall229 pre saved key.")
-        hex_key = b'bae8e8311801aabe5d4eb4c85f3ba53a54c7a2fffbc561e59a6ff53765dfe138'
+
+
+
+
     else:  # error
         print("There was an error")
         return False
 
-    keys = acc.get_keys(hex_key)
+    if 'privatedata' not in private_data_object:
+        print("There is no private data")
+        return False
+
+    received_base64_string = private_data_object['privatedata']
+    secret_box = acc.create_secret_box(second_password)
+    private_data_dict = acc.decrypt_private_data(received_base64_string, secret_box=secret_box)
+
+    # TODO: If there is no private data. Or there is private data but cant decode, or there is no private key on the private data. Make a new private key.
+    try:
+        private_key = acc.get_private_key_from_private_data(private_data_dict)
+    except KeyError:
+        print("There was either no private key, or it was invalid")
+        return False
+    # TODO: Add different retern options. Maybe dont need.
+
+    keys = acc.get_keys(private_key)
     signature_hex_str = acc.sign_message(keys["pubkey_hex_str"], hex_key=hex_key)
-    payload = {
-        "pubkey": keys["pubkey_hex_str"],
-        "signature": signature_hex_str
-    }
+    payload = {"pubkey": keys["pubkey_hex_str"], "signature": signature_hex_str}
     byte_payload = bytes(json.dumps(payload), "utf-8")
     verify_signature_req = urllib.request.Request(url=ping_url, data=byte_payload, headers=header)
     verify_signature_object = acc.query_server(verify_signature_req)
