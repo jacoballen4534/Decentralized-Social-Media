@@ -27,8 +27,7 @@ class MainApp(object):
 
         try:
             Page += "Hello " + cherrypy.session['username'] + "!<br/>"
-            Page += "Here is some bonus text because you've logged in! <br/>" \
-                    "You are now<font color='green'> visible</font>  on the login server.<br/> " \
+            Page += "You are now<font color='green'> visible</font>  on the login server.<br/> " \
                     "<a href='/signout'>Sign out</a>"
         except KeyError:  # There is no username
 
@@ -68,11 +67,13 @@ class MainApp(object):
 
     # LOGGING IN AND OUT
     @cherrypy.expose
-    def signin(self, username=None, password=None, second_password = None, allow_overwrite=None):
+    def signin(self, username=None, password=None, second_password=None, allow_overwrite=None):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
         success = authorise_user_login(username, password, second_password, allow_overwrite)
         if success:
             cherrypy.session['username'] = username
+            cherrypy.session['password'] = password
+            cherrypy.session['second_password'] = second_password
             raise cherrypy.HTTPRedirect('/')
         else:
             raise cherrypy.HTTPRedirect('/login?bad_attempt=1')
@@ -81,10 +82,11 @@ class MainApp(object):
     def signout(self):
         """Logs the current user out, expires their session"""
         username = cherrypy.session.get('username')
-        if username is None:
-            pass
-        else:
+        password = cherrypy.session.get('password')
+        second_password = cherrypy.session.get('second_password')
+        if username is not None or password is not None or second_password is not None:
             cherrypy.lib.sessions.expire()
+
         raise cherrypy.HTTPRedirect('/')
 
 
@@ -101,50 +103,19 @@ def authorise_user_login(username, password, second_password, allow_overwrite):
         return False
     # _________________________ Retrieve private data _______________________________________
 
-
-
-
-
-
-    else:  # error
-        print("There was an error")
-        return False
-
-    if 'privatedata' not in private_data_object:
-        print("There is no private data")
-        return False
-
-    received_base64_string = private_data_object['privatedata']
-    secret_box = acc.create_secret_box(second_password)
-    private_data_dict = acc.decrypt_private_data(received_base64_string, secret_box=secret_box)
-
-    # TODO: If there is no private data. Or there is private data but cant decode, or there is no private key on the private data. Make a new private key.
-    try:
-        private_key = acc.get_private_key_from_private_data(private_data_dict)
-    except KeyError:
-        print("There was either no private key, or it was invalid")
-        return False
-    # TODO: Add different retern options. Maybe dont need.
-
-    keys = acc.get_keys(private_key)
-    signature_hex_str = acc.sign_message(keys["pubkey_hex_str"], hex_key=hex_key)
-    payload = {"pubkey": keys["pubkey_hex_str"], "signature": signature_hex_str}
-    byte_payload = bytes(json.dumps(payload), "utf-8")
-    verify_signature_req = urllib.request.Request(url=ping_url, data=byte_payload, headers=header)
-    verify_signature_object = acc.query_server(verify_signature_req)
-
-    if verify_signature_object['response'] == 'ok':
-        print("This is a verified signature. Nice!")
-    else:
-        print("You do not have a valid signature, please try logging in again")  # may need to generate new key here
-        return False
-
-    print("Attempting to report to the server.")
-    report_object = acc.report(username=username, password=password, hex_key=hex_key)
-    if report_object['response'] == 'ok':
-        print("Congratulations, you reported to the server.")
-        print("You are now online")
+    if acc.get_private_data(username, password, second_password, allow_overwrite):
         return True
-    else:
-        print("Could not report to the server, please try again later.")
+    elif allow_overwrite != 'on':  # Not allowed to overwrite
         return False
+    try:
+        # Try to overwrite their private data.
+        if not acc.overwrite_private_data(username, password, second_password):
+            return False  # Something went wrong, Didnt work
+
+        # Try to decrypt the new overwritten data.
+        if acc.get_private_data(username, password, second_password, allow_overwrite):
+            return True
+
+    except KeyError:
+        return False
+    return False

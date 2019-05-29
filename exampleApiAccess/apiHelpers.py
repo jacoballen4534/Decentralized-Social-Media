@@ -9,10 +9,12 @@ import nacl.utils
 import nacl.secret
 import nacl.pwhash
 import nacl.hash
+import nacl.exceptions
 import time
 
-def get_keys(hex_key):
-    signing_key = nacl.signing.SigningKey(hex_key, encoder=nacl.encoding.HexEncoder)
+
+def get_keys(signing_key_hex_string):
+    signing_key = nacl.signing.SigningKey(signing_key_hex_string, encoder=nacl.encoding.HexEncoder)
     pubkey_hex = signing_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
     pubkey_hex_str = pubkey_hex.decode('utf-8')
     keys = {"signing_key": signing_key, "pubkey_hex_str": pubkey_hex_str}
@@ -92,8 +94,8 @@ def create_secret_box(second_password):
     mem = nacl.pwhash.argon2i.MEMLIMIT_SENSITIVE  # Recommended value of 536870912, given in the docs.
 
     # Generate the symmetric key from the kdf.
-    symmetric_key = kdf(nacl.secret.SecretBox.KEY_SIZE, key_password, salt=salt, opslimit=ops, memlimit=mem,
-                        encoder=nacl.encoding.HexEncoder)
+    symmetric_key = kdf(nacl.secret.SecretBox.KEY_SIZE, key_password, salt=salt,
+                        opslimit=ops, memlimit=mem, encoder=nacl.encoding.HexEncoder)
 
     # Create the secret box, from the symmetric key, to encrypt messages with.
     secret_box = nacl.secret.SecretBox(symmetric_key, encoder=nacl.encoding.HexEncoder)
@@ -158,13 +160,19 @@ def add_pub_key(keys, username, password):
 
     req = urllib.request.Request(url=add_pup_key_url, data=byte_payload, headers=header)
     JSON_object = query_server(req)
-    pprint.pprint(JSON_object)
+    if JSON_object['response'] == 'ok':
+        print("Added a new pubkey")
+        pprint.pprint(JSON_object)
+        return True
+    else:
+        return False
 
 
 def add_private_data(keys, username, password, second_password, private_data_dict=None):
+    ping_url = "http://cs302.kiwi.land/api/add_privatedata"
     private_key_hex_string = keys["signing_key"].encode(encoder=nacl.encoding.HexEncoder).decode()
 
-    if private_data_dict is None:  # If no private data dict comes in. Make one with empty fields apart from prikeys
+    if private_data_dict is None or 'prikeys' not in private_data_dict:  # If no private data dict comes in. Make one with empty fields apart from prikeys
         private_data_dict = {
             'prikeys': private_key_hex_string,
             'blocked_pubkeys': "",
@@ -175,7 +183,6 @@ def add_private_data(keys, username, password, second_password, private_data_dic
             'friends_usernames': ""
         }
 
-    ping_url = "http://cs302.kiwi.land/api/add_privatedata"
     header = create_header(username, password)
 
     private_data_plain_text_string = json.dumps(private_data_dict)
@@ -200,11 +207,16 @@ def add_private_data(keys, username, password, second_password, private_data_dic
     byte_payload = bytes(json.dumps(payload), "utf-8")
 
     req = urllib.request.Request(url=ping_url, data=byte_payload, headers=header)
-    JSON_object = query_server(req)
-    return JSON_object
+    try:
+        JSON_object = query_server(req)
+        pprint.pprint(JSON_object)
+        return JSON_object
+    except urllib.error.HTTPError as error:
+        print(error.read())
+        return False
 
 
-def ping_central_server(username=None, password=None):
+def ping_central_server(username=None, password=None, keys=None):
     ping_url = "http://cs302.kiwi.land/api/ping"
     if username is None or password is None:
         print("Checking if the server is online")
@@ -220,7 +232,7 @@ def ping_central_server(username=None, password=None):
         except urllib.error.HTTPError as error:
             print(error.read())
             return False
-    elif username is not None and password is not None:
+    elif username is not None and password is not None and keys is None:  # This means check httpbasic
         print("Checking if the provided username and password is valid")
         header = create_header(username, password)
         check_credentials_req = urllib.request.Request(url=ping_url, headers=header)
@@ -232,6 +244,21 @@ def ping_central_server(username=None, password=None):
             print("It doesnt look like those are valid credentials")
             print("Try again")
             return False
+    elif username is not None and password is not None and keys is not None:
+        print("Checking if the provided key is valid")
+        header = create_header(username, password)
+        signature_hex_str = sign_message(keys["pubkey_hex_str"], private_key=keys['signing_key'])
+        payload = {
+            "pubkey": keys["pubkey_hex_str"],
+            "signature": signature_hex_str
+        }
+        byte_payload = bytes(json.dumps(payload), "utf-8")
+        verify_signature_req = urllib.request.Request(url=ping_url, data=byte_payload, headers=header)
+        verify_signature_object = query_server(verify_signature_req)
+        if verify_signature_object['signature'] == 'ok':
+            return True
+        else:
+            raise False
 
 
 def get_private_data(username, password, second_password, allow_overwrite):
@@ -240,31 +267,37 @@ def get_private_data(username, password, second_password, allow_overwrite):
         return False
     get_private_data_url = "http://cs302.kiwi.land/api/get_privatedata"
     header = create_header(username, password)
-    get_private_data_req = urllib.request.Request(url=get_private_data_url, headers=header)
-    private_data_object = query_server(get_private_data_req)
-    if private_data_object['response'] == 'ok':
-        """Precede to getting private data -> decrypting -> get private key."""
-        print("Your private data was retrieved")
-    elif private_data_object['response'] == 'no privatedata available' or 'privatedata' not in private_data_object:
-        # TODO: Consider returning message to user and ask if they want a new key.
-        print("There doesnt appear to be any private data on the server.")
-        print("Generating a new public private key pair and registering it with the server")
-        """Make new private key -> public key -> add via add_pupkey -> add private key to privatedata"""
-        keys = create_new_key_pair()
-        add_pub_key(keys, username, password)
-        try:
-            add_private_data_result = add_private_data(keys, username, password, second_password)
-        except urllib.error.HTTPError as error:
-            print(error.read())
 
-        if add_private_data_result['response'] != 'ok':
-            print("An error occurred when adding your private data.")
-            return False
+    try:
+        get_private_data_req = urllib.request.Request(url=get_private_data_url, headers=header)
+        private_data_object = query_server(get_private_data_req)
+        received_base64_string = private_data_object['privatedata']
+        secret_box = create_secret_box(second_password)
+        private_data_dict = decrypt_private_data(received_base64_string, secret_box)
+        keys = get_keys(private_data_dict['prikeys'])
+        return ping_central_server(username, password, keys)
+
+    except (KeyError, urllib.error.HTTPError, nacl.exceptions.CryptoError):
+        return False
 
 
+def overwrite_private_data(username, password, second_password):
+    print("Adding new key and overwriting private data.")
+    print("Generating a new public private key pair and registering it with the server")
+    """Make new private key -> public key -> add via add_pupkey -> add private key to privatedata"""
+    keys = create_new_key_pair()
+    if add_pub_key(keys, username, password):
+        print("Successfully added public key to server")
+    else:
+        return False
 
-
-
+    add_private_data_result = add_private_data(keys, username, password, second_password)
+    if add_private_data_result['response'] == 'ok':
+        print("Sucessfully added private data")
+        return True
+    else:
+        print("An error occurred when adding your private data.")
+        return False
 
 
 
