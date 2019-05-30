@@ -48,6 +48,13 @@ class MainApp(object):
         Page += '<input type="submit" value="Login"/></form>'
 
         Page += '<br/>' \
+                'Assuming private key is stored on private data in the following form<br/>' \
+                'private_data{<br/>' \
+                '\t\t"prikeys": ["private_key_hex_string", " "],<br/>' \
+                '\t\t"blockedpubkeys": ["...", "..."],<br/>' \
+                '\t\t....<br/>' \
+                '}<br/>' \
+                'keys are in list.<br/>' \
                 '<p> <h3> Test your Encryption </h3 >' \
                 'Enter your username, password and encryption key. (Dont tick overwrite)<br/>' \
                 'This will attempt to retrieve your encrypted private data and decrypt.<br/>' \
@@ -82,10 +89,12 @@ class MainApp(object):
     @cherrypy.expose
     def signin(self, username=None, password=None, second_password=None, allow_overwrite=None):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
+        print("\nLogin attempt:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
+              "\n\t\t\t\tsecond_password: " + str(second_password) + "\n\t\t\t\tOverwrite: " + str(allow_overwrite) + "\n\n")
         success = authorise_user_login(username, password, second_password, allow_overwrite)
         if success:
             print("\n\nSucessfull login:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
-                  "\n\t\t\t\tsecond_password: " + str(second_password) + "\n\n")
+                  "\n\t\t\t\tsecond_password: " + str(second_password) + "\n\t\t\t\tOverwrite: " + str(allow_overwrite) + "\n\n")
             cherrypy.session['username'] = username
             cherrypy.session['password'] = password
             cherrypy.session['second_password'] = second_password

@@ -192,13 +192,13 @@ def add_private_data(keys, username, password, second_password):
         # signing_key = nacl.signing.SigningKey(str.encode(hex_private_key), encoder=nacl.encoding.HexEncoder)
 
         private_data_plain_text = {
-            'prikeys': hex_private_key,
-            'blocked_pubkeys': "",
-            'blocked_usernames': "",
-            'blocked_message_signatures': "",
-            'blocked_words': "",
-            'favourite_message_signatures': "",
-            'friends_usernames': ""
+            'prikeys': [hex_private_key, ""],
+            'blocked_pubkeys': ["", ""],
+            'blocked_usernames': ["", ""],
+            'blocked_message_signatures': ["", ""],
+            'blocked_words': ["", ""],
+            'favourite_message_signatures': ["", ""],
+            'friends_usernames': ["", ""]
         }
 
         private_data_plain_text_string = json.dumps(private_data_plain_text)
@@ -424,7 +424,7 @@ def get_private_data(username, password, second_password, allow_overwrite):
 
     if private_data_dict is not None and'prikeys' in private_data_dict:
         try:
-            signing_key = nacl.signing.SigningKey(str.encode(private_data_dict['prikeys']), encoder=nacl.encoding.HexEncoder)
+            signing_key = nacl.signing.SigningKey(str.encode(private_data_dict['prikeys'][0]), encoder=nacl.encoding.HexEncoder)
             print("successfully retrieved private key.")
             signing_key_hex_string = signing_key.encode(encoder=nacl.encoding.HexEncoder).decode('utf-8')
 
