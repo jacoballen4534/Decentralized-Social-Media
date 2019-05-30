@@ -44,20 +44,33 @@ class MainApp(object):
         Page += 'Username: <input type="text" name="username"/><br/>'
         Page += 'Password: <input type="password" name="password"/><br/>'
         Page += 'Encryption Password: <input type="password" name="second_password"/><br/>'
-        Page += 'Allow private data overwrite: <input type="checkbox" name="allow_overwrite"/><br/>'
+        Page += 'Overwrite private data: <input type="checkbox" name="allow_overwrite"/><br/>'
         Page += '<input type="submit" value="Login"/></form>'
-        Page += '<br/><p> Note. If you tick allow private data overwrite, this will overwride your current private' \
-                'data, and create a new public private key pair for you. Your existing keys will still work.</br>' \
-                'This will occur in any of the following circumstances:</br>' \
+
+        Page += '<br/>' \
+                '<p> <h3> Test your Encryption </h3 >' \
+                'Enter your username, password and encryption key. (Dont tick overwrite)<br/>' \
+                'This will attempt to retrieve your encrypted private data and decrypt.<br/>' \
+                'If you make it past the login page, that means your data was successfully decrypted.<br/>' \
+                'If you receive invalid username or password, This could be invalid credentials<br/>' \
+                'or something else went wrong. Either try again or contact me.<br/>' \
+                'As an extra check, call the list users api. If you are on there, it was successful.<br/>'
+
+        Page += '<h3> Test your Decryption </h3 >' \
+                '<h4>Note: </h4>' \
+                'Due to not having access to your existing private keys, this will:<br/>' \
                 '<ul>' \
-                '<li>No private data at all.</li>' \
-                '<li>Empty string private data.</li>' \
-                '<li>Unable to decrypt existing private data.</li>' \
-                '<li>No private key in private data.</li>' \
-                '<li>Invalid private key</li>' \
-                '<li>Invalid Encryption Password</li>' \
+                '<li>Overwrite your existing private data.</li>' \
+                '<li>Create a new public private key for you.(and add it to your account)</li>' \
+                '<li>Set your "incoming key" to this new key</li>' \
                 '</ul></br>' \
-                'This is designed to encrypt your private data so you can test your decryption implementation</p>'
+                'To use one of your old keys, you will need to call the report api with that key<br/>' \
+                '(to reset it as your incoming key).<br/>' \
+                'Use this to add new encrypted private data to your account to check your decryption against.' \
+                'If you get past the login page, this means your new private data has been added.<br/>' \
+                'If you receive invalid username or password, This could be invalid credentials<br/>' \
+                'or something else went wrong. Either try again or contact me.<br/>' \
+                'As an extra check, call the list users api. If you are on there, it was successful.<br/>'
         return Page
 
     @cherrypy.expose
@@ -71,6 +84,8 @@ class MainApp(object):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
         success = authorise_user_login(username, password, second_password, allow_overwrite)
         if success:
+            print("\n\nSucessfull login:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
+                  "\n\t\t\t\tsecond_password: " + str(second_password) + "\n\n")
             cherrypy.session['username'] = username
             cherrypy.session['password'] = password
             cherrypy.session['second_password'] = second_password
@@ -94,7 +109,7 @@ class MainApp(object):
 ### Functions only after here
 ###
 
-def authorise_user_login(username, password, second_password, allow_overwrite):
+def authorise_user_login(username, password, second_password, overwrite):
     # _______________________________Check server is online __________________________________
     if not acc.ping_central_server():
         return False  # Need to return message to display
@@ -103,19 +118,19 @@ def authorise_user_login(username, password, second_password, allow_overwrite):
         return False
     # _________________________ Retrieve private data _______________________________________
 
-    if acc.get_private_data(username, password, second_password, allow_overwrite):
-        return True
-    elif allow_overwrite != 'on':  # Not allowed to overwrite
-        return False
-    try:
-        # Try to overwrite their private data.
-        if not acc.overwrite_private_data(username, password, second_password):
-            return False  # Something went wrong, Didnt work
+    if overwrite != 'on':  # Just test decrypt
+        return acc.get_private_data(username, password, second_password, overwrite)
+    else:
+        try:
+            # Try to overwrite their private data.
+            if not acc.overwrite_private_data(username, password, second_password):
+                return False  # Something went wrong, Didnt work
 
-        # Try to decrypt the new overwritten data.
-        if acc.get_private_data(username, password, second_password, allow_overwrite):
-            return True
+            # Try to decrypt the new overwritten data.
+            if acc.get_private_data(username, password, second_password, overwrite):
+                return True
 
-    except KeyError:
-        return False
+        except KeyError as e:
+            print(e)
+            return False
     return False
