@@ -400,16 +400,16 @@ def get_private_data(username, password, second_password, allow_overwrite):
 
         receiving_symmetric_key = kdf(nacl.secret.SecretBox.KEY_SIZE, key_password, salt=salt,
                                       opslimit=ops, memlimit=mem, encoder=nacl.encoding.HexEncoder)
-
+        print("Reconstructed Symmetric key")
         # Create secret box to encrypt with.
         receiving_secret_box = nacl.secret.SecretBox(receiving_symmetric_key, encoder=nacl.encoding.HexEncoder)
-
+        print("Reconstructed Secret Box")
         # Extract the encrypted private data from 'get_privatedata'.
         # convert the string back to base64 bytes.
         received_base64_bytes = received_base64_string.encode('utf-8')
         # Decode the base64 bytes to get back the encrypted message object.
         received_encrypted_message = base64.b64decode(received_base64_bytes)
-
+        print("decoded encrypted message to: " + str(received_encrypted_message))
         # Decrypt the encrypted message object with the receiving secret box.
         unencrypted_bytes = receiving_secret_box.decrypt(received_encrypted_message)
         # Convert the bytes back to a string, then to a dictionary.
