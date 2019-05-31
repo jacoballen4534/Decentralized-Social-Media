@@ -2,7 +2,7 @@ import urllib.request
 import json
 import pprint
 import time
-import apiHelpers as acc
+import accountParameters as acc
 
 broadcast_url = "http://cs302.kiwi.land/api/rx_broadcast"
 

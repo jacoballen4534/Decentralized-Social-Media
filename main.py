@@ -17,10 +17,8 @@ import cherrypy
 import server
 
 # The address we listen for connections on
-# LISTEN_IP = "0.0.0.0"
-LISTEN_IP = "192.168.1.68"
-LISTEN_PORT = 5000
-
+LISTEN_IP = "0.0.0.0"
+LISTEN_PORT = 1234
 
 def runMainApp():
     #set up the config
@@ -67,8 +65,9 @@ def runMainApp():
     #cherrypy.tools.auth = cherrypy.Tool('before_handler', auth.check_auth, 99)
 
     print("========================================")
-    print("             Jacob Allen")
-    print("         Python Project - so far")
+    print("             Hammond Pearce")
+    print("         University of Auckland")
+    print("   COMPSYS302 - Example client web app")
     print("========================================")
 
     # Start the web server
@@ -76,7 +75,6 @@ def runMainApp():
 
     # And stop doing anything else. Let the web server take over.
     cherrypy.engine.block()
-
 
 #Run the function to start everything
 if __name__ == '__main__':

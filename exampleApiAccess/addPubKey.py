@@ -1,7 +1,7 @@
 import pprint
 import urllib.request
 import json
-import apiHelpers as acc
+import accountParameters as acc
 
 
 add_pup_key_url = "http://cs302.kiwi.land/api/add_pubkey"

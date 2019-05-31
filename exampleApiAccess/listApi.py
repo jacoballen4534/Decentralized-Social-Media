@@ -1,7 +1,7 @@
 import pprint
 import urllib.request
 import json
-import apiHelpers as acc
+import accountParameters as acc
 
 url = "http://cs302.kiwi.land/api/list_apis"
 

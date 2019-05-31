@@ -14,7 +14,7 @@ payload = {
     "connection_location": "2",
     "connection_address": "192.168.43.66",
     "incoming_pubkey": keys["pubkey_hex_str"],
-    "status": 'busy',  # other options are ‘away’, ‘busy’ or ‘offline’
+    "status": 'offline',  # other options are ‘away’, ‘busy’ or ‘offline’
 }
 byte_payload = bytes(json.dumps(payload), "utf-8")
 

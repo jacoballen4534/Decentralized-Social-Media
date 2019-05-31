@@ -5,7 +5,7 @@ import pprint
 import nacl.encoding
 import nacl.signing
 import nacl.utils
-import apiHelpers as acc
+import accountParameters as acc
 
 check_pup_key_url = "http://cs302.kiwi.land/api/check_pubkey"
 header = acc.create_header()

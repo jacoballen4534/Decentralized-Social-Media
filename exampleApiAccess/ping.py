@@ -1,13 +1,13 @@
 import urllib.request
 import json
 import pprint
-import apiHelpers as acc
+import accountParameters as acc
 
 
 ping_url = "http://cs302.kiwi.land/api/ping"
 
+header = acc.create_header()
 keys = acc.get_keys()
-header = acc.create_header("jall229", "jacoballen4534_205023320")
 
 signature_hex_str = acc.sign_message(keys["pubkey_hex_str"])
 
