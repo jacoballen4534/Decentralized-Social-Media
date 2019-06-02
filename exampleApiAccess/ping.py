@@ -2,6 +2,7 @@ import urllib.request
 import json
 import pprint
 import apiHelpers as acc
+import requests
 
 
 ping_url = "http://cs302.kiwi.land/api/ping"

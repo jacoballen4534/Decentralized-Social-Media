@@ -21,7 +21,10 @@ class LandingPage:
         """The landing page for my sight. If the user is allready loged in, take them to their home page,
         otherwise, take them to the login page."""
         # Todo: Add private key
-        if 'username' in cherrypy.session and 'password' in cherrypy.session and 'second_password' in cherrypy.session:
+        username = cherrypy.session.get('username')
+        password = cherrypy.session.get('password')
+        api_key = cherrypy.session.get('api_key')
+        if username is not None and password is not None and api_key is not None:
             raise cherrypy.HTTPRedirect('/feed')  # This will take the user to their news feed
         else:
             raise cherrypy.HTTPRedirect('/login')  # This will take the user to their news feed

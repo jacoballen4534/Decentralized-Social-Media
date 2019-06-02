@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Jacob - 404</title>
-</head>
-<body>
-    404 Page not found. <a href='/'>Home</a>
-</body>
-</html>
+{% extends "/html/base_template.html" %}
+
+{% block base_title %}
+<title>Jacob - 404</title>
+{% endblock base_title%}
+
+{% block base_body -%}
+404 Page not found. <a href='/'>Home</a>
+{% endblock base_body %}

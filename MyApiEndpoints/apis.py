@@ -9,8 +9,6 @@ env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
 
 class Api(object):
-    _cp_config = {'tools.encode.on': True, 'tools.encode.encoding': 'utf-8', 'tools.sessions.on': 'True', }
-
     @cherrypy.expose
     @cherrypy.tools.allow(methods=['GET'])
     @cherrypy.tools.json_out()

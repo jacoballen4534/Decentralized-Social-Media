@@ -2,11 +2,11 @@ import pprint
 import urllib.request
 import json
 import base64
-
+import binascii
+import nacl.secret
 import nacl.encoding
 import nacl.signing
 import nacl.utils
-import nacl.secret
 import nacl.pwhash
 import nacl.hash
 import nacl.exceptions
@@ -23,15 +23,72 @@ def sign_message(message_string, private_key):
 
 
 def get_keys(private_key_hex_string):
-    """"Takes the private key hex string as input. Will recreate the private key and corresponding public key
-    along with their hex string form"""
-    private_key = nacl.signing.SigningKey(private_key_hex_string, encoder=nacl.encoding.HexEncoder)
-    pubkey_hex = private_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
-    pubkey_hex_str = pubkey_hex.decode('utf-8')
-    keys = {
-        "private_key": private_key,
-        "public_key": pubkey_hex,
-        "private_key_hex_string": private_key_hex_string,
-        "public_key_hex_string": pubkey_hex_str,
-    }
-    return keys
+    """"Takes the private key hex string as input. Will try to recreate the private key and corresponding public key
+    along with their hex string form. returns status of the recreation along with a dictionary with the keys.
+    Failed key creation returns an empty dictionary."""
+    try:
+        private_key = nacl.signing.SigningKey(private_key_hex_string, encoder=nacl.encoding.HexEncoder)
+        public_hex_bytes = private_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
+        pubkey_hex_str = public_hex_bytes.decode('utf-8')
+        keys = {
+            "private_key": private_key,
+            "public_hex_bytes": public_hex_bytes,
+            "private_key_hex_string": private_key_hex_string,
+            "public_key_hex_string": pubkey_hex_str,
+        }
+        return True, keys
+    except (binascii.Error, nacl.exceptions.ValueError) as e:
+        print(e)
+        return False, {}
+
+
+def create_secret_box(encryption_key):
+    """Takes an encryption key that was used to encrypt a secretbox. Will attempt to recreate the same symmetric key,
+    to then create the same  secret box."""
+    try:
+        kdf = nacl.pwhash.argon2i.kdf  # Key derivation function used to generate symmetric key.
+
+        key_password = encryption_key.encode("utf-8")
+        long_salt = nacl.pwhash.argon2i.SALTBYTES * key_password
+        # Convert the second password to bytes and multiply by 16.
+        # As the password is unknown length, repeating it 16 times will ensure it is at least 16 bytes.
+        # As this is the required length of salt.
+
+        salt = long_salt[0:nacl.pwhash.argon2i.SALTBYTES]  # Slice the first 16 bytes to get the required length.
+        ops = nacl.pwhash.argon2i.OPSLIMIT_SENSITIVE  # Recommended value of 8, given in the docs.
+        mem = nacl.pwhash.argon2i.MEMLIMIT_SENSITIVE  # Recommended value of 536870912, given in the docs.
+
+        # Generate the symmetric key from the kdf.
+        symmetric_key = kdf(nacl.secret.SecretBox.KEY_SIZE, key_password, salt=salt,
+                            opslimit=ops, memlimit=mem, encoder=nacl.encoding.HexEncoder)
+
+        # Create the secret box, from the symmetric key, to encrypt messages with.
+        secret_box = nacl.secret.SecretBox(symmetric_key, encoder=nacl.encoding.HexEncoder)
+        return True, secret_box
+    except nacl.exceptions.ValueError:
+        return False, None
+
+
+def decrypt_private_data(private_data_base64_string, encryption_key):
+    """Takes the base64 encoded private data string (private_data field from private_data_object).
+     Will attempt to recreate the same secret box and decrypt using the provided encryption key."""
+    try:
+        status, secret_box = create_secret_box(encryption_key)
+        if not status:
+            return False, None
+        # convert the string back to base64 bytes.
+        private_data_base64_bytes = private_data_base64_string.encode('utf-8')
+        # Decode the base64 bytes to get back the encrypted message object.
+        received_encrypted_message_object = base64.b64decode(private_data_base64_bytes)
+
+        # Decrypt the encrypted message object with the receiving secret box.
+        unencrypted_bytes = secret_box.decrypt(received_encrypted_message_object)
+        # Convert the bytes back to a string, then to a dictionary.
+        unencrypted_string = unencrypted_bytes.decode('utf-8')
+        private_data_dict = json.loads(unencrypted_string)
+        print("This is the private data that was retrieved:")
+        pprint.pprint(private_data_dict)
+        return True, private_data_dict
+    except nacl.exceptions.CryptoError:
+        return False, None
+

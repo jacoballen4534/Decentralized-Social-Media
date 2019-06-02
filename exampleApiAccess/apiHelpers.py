@@ -155,28 +155,28 @@ def get_private_key_from_private_data(private_data_dict):
     raise KeyError
 
 
-def add_pub_key(keys, username, password):
-    add_pup_key_url = "http://cs302.kiwi.land/api/add_pubkey"
-
-    header = create_header(username, password)
-    signature_hex_str = sign_message(keys["pubkey_hex_str"] + username, keys['signing_key'])
-
-    payload = {
-        "pubkey": keys["pubkey_hex_str"],
-        "username": username,
-        "signature": signature_hex_str
-    }
-
-    byte_payload = bytes(json.dumps(payload), "utf-8")
-
-    req = urllib.request.Request(url=add_pup_key_url, data=byte_payload, headers=header)
-    JSON_object = query_server(req)
-    if JSON_object['response'] == 'ok':
-        print("Added a new pubkey")
-        pprint.pprint(JSON_object)
-        return True
-    else:
-        return False
+# def add_pub_key(keys, username, password):
+#     add_pup_key_url = "http://cs302.kiwi.land/api/add_pubkey"
+#
+#     header = create_header(username, password)
+#     signature_hex_str = sign_message(keys["pubkey_hex_str"] + username, keys['signing_key'])
+#
+#     payload = {
+#         "pubkey": keys["pubkey_hex_str"],
+#         "username": username,
+#         "signature": signature_hex_str
+#     }
+#
+#     byte_payload = bytes(json.dumps(payload), "utf-8")
+#
+#     req = urllib.request.Request(url=add_pup_key_url, data=byte_payload, headers=header)
+#     JSON_object = query_server(req)
+#     if JSON_object['response'] == 'ok':
+#         print("Added a new pubkey")
+#         pprint.pprint(JSON_object)
+#         return True
+#     else:
+#         return False
 
 
 def add_private_data(keys, username, password, second_password):
@@ -442,7 +442,6 @@ def get_private_data(username, password, second_password, allow_overwrite):
         print("There is no private key stored. Consider adding one.")
 
     return False
-
 
 
 def overwrite_private_data(username, password, second_password):

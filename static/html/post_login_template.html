@@ -1,0 +1,56 @@
+{% extends "/html/base_template.html" %}
+
+{% block base_title %}
+{% endblock base_title%}
+
+{% block base_links -%}
+{% block post_login_links -%}
+{% endblock post_login_links -%}
+{% endblock base_links %}
+
+
+{% block base_header -%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Jacob's Twitter Project</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/feed">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Messages
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Private</a>
+                    <a class="dropdown-item" href="#">Group</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login/signout">Sign Out <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </form>
+    </div>
+</nav>
+{% endblock base_header -%}
+
+
+{% block base_body -%}
+{% block post_login_body -%}
+{% endblock post_login_body -%}
+{% endblock base_body -%}

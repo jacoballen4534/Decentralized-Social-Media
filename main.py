@@ -13,6 +13,7 @@
 import os
 import os.path
 import cherrypy
+import cherrypy.lib.sessions
 import logging
 import MyApiEndpoints.landingPage
 import MyApiEndpoints.feed
@@ -27,6 +28,10 @@ LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
 
 
+def error_page_404(status, message, traceback, version):
+    return "Sorry im not sure where you are trying to go. 404 ERROR!"
+
+
 def runMainApp():
     #set up the config
     conf = {
@@ -39,7 +44,7 @@ def runMainApp():
 
             # The default session backend is in RAM. Other options are 'file',
             # 'postgres', 'memcached'. For example, uncomment:
-            'tools.sessions.storage_type': 'file',
+            'tools.sessions.storage_class': cherrypy.lib.sessions.FileSession,
             'tools.sessions.storage_path': os.path.abspath(os.getcwd()) + '/temp/mysessions',
         },
 
@@ -50,10 +55,10 @@ def runMainApp():
         },
 
         #once a favicon is set up, the following code could be used to select it for cherrypy
-        #'/favicon.ico': {
-        #    'tools.staticfile.on': True,
-        #    'tools.staticfile.filename': os.getcwd() + '/static/favicon.ico',
-        #},
+        '/favicon.ico': {
+           'tools.staticfile.on': True,
+           'tools.staticfile.filename': os.getcwd() + '/static/favicon.ico',
+        },
     }
 
     cherrypy.site = {
@@ -68,10 +73,12 @@ def runMainApp():
     logging.basicConfig(filename='Log.log', level=logging.DEBUG)
 
     # Tell cherrypy where to listen, and to turn autoreload on
-    cherrypy.config.update({'server.socket_host': LISTEN_IP,
-                            'server.socket_port': LISTEN_PORT,
-                            'engine.autoreload.on': True,
-                           })
+    cherrypy.config.update({
+        'server.socket_host': LISTEN_IP,
+        'server.socket_port': LISTEN_PORT,
+        'engine.autoreload.on': True,
+        'error_page.404': error_page_404,
+    })
 
     #cherrypy.tools.auth = cherrypy.Tool('before_handler', auth.check_auth, 99)
 
