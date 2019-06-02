@@ -10,9 +10,6 @@ startHTML = "<html><head><title>CS302 example</title><link rel='stylesheet' href
 
 
 class Login(object):
-    # CherryPy Configuration
-    _cp_config = {'tools.encode.on': True, 'tools.encode.encoding': 'utf-8', 'tools.sessions.on': 'True', }
-
     # If they try somewhere we don't know, catch it here and send them to the right place.
     @cherrypy.expose
     def default(self, *args, **kwargs):

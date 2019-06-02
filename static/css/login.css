@@ -1,14 +1,11 @@
-.login-body {
-    text-align: left;
-    color: black;
-    padding-left: 30em;
+.col-centered-100 {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.json-object {
-    text-align: left;
-    padding-left: 2em;
-}
-
-.heading {
-    text-align: center;
+.col-centered-50 {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
 }

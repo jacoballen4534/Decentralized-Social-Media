@@ -1,7 +1,7 @@
 import pprint
 import urllib.request
 import cherrypy
-import exampleApiAccess.apiHelpers as acc
+import ApisAndHelpers.loginServerApis as loginApi
 import json
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
@@ -18,10 +18,14 @@ class Feed:
     @cherrypy.expose
     def index(self, *args, **kwargs):
         """This is the users home page. This is where new public messages are posted."""
-        home_template = env.get_template('/html/feed.html')
+        feed_template = env.get_template('/html/feed.html')
 
-        if 'username' in cherrypy.session and 'password' in cherrypy.session and 'second_password' in cherrypy.session:
-            username = cherrypy.session['username']
-            return home_template.render(username=username)
+        username = cherrypy.session.get('username')
+        password = cherrypy.session.get('password')
+        api_key = cherrypy.session.get('api_key')
+        private_key = cherrypy.session.get('private_key')
+        if username is not None and password is not None and api_key is not None:
+            online_users = loginApi.list_users(username, password)
+            return feed_template.render(username=username, users=online_users)
         else:
             raise cherrypy.HTTPRedirect('/')

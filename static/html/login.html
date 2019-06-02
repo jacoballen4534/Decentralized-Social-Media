@@ -1,66 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Jacob - Login</title>
-    <link rel='stylesheet' type="text/css" href='/static/css/login.css'/>
-</head>
-<body>
-    <h2 class="heading">Jacob's Twitter Thing</h2>
-    <div class="login-body">
-        {% if invalid %}
-        <font color='red'>Invalid username/password!</font>
-        {% endif %}
-        <div class="input-form">
-            <form action="/login/signin" method="post" enctype="multipart/form-data">
-                Username: <input type="text" name="username" placeholder="UPI"/><br/>
-                Password: <input type="password" name="password" placeholder="GitHub Username_ID#"/><br/>
-                Encryption Password: <input type="password" name="second_password" placeholder="Password for private data"/><br/>
-                Overwrite private data: <input type="checkbox" name="allow_overwrite"/><br/>
-                <input type="submit" value="Login"/>
-            </form>
-        </div>
+{% extends "/html/base_template.html" %}
 
-        <div>
-            <br/>
-            Assuming private key is stored on private are in the following form<br/>
-            private_data{<br/>
-            <div class="json-object">
-                "prikeys": ["private_key_hex_string", " "],<br/>
-                "blockedpubkeys": ["...", "..."],<br/>
-                ....<br/>
+{% block base_title %}
+<title>Jacob - Login</title>
+{% endblock base_title%}
+
+{% block base_links %}
+<link rel='stylesheet' type="text/css" href='/static/css/login.css'/>
+    <script type="text/javascript" src="/static/js/login.js"></script>
+{% endblock base_links%}
+
+
+{% block base_body %}
+<div class="container" style="padding-top: 3em">
+    <div class="row col-centered-50">
+        <form action="/login/signin" method="POST" enctype="multipart/form-data" style="min-width: 20%">
+            <div class="form-group">
+                <label for="login-username" class="col-sm-1.4 col-form-label">Username</label>
+                <div>
+                    <input type="text" required class="form-control {% if invalid_cridentials %} is-invalid {% endif %}"
+                           id="login-username" aria-describedby="usernameHelp" name="username" placeholder="Username">
+                    <small id="username-help" class="form-text text-muted">Username is typically your university UPI.
+                    </small>
+                </div>
             </div>
-            }<br/>
-            keys are in list.<br/>
-        </div>
-        <p>
-            <h3> Test your Encryption </h3 >
-            Enter your username, password and encryption key. (Dont tick overwrite)<br/>
-            This will attempt to retrieve your encrypted private data and decrypt.<br/>
-            If you make it past the login page, that means your data was successfully decrypted.<br/>
-            If you receive invalid username or password, This could be invalid credentials<br/>
-            or something else went wrong. Either try again or contact me.<br/>
-            As an extra check, call the list users api. If you are on there, it was successful.<br/>
-        <p>
-            <h3> Test your Decryption </h3 >
-            <h4>Note: </h4>
-            Due to not having access to your existing private keys, this will:<br/>
-            <ul>
-                <li>Overwrite your existing private data.</li>
-                <li>Create a new public private key for you.(and add it to your account)</li>
-                <li>Set your "incoming key" to this new key</li>
-            </ul><br/>
-            To use one of your old keys, you will need to call the report api with that key<br/>
-            (to reset it as your incoming key).<br/>
-            Use this to add new encrypted private data to your account to check your decryption against.<br/>
-            If you get past the login page, this means your new private data has been added.<br/>
-            If you receive invalid username or password, This could be invalid credentials<br/>
-            or something else went wrong. Either try again or contact me.<br/>
-            As an extra check, call the list users api. If you are on there, it was successful.<br/>
+
+            <div class="form-group">
+                <label for="login-password" class="col-form-label">Password</label>
+                <div>
+                    <input type="password" required class="form-control {% if invalid_cridentials %} is-invalid {% endif %}"
+                           id="login-password" name="password" placeholder="Password">
+                </div>
+                {% if invalid_cridentials %}
+                <div class="">
+                    <small id="passwordHelp" class="text-danger">
+                        Invalid Username or Password.
+                    </small>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="login-second-key" class="col-form-label">
+                    <select name="key_type" id="key_type" class="btn dropdown-toggle col-form-label" onchange="changeLoginOption(this)">
+                        <option name="encryption_key">Encryption Key</option>
+                        <option name="private_key">Private Key</option>
+                        <option name="api_key">Api Key</option>
+                    </select>
+                </label>
+                <div>
+                    <input type="password" class="form-control {% if invalid_key %} is-invalid {% endif %}"
+                           id="login-second-key" name="key_value" required placeholder="Key">
+                    <input type="checkbox" id="show-password-checkbox" onclick="showPasswords(this)">Show Passwords
+                    <small id="second-key-help" class="form-text text-muted">
+                        This is what you used to encrypt your data.
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-centered-100">
+                <button type="submit" class="btn btn-primary btn-block">Login
+                </button>
+                {% if server_down %}
+                <small id="server_down_message">
+                    Unfortunately it appears the login server is unavailable
+                </small>
+                {% elif something_went_wring %}
+                <small id="something_went_wrong_message" class="">
+                    Looks like something went wrong
+                </small>
+                {% endif %}
+            </div>
+        </form>
     </div>
-</body>
-</html>
+</div>
 
-
-
-<!--Page += "<font color='red'>Invalid username/password!</font>"-->
+{% endblock base_body%}
