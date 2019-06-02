@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jacob - Login</title>
+    <link rel='stylesheet' type="text/css" href='/static/css/login.css'/>
+</head>
+<body>
+    <h2 class="heading">Jacob's Twitter Thing</h2>
+    <div class="login-body">
+        {% if invalid %}
+        <font color='red'>Invalid username/password!</font>
+        {% endif %}
+        <div class="input-form">
+            <form action="/login/signin" method="post" enctype="multipart/form-data">
+                Username: <input type="text" name="username" placeholder="UPI"/><br/>
+                Password: <input type="password" name="password" placeholder="GitHub Username_ID#"/><br/>
+                Encryption Password: <input type="password" name="second_password" placeholder="Password for private data"/><br/>
+                Overwrite private data: <input type="checkbox" name="allow_overwrite"/><br/>
+                <input type="submit" value="Login"/>
+            </form>
+        </div>
+
+        <div>
+            <br/>
+            Assuming private key is stored on private are in the following form<br/>
+            private_data{<br/>
+            <div class="json-object">
+                "prikeys": ["private_key_hex_string", " "],<br/>
+                "blockedpubkeys": ["...", "..."],<br/>
+                ....<br/>
+            </div>
+            }<br/>
+            keys are in list.<br/>
+        </div>
+        <p>
+            <h3> Test your Encryption </h3 >
+            Enter your username, password and encryption key. (Dont tick overwrite)<br/>
+            This will attempt to retrieve your encrypted private data and decrypt.<br/>
+            If you make it past the login page, that means your data was successfully decrypted.<br/>
+            If you receive invalid username or password, This could be invalid credentials<br/>
+            or something else went wrong. Either try again or contact me.<br/>
+            As an extra check, call the list users api. If you are on there, it was successful.<br/>
+        <p>
+            <h3> Test your Decryption </h3 >
+            <h4>Note: </h4>
+            Due to not having access to your existing private keys, this will:<br/>
+            <ul>
+                <li>Overwrite your existing private data.</li>
+                <li>Create a new public private key for you.(and add it to your account)</li>
+                <li>Set your "incoming key" to this new key</li>
+            </ul><br/>
+            To use one of your old keys, you will need to call the report api with that key<br/>
+            (to reset it as your incoming key).<br/>
+            Use this to add new encrypted private data to your account to check your decryption against.<br/>
+            If you get past the login page, this means your new private data has been added.<br/>
+            If you receive invalid username or password, This could be invalid credentials<br/>
+            or something else went wrong. Either try again or contact me.<br/>
+            As an extra check, call the list users api. If you are on there, it was successful.<br/>
+    </div>
+</body>
+</html>
+
+
+
+<!--Page += "<font color='red'>Invalid username/password!</font>"-->

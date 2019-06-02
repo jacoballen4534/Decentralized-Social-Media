@@ -13,12 +13,12 @@ import nacl.exceptions
 import time
 
 
-def get_keys(signing_key_hex_string):
-    signing_key = nacl.signing.SigningKey(signing_key_hex_string, encoder=nacl.encoding.HexEncoder)
-    pubkey_hex = signing_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
-    pubkey_hex_str = pubkey_hex.decode('utf-8')
-    keys = {"signing_key": signing_key, "pubkey_hex_str": pubkey_hex_str}
-    return keys
+# def get_keys(signing_key_hex_string):
+#     signing_key = nacl.signing.SigningKey(signing_key_hex_string, encoder=nacl.encoding.HexEncoder)
+#     pubkey_hex = signing_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
+#     pubkey_hex_str = pubkey_hex.decode('utf-8')
+#     keys = {"signing_key": signing_key, "pubkey_hex_str": pubkey_hex_str}
+#     return keys
 
 
 def create_new_key_pair():
@@ -30,14 +30,14 @@ def create_new_key_pair():
     return keys
 
 
-def create_header(username, password):
-    credentials = ('%s:%s' % (username, password))
-    b64_credentials = base64.b64encode(credentials.encode('ascii'))
-    headers = {
-        'Authorization': 'Basic %s' % b64_credentials.decode('ascii'),
-        'Content-Type': 'application/json; charset=utf-8',
-    }
-    return headers
+# def create_header(username, password):
+#     credentials = ('%s:%s' % (username, password))
+#     b64_credentials = base64.b64encode(credentials.encode('ascii'))
+#     headers = {
+#         'Authorization': 'Basic %s' % b64_credentials.decode('ascii'),
+#         'Content-Type': 'application/json; charset=utf-8',
+#     }
+#     return headers
 
 
 def get_server_record(username, password):
@@ -49,22 +49,22 @@ def get_server_record(username, password):
     return loginserver_record
 
 
-def sign_message(message, private_key):
-    signature_bytes = bytes(message, encoding='utf-8')
-    signed = private_key.sign(signature_bytes, encoder=nacl.encoding.HexEncoder)
-    signature_hex_str = signed.signature.decode('utf-8')
-    return signature_hex_str
+# def sign_message(message, private_key):
+#     signature_bytes = bytes(message, encoding='utf-8')
+#     signed = private_key.sign(signature_bytes, encoder=nacl.encoding.HexEncoder)
+#     signature_hex_str = signed.signature.decode('utf-8')
+#     return signature_hex_str
 
 
-def query_server(request):
-    response = urllib.request.urlopen(request)
-
-    data = response.read()  # read the received bytes
-    encoding1 = response.info().get_content_charset('utf-8')  # load encoding if possible (default to utf-8)
-    response.close()
-
-    JSON_object = json.loads(data.decode(encoding1))
-    return JSON_object
+# def query_server(request):
+#     response = urllib.request.urlopen(request)
+#
+#     data = response.read()  # read the received bytes
+#     encoding1 = response.info().get_content_charset('utf-8')  # load encoding if possible (default to utf-8)
+#     response.close()
+#
+#     JSON_object = json.loads(data.decode(encoding1))
+#     return JSON_object
 
 
 def report(username, password, keys):
@@ -73,7 +73,7 @@ def report(username, password, keys):
 
     payload = {
         "connection_location": "2",
-        "connection_address": "192.168.43.66",
+        "connection_address": "122.58.162.166:5000",
         "incoming_pubkey": keys["pubkey_hex_str"],
         "status": 'online',  # other options are ‘away’, ‘busy’ or ‘offline’
     }

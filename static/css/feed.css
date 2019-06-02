@@ -1,0 +1,14 @@
+p {
+    text-align: left;
+    color: black;
+    padding-left: 30em;
+}
+
+.json-object {
+    text-align: left;
+    padding-left: 2em;
+}
+
+.heading {
+    text-align: center;
+}

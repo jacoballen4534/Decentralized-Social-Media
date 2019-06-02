@@ -4,7 +4,7 @@ import pprint
 import time
 import apiHelpers as acc
 
-broadcast_url = "http://cs302.kiwi.land/api/rx_broadcast"
+broadcast_url = "47.72.180.5:1234/api/rx_broadcast"
 
 header = acc.create_header()
 keys = acc.get_keys()

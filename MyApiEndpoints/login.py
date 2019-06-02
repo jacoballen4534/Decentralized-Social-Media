@@ -6,31 +6,28 @@ import json
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
-startHTML = "<html><head><title>CS302 example</title><link rel='stylesheet' href='/static/example.css' /></head><body>"
 
-
-class Login(object):
-    # CherryPy Configuration
-    _cp_config = {'tools.encode.on': True, 'tools.encode.encoding': 'utf-8', 'tools.sessions.on': 'True', }
-
-    # If they try somewhere we don't know, catch it here and send them to the right place.
+class Login:
     @cherrypy.expose
     def default(self, *args, **kwargs):
         """The default page, given when we don't recognise where the request is for."""
-        Page = startHTML + "I don't know where you're trying to go, so have a 404 Error."
+        error_template = env.get_template('/html/404Error.html')
         cherrypy.response.status = 404
-        return Page
+        return error_template.render()
 
-    # PAGES (which return HTML that can be viewed in browser)
+    @cherrypy.expose
+    def index(self, bad_attempt=0, *args, **kwargs):
+        """This is the login page where the user will enter their details to be authenticated with the login server"""
+        login_template = env.get_template('/html/login.html')
+        return login_template.render(invalid=(bad_attempt != 0))
 
-
-    # LOGGING IN AND OUT
     @cherrypy.expose
     def signin(self, username=None, password=None, second_password=None, allow_overwrite=None):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
         print("\nLogin attempt:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
               "\n\t\t\t\tsecond_password: " + str(second_password) + "\n\t\t\t\tOverwrite: " + str(allow_overwrite) + "\n\n")
-        success = authorise_user_login(username, password, second_password, allow_overwrite)
+        success = True
+        # success = authorise_user_login(username, password, second_password, allow_overwrite)
         if success:
             print("\n\nSucessfull login:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
                   "\n\t\t\t\tsecond_password: " + str(second_password) + "\n\t\t\t\tOverwrite: " + str(allow_overwrite) + "\n\n")
@@ -52,10 +49,6 @@ class Login(object):
 
         raise cherrypy.HTTPRedirect('/')
 
-
-###
-### Functions only after here
-###
 
 def authorise_user_login(username, password, second_password, overwrite):
     # _______________________________Check server is online __________________________________
@@ -82,3 +75,4 @@ def authorise_user_login(username, password, second_password, overwrite):
             print(e)
             return False
     return False
+

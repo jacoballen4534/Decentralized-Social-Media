@@ -1,7 +1,7 @@
 import urllib.request
 import json
 import pprint
-import apiHelpers as acc
+import exampleApiAccess.apiHelpers as acc
 
 
 hex_key = b'bae8e8311801aabe5d4eb4c85f3ba53a54c7a2fffbc561e59a6ff53765dfe138'
@@ -14,7 +14,7 @@ signature_hex_str = acc.sign_message(keys["pubkey_hex_str"])
 
 payload = {
     "connection_location": "2",
-    "connection_address": "192.168.43.66",
+    "connection_address": "122.58.162.166",
     "incoming_pubkey": keys["pubkey_hex_str"],
 }
 byte_payload = bytes(json.dumps(payload), "utf-8")

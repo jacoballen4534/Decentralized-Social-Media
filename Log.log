@@ -1,0 +1,375 @@
+INFO:cherrypy.error:[01/Jun/2019:23:42:52] ENGINE Bus STARTING
+INFO:cherrypy.error:[01/Jun/2019:23:42:52] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[01/Jun/2019:23:42:52] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[01/Jun/2019:23:42:52] ENGINE Bus STARTED
+INFO:cherrypy.error.139746799144128:[01/Jun/2019:23:42:54]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.access.139746799144128:192.168.1.66 - - [01/Jun/2019:23:42:54] "GET /api/list_apis HTTP/1.1" 200 249 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139746863562592:192.168.1.66 - - [01/Jun/2019:23:42:55] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/api/list_apis" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py changed.
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:00:34:40] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[02/Jun/2019:00:34:42] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:00:34:42] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:00:34:42] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:00:34:42] ENGINE Bus STARTED
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py changed.
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:00:34:52] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[02/Jun/2019:00:34:54] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:00:34:54] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:00:34:54] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:00:34:54] ENGINE Bus STARTED
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py changed.
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:00:41:58] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[02/Jun/2019:00:42:00] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:00:42:00] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:00:42:00] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:00:42:00] ENGINE Bus STARTED
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:01:22:16] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:01:57:08] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:01:57:08] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:01:57:08] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:01:57:08] ENGINE Bus STARTED
+INFO:cherrypy.error.140289928511328:[02/Jun/2019:01:57:31]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:01:57:31] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140289928511328:192.168.1.66 - - [02/Jun/2019:01:57:31] "GET / HTTP/1.1" 303 106 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289864087704:192.168.1.66 - - [02/Jun/2019:01:57:31] "GET /login/ HTTP/1.1" 200 3096 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289928511328:192.168.1.66 - - [02/Jun/2019:01:57:31] "GET /static/css/login.css HTTP/1.1" 304 - "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+ERROR:cherrypy.error.140289864087704:[02/Jun/2019:01:57:35] HTTP 
+Traceback (most recent call last):
+  File "/home/jacob/.local/lib/python3.6/site-packages/cherrypy/_cprequest.py", line 628, in respond
+    self._do_respond(path_info)
+  File "/home/jacob/.local/lib/python3.6/site-packages/cherrypy/_cprequest.py", line 687, in _do_respond
+    response.body = self.handler()
+  File "/home/jacob/.local/lib/python3.6/site-packages/cherrypy/lib/encoding.py", line 219, in __call__
+    self.body = self.oldhandler(*args, **kwargs)
+  File "/home/jacob/.local/lib/python3.6/site-packages/cherrypy/_cpdispatch.py", line 54, in __call__
+    return self.callable(*self.args, **self.kwargs)
+  File "/home/jacob/PythonRepo/2019-Python-jall229/MyApiEndpoints/login.py", line 29, in signin
+    success = authorise_user_login(username, password, second_password, allow_overwrite)
+  File "/home/jacob/PythonRepo/2019-Python-jall229/MyApiEndpoints/login.py", line 54, in authorise_user_login
+    if not acc.ping_central_server():
+  File "/home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py", line 310, in ping_central_server
+    json_object = query_server(check_online_req)
+NameError: name 'query_server' is not defined
+INFO:cherrypy.error.140289864087704:[02/Jun/2019:01:57:35] HTTP 
+Request Headers:
+  Remote-Addr: 192.168.1.66
+  HOST: 192.168.1.68:5001
+  CONNECTION: keep-alive
+  CACHE-CONTROL: max-age=0
+  ORIGIN: http://192.168.1.68:5001
+  UPGRADE-INSECURE-REQUESTS: 1
+  DNT: 1
+  USER-AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
+  ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+  REFERER: http://192.168.1.68:5001/login/
+  ACCEPT-ENCODING: gzip, deflate
+  ACCEPT-LANGUAGE: en-US,en;q=0.9
+  COOKIE: session_id=0fa1acd608e3edd8738f14a70033e2cd8d917bd4
+  Content-Type: multipart/form-data; boundary=----WebKitFormBoundary6C2XQABHAEgysHxk
+  Content-Length: 371
+INFO:cherrypy.access.140289864087704:192.168.1.66 - - [02/Jun/2019:01:57:35] "POST /login/signin HTTP/1.1" 500 1984 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:01:58:37] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:05:14] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:05:14] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:05:14] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:05:14] ENGINE Bus STARTED
+INFO:cherrypy.error.139881415421792:[02/Jun/2019:02:05:22]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:05:22] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.139881415421792:192.168.1.66 - - [02/Jun/2019:02:05:22] "GET / HTTP/1.1" 303 106 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881350954568:192.168.1.66 - - [02/Jun/2019:02:05:22] "GET /login/ HTTP/1.1" 200 3096 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881350954568:192.168.1.66 - - [02/Jun/2019:02:05:25] "POST /login/signin HTTP/1.1" 303 96 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881415421792:192.168.1.66 - - [02/Jun/2019:02:05:25] "GET / HTTP/1.1" 303 104 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881350954960:192.168.1.66 - - [02/Jun/2019:02:05:25] "GET /feed HTTP/1.1" 301 115 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881350954960:192.168.1.66 - - [02/Jun/2019:02:05:25] "GET /feed/ HTTP/1.1" 200 646 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881415421792:192.168.1.66 - - [02/Jun/2019:02:05:25] "GET /static/css/feed.css HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139881415421792:192.168.1.66 - - [02/Jun/2019:02:05:25] "GET /static/js/feed.js HTTP/1.1" 200 55 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:07:26] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:07:28] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:07:28] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:07:28] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:07:28] ENGINE Bus STARTED
+INFO:cherrypy.error.140070089920696:[02/Jun/2019:02:07:33]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:07:33] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140070089920696:192.168.1.66 - - [02/Jun/2019:02:07:33] "GET /feed/ HTTP/1.1" 200 648 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140070154272608:192.168.1.66 - - [02/Jun/2019:02:07:33] "GET /static/js/feed.js HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140070154272608:192.168.1.66 - - [02/Jun/2019:02:07:34] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:08:05] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:09:38] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:09:38] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:09:38] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:09:38] ENGINE Bus STARTED
+INFO:cherrypy.error.140690396770144:[02/Jun/2019:02:09:48]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:09:48] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140690396770144:192.168.1.66 - - [02/Jun/2019:02:09:48] "GET / HTTP/1.1" 303 104 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140690332426424:192.168.1.66 - - [02/Jun/2019:02:09:48] "GET /feed/ HTTP/1.1" 200 666 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140690396770144:192.168.1.66 - - [02/Jun/2019:02:09:48] "GET /static/js/feed.js HTTP/1.1" 200 108 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:18:34] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:20:54] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:20:54] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:20:54] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:20:54] ENGINE Bus STARTED
+INFO:cherrypy.error.139928036888416:[02/Jun/2019:02:20:58]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:20:58] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.139928036888416:192.168.1.66 - - [02/Jun/2019:02:20:58] "GET / HTTP/1.1" 303 104 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139927972540544:192.168.1.66 - - [02/Jun/2019:02:20:58] "GET /feed/ HTTP/1.1" 200 648 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139928036888416:192.168.1.66 - - [02/Jun/2019:02:20:58] "GET /static/js/feed.js HTTP/1.1" 200 177 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:21:28] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:21:30] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:21:30] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:21:30] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:21:30] ENGINE Bus STARTED
+INFO:cherrypy.error.140305992953696:[02/Jun/2019:02:21:37]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:21:37] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140305992953696:192.168.1.66 - - [02/Jun/2019:02:21:37] "GET / HTTP/1.1" 303 104 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140305928605880:192.168.1.66 - - [02/Jun/2019:02:21:37] "GET /feed/ HTTP/1.1" 200 648 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140305992953696:192.168.1.66 - - [02/Jun/2019:02:21:37] "GET /static/js/feed.js HTTP/1.1" 200 176 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140305928605880:192.168.1.66 - - [02/Jun/2019:02:22:29] "GET /feed/ HTTP/1.1" 200 648 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140305992953696:192.168.1.66 - - [02/Jun/2019:02:22:29] "GET /static/css/feed.css HTTP/1.1" 200 173 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140305992953696:192.168.1.66 - - [02/Jun/2019:02:22:29] "GET /static/js/feed.js HTTP/1.1" 200 176 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140305992953696:192.168.1.66 - - [02/Jun/2019:02:22:29] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:22:44] ENGINE Bus STARTED
+INFO:cherrypy.error.139840101119088:[02/Jun/2019:02:22:47]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:22:47] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.139840101119088:192.168.1.66 - - [02/Jun/2019:02:22:47] "GET /feed/ HTTP/1.1" 200 648 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139840165461856:192.168.1.66 - - [02/Jun/2019:02:22:47] "GET /static/css/feed.css HTTP/1.1" 200 173 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139840165461856:192.168.1.66 - - [02/Jun/2019:02:22:47] "GET /static/js/feed.js HTTP/1.1" 200 176 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139840165461856:192.168.1.66 - - [02/Jun/2019:02:22:47] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:23:00] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:23:02] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:23:02] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:23:02] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:23:02] ENGINE Bus STARTED
+INFO:cherrypy.error.140654094139576:[02/Jun/2019:02:23:10]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:23:10] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140654094139576:192.168.1.66 - - [02/Jun/2019:02:23:10] "GET /feed/ HTTP/1.1" 200 648 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140654158487392:192.168.1.66 - - [02/Jun/2019:02:23:10] "GET /static/css/feed.css HTTP/1.1" 200 171 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140654158487392:192.168.1.66 - - [02/Jun/2019:02:23:11] "GET /static/js/feed.js HTTP/1.1" 200 176 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140654158487392:192.168.1.66 - - [02/Jun/2019:02:23:11] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140654158487392:192.168.1.66 - - [02/Jun/2019:02:23:14] "GET /static/css/feed.css HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:24:22] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:24:23] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:24:23] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:24:23] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:24:23] ENGINE Bus STARTED
+INFO:cherrypy.error.140672190427320:[02/Jun/2019:02:24:29]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:24:29] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140672190427320:192.168.1.66 - - [02/Jun/2019:02:24:29] "GET /feed/ HTTP/1.1" 200 648 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140672254775136:192.168.1.66 - - [02/Jun/2019:02:24:29] "GET /static/css/feed.css HTTP/1.1" 200 171 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140672254775136:192.168.1.66 - - [02/Jun/2019:02:24:29] "GET /static/js/feed.js HTTP/1.1" 200 175 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140672254775136:192.168.1.66 - - [02/Jun/2019:02:24:30] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140672254775136:192.168.1.66 - - [02/Jun/2019:02:24:57] "GET /static/css/feed.css HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:25:38] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:27:13] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:27:13] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:27:13] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:27:13] ENGINE Bus STARTED
+INFO:cherrypy.error.140318740365152:[02/Jun/2019:02:27:15]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:27:15] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140318740365152:192.168.1.66 - - [02/Jun/2019:02:27:15] "GET / HTTP/1.1" 303 104 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318676025528:192.168.1.66 - - [02/Jun/2019:02:27:15] "GET /feed/ HTTP/1.1" 200 668 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318740365152:192.168.1.66 - - [02/Jun/2019:02:27:15] "GET /static/css/feed.css HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318740365152:192.168.1.66 - - [02/Jun/2019:02:27:15] "GET /static/js/feed.js HTTP/1.1" 200 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318675906232:192.168.1.66 - - [02/Jun/2019:02:27:18] "GET /login/signout HTTP/1.1" 303 96 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318740365152:192.168.1.66 - - [02/Jun/2019:02:27:18] "GET / HTTP/1.1" 303 106 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318675906232:192.168.1.66 - - [02/Jun/2019:02:27:18] "GET /login/ HTTP/1.1" 200 3096 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140318740365152:192.168.1.66 - - [02/Jun/2019:02:27:18] "GET /static/css/login.css HTTP/1.1" 304 - "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:28:11] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:02:28:24] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:02:28:24] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:28:24] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:02:28:24] ENGINE Bus STARTED
+INFO:cherrypy.error.140289553133128:[02/Jun/2019:02:28:30]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:02:28:30] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140289553133128:192.168.1.66 - - [02/Jun/2019:02:28:30] "POST /login/signin HTTP/1.1" 303 96 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289617080160:192.168.1.66 - - [02/Jun/2019:02:28:30] "GET / HTTP/1.1" 303 104 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289553133520:192.168.1.66 - - [02/Jun/2019:02:28:30] "GET /feed HTTP/1.1" 301 115 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289553133520:192.168.1.66 - - [02/Jun/2019:02:28:30] "GET /feed/ HTTP/1.1" 200 663 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289617080160:192.168.1.66 - - [02/Jun/2019:02:28:30] "GET /static/css/feed.css HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289617080160:192.168.1.66 - - [02/Jun/2019:02:28:30] "GET /static/js/feed.js HTTP/1.1" 304 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140289617080160:192.168.1.66 - - [02/Jun/2019:02:28:33] "GET /ApisAndHelpers/loginServerApis/ping HTTP/1.1" 404 173 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:02:28:48] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[02/Jun/2019:03:26:31] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:03:26:31] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:03:26:31] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:03:26:31] ENGINE Bus STARTED
+INFO:cherrypy.error.140479892787040:[02/Jun/2019:03:26:43]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:03:26:43] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140479892787040:192.168.1.66 - - [02/Jun/2019:03:26:43] "GET / HTTP/1.1" 303 106 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140479828447360:192.168.1.66 - - [02/Jun/2019:03:26:43] "GET /login/ HTTP/1.1" 200 3096 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140479892787040:192.168.1.66 - - [02/Jun/2019:03:26:43] "GET /static/css/login.css HTTP/1.1" 304 - "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:03:26:47] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:03:26:47] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:03:26:50] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:03:26:50] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:03:26:50] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:03:26:50] ENGINE Bus STARTED
+INFO:cherrypy.error.139908302899744:[02/Jun/2019:03:26:52]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.access.139908302899744:192.168.1.66 - - [02/Jun/2019:03:26:52] "GET /login/ HTTP/1.1" 200 3096 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139908355090136:192.168.1.66 - - [02/Jun/2019:03:26:52] "GET /favicon.ico HTTP/1.1" 200 1406 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:03:26:58] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.139908302899744:192.168.1.66 - - [02/Jun/2019:03:26:58] "POST /login/signin HTTP/1.1" 303 96 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:03:28:19] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:03:28:19] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:03:28:31] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:03:28:31] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:03:28:31] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:03:28:31] ENGINE Bus STARTED
+INFO:cherrypy.error.140400186459976:[02/Jun/2019:03:28:34]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:03:28:48] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:03:28:48] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:03:57:16] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:03:57:16] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:03:57:16] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:03:57:16] ENGINE Bus STARTED
+INFO:cherrypy.error.140504475027160:[02/Jun/2019:03:57:20]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:04:01:00] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:04:01:00] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:04:31:34] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:04:31:34] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:04:31:34] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:04:31:34] ENGINE Bus STARTED
+INFO:cherrypy.error.140426369537864:[02/Jun/2019:04:31:40]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:04:34:09] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:04:34:09] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:04:35:53] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:04:35:53] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:04:35:53] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:04:35:53] ENGINE Bus STARTED
+INFO:cherrypy.error.140009714240200:[02/Jun/2019:04:36:14]  storage_type is deprecated. Supply storage_class instead
+INFO:cherrypy.error:[02/Jun/2019:04:36:14] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140009714240200:64.233.173.48 - - [02/Jun/2019:04:36:14] "GET / HTTP/1.1" 303 110 "" "Mozilla/5.0 (Linux; Android 9; VKY-L29) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36"
+INFO:cherrypy.access.140009649919872:64.233.173.50 - - [02/Jun/2019:04:36:15] "GET /login HTTP/1.1" 301 121 "" "Mozilla/5.0 (Linux; Android 9; VKY-L29) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36"
+INFO:cherrypy.access.140009649919872:64.233.173.48 - - [02/Jun/2019:04:36:16] "GET /login/ HTTP/1.1" 200 3096 "" "Mozilla/5.0 (Linux; Android 9; VKY-L29) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36"
+INFO:cherrypy.access.140009714240200:64.233.173.50 - - [02/Jun/2019:04:36:17] "GET /static/css/login.css HTTP/1.1" 200 181 "http://122.58.162.166:5001/login/" "Mozilla/5.0 (Linux; Android 9; VKY-L29) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Mobile Safari/537.36"
+INFO:cherrypy.error:[02/Jun/2019:14:18:02] ENGINE Bus STARTING
+INFO:cherrypy.error:[02/Jun/2019:14:18:02] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:14:18:02] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[02/Jun/2019:14:18:02] ENGINE Bus STARTED
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Bus STOPPING
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Bus STOPPED
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Bus EXITING
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Bus EXITED
+INFO:cherrypy.error:[02/Jun/2019:14:18:08] ENGINE Waiting for child threads to terminate...
