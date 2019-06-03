@@ -55,4 +55,6 @@ def create_api_header(x_username, api_key, x_signature=None):
         'X-apikey': api_key,
         'Content-Type': 'application/json; charset=utf-8',
     }
+    if x_signature is not None:
+        headers['X-signature'] = x_signature
     return headers

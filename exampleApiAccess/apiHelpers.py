@@ -21,13 +21,13 @@ import time
 #     return keys
 
 
-def create_new_key_pair():
-    signing_key = nacl.signing.SigningKey.generate()
-    pubkey_hex = signing_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
-    pubkey_hex_str = pubkey_hex.decode('utf-8')
-    keys = {"signing_key": signing_key, "pubkey_hex_str": pubkey_hex_str}
-    print("New keys created")
-    return keys
+# def create_new_key_pair():
+#     signing_key = nacl.signing.SigningKey.generate()
+#     pubkey_hex = signing_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
+#     pubkey_hex_str = pubkey_hex.decode('utf-8')
+#     keys = {"signing_key": signing_key, "pubkey_hex_str": pubkey_hex_str}
+#     print("New keys created")
+#     return keys
 
 
 # def create_header(username, password):
@@ -40,13 +40,13 @@ def create_new_key_pair():
 #     return headers
 
 
-def get_server_record(username, password):
-    server_record_url = "http://cs302.kiwi.land/api/get_loginserver_record"
-    header = create_header(username, password)
-    request = urllib.request.Request(url=server_record_url, headers=header)
-    JSON_object = query_server(request)
-    loginserver_record = JSON_object['loginserver_record']
-    return loginserver_record
+# def get_server_record(username, password):
+#     server_record_url = "http://cs302.kiwi.land/api/get_loginserver_record"
+#     header = create_header(username, password)
+#     request = urllib.request.Request(url=server_record_url, headers=header)
+#     JSON_object = query_server(request)
+#     loginserver_record = JSON_object['loginserver_record']
+#     return loginserver_record
 
 
 # def sign_message(message, private_key):

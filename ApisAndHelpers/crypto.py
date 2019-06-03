@@ -92,3 +92,22 @@ def decrypt_private_data(private_data_base64_string, encryption_key):
     except nacl.exceptions.CryptoError:
         return False, None
 
+
+def create_new_key_pair():
+    try:
+        private_key = nacl.signing.SigningKey.generate()
+        private_key_hex_bytes = private_key.encode(encoder=nacl.encoding.HexEncoder)
+        private_key_hex_string = private_key_hex_bytes.decode('utf-8')
+        public_hex_bytes = private_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
+        pubkey_hex_str = public_hex_bytes.decode('utf-8')
+        keys = {
+            "private_key": private_key,
+            "public_hex_bytes": public_hex_bytes,
+            "private_key_hex_string": private_key_hex_string,
+            "public_key_hex_string": pubkey_hex_str,
+        }
+        print("New keys created")
+        return True, keys
+    except (binascii.Error, nacl.exceptions.ValueError) as e:
+        print(e)
+        return False, {}

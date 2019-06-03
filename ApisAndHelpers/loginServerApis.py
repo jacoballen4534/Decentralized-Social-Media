@@ -9,40 +9,28 @@ import ApisAndHelpers.crypto as crypto
 
 def ping(username=None, password=None, keys=None, api_key=None):
     """This method has three purposes depending on the parameters passed in.
-    1. No parameters will simply check if the server is online.
-    2. Username and password only, will authenticate the credentials with HTTP Basic.
-    3. Username, Password and keys, will authenticate the private key matches the registered public key"""
+    1. No username will simply check if the server is online.
+    2. Username and api key, will check api_key status. And return X_signature
+    3. Username and password with no key, will authenticate the credentials with HTTP Basic.
+    4. Username, Password and keys, will authenticate the private key matches the registered public key"""
 
     ping_url = "http://cs302.kiwi.land/api/ping"
     try:
-        if username is None or password is None:
+        if username is None:  # Check if the server is online
             print("Checking if the server is online")
             status_request = urllib.request.Request(url=ping_url)
             json_object = request_helper.query_server(status_request)
             if json_object['response'] == 'ok':
                 print("Server is online and reachable.")
                 logging.debug("Server online")
-                return True
+                return True, None
             else:
                 logging.debug("Server offline")
                 print("Sorry, it appears the server is not reachable at this time")
-                return False
-        elif username is not None and password is not None and keys is None and api_key is None:  # This means check HTTPBasic
-            print("Checking if the provided username and password is valid")
-            header = request_helper.create_basic_header(username, password)
-            authentication_request = urllib.request.Request(url=ping_url, headers=header)
-            authentication_object = request_helper.query_server(authentication_request)
-
-            if authentication_object['response'] == 'ok' and authentication_object['authentication'] == 'basic':
-                print("These credentials are valid.")
-                return True
-            else:
-                print("It doesnt look like those are valid credentials")
-                logging.debug("invalid credentials: " + str(username) + str(password))
-                return False
-        elif username is not None and password is not None and keys is None and api_key is not None:  # Check api_key
+                return False, None
+        elif api_key is not None:  # Check api_key
             print("Checking if the provided api_key is valid for that username and password")
-            header = request_helper.create_api_header(username, api_key, password)
+            header = request_helper.create_api_header(username, api_key)
             authentication_request = urllib.request.Request(url=ping_url, headers=header)
             authentication_object, response_header = request_helper.query_server(authentication_request, headers=True)
             if authentication_object['response'] == 'ok' and authentication_object['authentication'] == 'api-key':
@@ -50,13 +38,25 @@ def ping(username=None, password=None, keys=None, api_key=None):
                 x_signature = response_header.get('X-Signature')
                 if x_signature is not None:
                     return True, x_signature
-                return True
+                return True, None
             else:
                 print("It doesnt look like those are valid credentials")
                 logging.debug("invalid credentials: " + str(username) + str(password))
-                return False
+                return False, None
+        elif password is not None and keys is None:  # This means check HTTPBasic
+            print("Checking if the provided username and password is valid")
+            header = request_helper.create_basic_header(username, password)
+            authentication_request = urllib.request.Request(url=ping_url, headers=header)
+            authentication_object = request_helper.query_server(authentication_request)
 
-        elif username is not None and password is not None and keys is not None:
+            if authentication_object['response'] == 'ok' and authentication_object['authentication'] == 'basic':
+                print("These credentials are valid.")
+                return True, None
+            else:
+                print("It doesnt look like those are valid credentials")
+                logging.debug("invalid credentials: " + str(username) + str(password))
+                return False, None
+        elif password is not None and keys is not None:
             print("Checking if the provided key is valid")
             header = request_helper.create_basic_header(username, password)
             signature_hex_str = crypto.sign_message(keys["public_key_hex_string"], private_key=keys['private_key'])
@@ -69,17 +69,26 @@ def ping(username=None, password=None, keys=None, api_key=None):
             signature_request = urllib.request.Request(url=ping_url, data=byte_payload, headers=header)
             verify_signature_object = request_helper.query_server(signature_request)
             if verify_signature_object['response'] == 'ok' and verify_signature_object['signature'] == 'ok':
-                return True
+                return True, None
             else:
-                raise False
+                return False, None
+        else:
+            return False, None
     except TypeError:
-        return False
+        return False, None
 
 
-def load_new_apikey(username, password):
-    """Get a new api key from the login server for the given user."""
+def load_new_apikey(username, password=None, api_key=None):
+    """Get a new api key from the login server for the given user.
+    If an api key is provided, it will use that instead of httpBasic"""
     url = "http://cs302.kiwi.land/api/load_new_apikey"
-    header = request_helper.create_basic_header(username, password)
+    if api_key is not None:
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        header = request_helper.create_basic_header(username, password)
+    else:
+        return None
+
     request = urllib.request.Request(url=url, headers=header)
     json_object = request_helper.query_server(request)
     if json_object['response'] == 'ok':
@@ -99,7 +108,7 @@ def loginserver_pubkey():
         return json_object['pubkey']
 
 
-def report(location, username, password, keys, status="online"):
+def report(location, username, keys, status="online", api_key=None, password=None):
     import socket
     import main
     report_url = "http://cs302.kiwi.land/api/report"
@@ -121,7 +130,14 @@ def report(location, username, password, keys, status="online"):
     connection_address = str(ip) + ":" + str(port)
     print(connection_address)
 
-    header = request_helper.create_basic_header(username, password)
+    if api_key is not None:
+        print("reporting with api_key")
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        print("reporting with HTTP Basic")
+        header = request_helper.create_basic_header(username=username, password=password)
+    else:
+        return False
 
     payload = {
         "connection_location": location,
@@ -141,10 +157,18 @@ def report(location, username, password, keys, status="online"):
     #TODO Setup thread to keep reporting the users
 
 
-def list_users(username, password):
+def list_users(username, api_key=None, password=None):
     """takes a username and password to use as authorisation to get all online users. Returns this in a dictionary"""
     list_users_url = "http://cs302.kiwi.land/api/list_users"
-    header = request_helper.create_basic_header(username, password)
+    if api_key is not None:
+        print("listing users with api_key")
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        print("listing users with HTTP Basic")
+        header = request_helper.create_basic_header(username=username, password=password)
+    else:
+        list_users_object = {'users': [{}]}
+        return list_users_object
 
     req = urllib.request.Request(url=list_users_url, headers=header)
     list_users_object = request_helper.query_server(req)
@@ -156,12 +180,21 @@ def list_users(username, password):
         return list_users_object
 
 
-def add_pub_key(keys, username, password):
+def add_pub_key(keys, username, api_key=None, password=None):
     """Takes an object with the new keys along with the username and password for the account.
     Will add the given public key to the users account. Returns True for successful add, False otherwise"""
 
     add_pup_key_url = "http://cs302.kiwi.land/api/add_pubkey"
-    header = request_helper.create_basic_header(username, password)
+
+    if api_key is not None:
+        print("listing users with api_key")
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        print("listing users with HTTP Basic")
+        header = request_helper.create_basic_header(username=username, password=password)
+    else:
+        return False
+
     signature_hex_str = crypto.sign_message(keys["public_key_hex_string"] + username, keys['private_key'])
 
     payload = {
@@ -182,12 +215,21 @@ def add_pub_key(keys, username, password):
         return False
 
 
-def get_private_data(username, password, encryption_key):
+def get_private_data(username, encryption_key, api_key=None, password=None):
     """Retrieves the private data associated with the given username and password.
     Will try to decrypt it with the provided encryption key"""
 
     url = "http://cs302.kiwi.land/api/get_privatedata"
-    header = request_helper.create_basic_header(username, password)
+
+    if api_key is not None:
+        print("getting private data with api_key")
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        print("getting private data with HTTP Basic")
+        header = request_helper.create_basic_header(username=username, password=password)
+    else:
+        return False, {}
+
     req = urllib.request.Request(url=url, headers=header)
     private_data_object = request_helper.query_server(req)
 
@@ -204,3 +246,62 @@ def get_private_data(username, password, encryption_key):
     if 'prikeys' not in decrypted_private_data_dict:
         decrypted_private_data_dict['prikeys'] = [""]
     return True, decrypted_private_data_dict
+
+
+def list_apis():
+    """Query the login server to find what api's have been implemented Prints this out"""
+    url = "http://cs302.kiwi.land/api/list_apis"
+    request = urllib.request.Request(url=url)
+    json_object = request_helper.query_server(request)
+    if json_object['response'] == 'ok':
+        pprint.pprint(json_object)
+
+
+def get_loginserver_record(username, api_key=None, password=None):
+    """Request the users login server record, to be used as authentication for some future requests"""
+    url = "http://cs302.kiwi.land/api/get_loginserver_record"
+
+    if api_key is not None:
+        print("getting record with api_key")
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        print("getting record with HTTP Basic")
+        header = request_helper.create_basic_header(username=username, password=password)
+    else:
+        return False, ""
+
+    request = urllib.request.Request(url=url, headers=header)
+    json_object = request_helper.query_server(request)
+    if json_object['response'] == 'ok' and 'loginserver_record' in json_object:
+        loginserver_record = json_object['loginserver_record']
+        pprint.pprint(loginserver_record)
+        return True, loginserver_record
+    else:
+        return False, ""
+
+
+def check_pubkey(username, public_key_kex_string_to_check, api_key=None, password=None):
+    """"Will retreive the loginserver record, from the login server, associated with the public key provided
+    Public key is in string(256-bit Ed25519 hex encoded format"""
+    check_pup_key_url = "http://cs302.kiwi.land/api/check_pubkey"
+
+    if api_key is not None:
+        print("getting record with api_key")
+        header = request_helper.create_api_header(x_username=username, api_key=api_key)
+    elif password is not None:
+        print("getting record with HTTP Basic")
+        header = request_helper.create_basic_header(username=username, password=password)
+    else:
+        return False, ""
+
+    check_pup_key_url = str(check_pup_key_url) + "?pubkey=" + str(public_key_kex_string_to_check)
+    # check_pup_key_url = str(check_pup_key_url) + "?pubkey=" +
+    # str("b9eba910b59549774d55d3ce49a7b4d46ab5e225cdcf2ac388cf356b5928b6bc")#someones pubkey
+    request = urllib.request.Request(url=check_pup_key_url, headers=header)
+    json_object = request_helper.query_server(request)
+    if json_object['response'] == 'ok' and 'loginserver_record' in json_object:
+        loginserver_record = json_object['loginserver_record']
+        pprint.pprint(loginserver_record)
+        return True, loginserver_record
+    else:
+        return False, ""

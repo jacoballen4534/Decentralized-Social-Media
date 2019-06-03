@@ -21,11 +21,10 @@ class Feed:
         feed_template = env.get_template('/html/feed.html')
 
         username = cherrypy.session.get('username')
-        password = cherrypy.session.get('password')
         api_key = cherrypy.session.get('api_key')
         private_key = cherrypy.session.get('private_key')
-        if username is not None and password is not None and api_key is not None:
-            online_users = loginApi.list_users(username, password)
+        if username is not None and api_key is not None:
+            online_users = loginApi.list_users(username=username, api_key=api_key)
             return feed_template.render(username=username, users=online_users)
         else:
             raise cherrypy.HTTPRedirect('/')

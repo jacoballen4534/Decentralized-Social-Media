@@ -6292,3 +6292,320 @@ INFO:cherrypy.access.140515510525792:192.168.1.66 - - [03/Jun/2019:06:40:57] "GE
 INFO:cherrypy.access.140515510525792:192.168.1.66 - - [03/Jun/2019:06:40:57] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 551641 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
 INFO:cherrypy.error:[03/Jun/2019:06:41:01] ENGINE Keyboard Interrupt: shutting down bus
 INFO:cherrypy.error:[03/Jun/2019:06:41:01] ENGINE Bus STOPPING
+INFO:cherrypy.error:[03/Jun/2019:22:35:21] ENGINE Bus STARTING
+INFO:cherrypy.error:[03/Jun/2019:22:35:21] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:22:35:22] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[03/Jun/2019:22:35:22] ENGINE Bus STARTED
+INFO:cherrypy.access.140560494665968:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /login/ HTTP/1.1" 200 3348 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 144877 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 48944 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /static/css/login.css HTTP/1.1" 200 151 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /static/js/login.js HTTP/1.1" 200 1078 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 200 161998 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:27] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 551641 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:35:28] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+DEBUG:root:Server online
+INFO:cherrypy.error:[03/Jun/2019:22:36:46] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140560494665968:192.168.1.66 - - [03/Jun/2019:22:36:46] "POST /login/signin HTTP/1.1" 303 96 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:36:46] "GET / HTTP/1.1" 303 104 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:22:36:46] "GET /feed HTTP/1.1" 301 115 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:22:36:47] "GET /feed/ HTTP/1.1" 200 4020 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:36:47] "GET /static/css/feed.css HTTP/1.1" 200 1 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:36:47] "GET /static/js/feed.js HTTP/1.1" 200 - "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:22:39:58] "GET /feed/ HTTP/1.1" 200 4020 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:39:58] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494665968:192.168.1.66 - - [03/Jun/2019:22:40:59] "GET /login/signout HTTP/1.1" 303 96 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:40:59] "GET / HTTP/1.1" 303 106 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494665968:192.168.1.66 - - [03/Jun/2019:22:40:59] "GET /login HTTP/1.1" 301 117 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494665968:192.168.1.66 - - [03/Jun/2019:22:40:59] "GET /login/ HTTP/1.1" 200 3348 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+DEBUG:root:Server online
+INFO:cherrypy.access.140560494665968:192.168.1.66 - - [03/Jun/2019:22:41:08] "POST /login/signin HTTP/1.1" 303 96 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:41:08] "GET / HTTP/1.1" 303 104 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:22:41:08] "GET /feed HTTP/1.1" 301 115 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:22:41:09] "GET /feed/ HTTP/1.1" 200 4172 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:22:48:02] "GET /feed/ HTTP/1.1" 200 4127 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:22:48:03] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:23:05:16] "GET /feed/ HTTP/1.1" 200 3869 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:23:05:16] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560494666472:192.168.1.66 - - [03/Jun/2019:23:15:22] "GET /feed/ HTTP/1.1" 200 4021 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.140560558856904:192.168.1.66 - - [03/Jun/2019:23:15:23] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Bus STOPPING
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Bus STOPPED
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Bus EXITING
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Bus EXITED
+INFO:cherrypy.error:[03/Jun/2019:23:45:41] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[03/Jun/2019:23:45:46] ENGINE Bus STARTING
+INFO:cherrypy.error:[03/Jun/2019:23:45:46] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:45:46] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[03/Jun/2019:23:45:46] ENGINE Bus STARTED
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Bus STOPPING
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Bus STOPPED
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Bus EXITING
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Bus EXITED
+INFO:cherrypy.error:[03/Jun/2019:23:45:48] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[03/Jun/2019:23:49:12] ENGINE Bus STARTING
+INFO:cherrypy.error:[03/Jun/2019:23:49:12] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:49:12] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[03/Jun/2019:23:49:12] ENGINE Bus STARTED
+INFO:cherrypy.error:[03/Jun/2019:23:49:21] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.139933471732120:192.168.1.66 - - [03/Jun/2019:23:49:21] "GET /feed/ HTTP/1.1" 200 4106 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139933536026464:192.168.1.66 - - [03/Jun/2019:23:49:22] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139933471732120:192.168.1.66 - - [03/Jun/2019:23:49:29] "GET /feed/ HTTP/1.1" 200 4064 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139933536026464:192.168.1.66 - - [03/Jun/2019:23:49:29] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139933471732120:192.168.1.66 - - [03/Jun/2019:23:49:34] "GET /feed/ HTTP/1.1" 200 4106 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139933536026464:192.168.1.66 - - [03/Jun/2019:23:49:35] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/MyApiEndpoints/login.py changed.
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Bus STOPPING
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Bus STOPPED
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Bus EXITING
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Bus EXITED
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[03/Jun/2019:23:53:45] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[03/Jun/2019:23:53:47] ENGINE Bus STARTING
+INFO:cherrypy.error:[03/Jun/2019:23:53:47] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:53:47] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[03/Jun/2019:23:53:47] ENGINE Bus STARTED
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/MyApiEndpoints/login.py changed.
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Bus STOPPING
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Bus STOPPED
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Bus EXITING
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Bus EXITED
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[03/Jun/2019:23:54:04] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[03/Jun/2019:23:54:05] ENGINE Bus STARTING
+INFO:cherrypy.error:[03/Jun/2019:23:54:05] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[03/Jun/2019:23:54:05] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[03/Jun/2019:23:54:05] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/requests.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:21:31] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:24:33] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:24:33] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:24:34] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:24:34] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:24:43] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.139767347153160:192.168.1.66 - - [04/Jun/2019:00:24:43] "GET /feed/ HTTP/1.1" 200 4402 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767411380064:192.168.1.66 - - [04/Jun/2019:00:24:44] "GET /favicon.ico HTTP/1.1" 200 15406 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767347152656:192.168.1.66 - - [04/Jun/2019:00:26:55] "GET /login/signout HTTP/1.1" 303 96 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767411380064:192.168.1.66 - - [04/Jun/2019:00:26:55] "GET / HTTP/1.1" 303 106 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767347152656:192.168.1.66 - - [04/Jun/2019:00:26:55] "GET /login HTTP/1.1" 301 117 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767347152656:192.168.1.66 - - [04/Jun/2019:00:26:55] "GET /login/ HTTP/1.1" 200 3513 "http://192.168.1.68:5001/feed/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767411380064:192.168.1.66 - - [04/Jun/2019:00:26:55] "GET /static/js/login.js HTTP/1.1" 200 1078 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+DEBUG:root:Server online
+INFO:cherrypy.access.139767347152656:192.168.1.66 - - [04/Jun/2019:00:27:02] "POST /login/signin HTTP/1.1" 303 96 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767411380064:192.168.1.66 - - [04/Jun/2019:00:27:02] "GET / HTTP/1.1" 303 106 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767347152656:192.168.1.66 - - [04/Jun/2019:00:27:02] "GET /login HTTP/1.1" 301 117 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.access.139767347152656:192.168.1.66 - - [04/Jun/2019:00:27:02] "GET /login/ HTTP/1.1" 200 3513 "http://192.168.1.68:5001/login/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/requests.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:35:43] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:35:45] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:35:45] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:35:45] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:35:45] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/requests.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:35:52] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:35:53] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:35:53] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:35:53] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:35:53] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:36:25] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:36:26] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:36:26] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:36:26] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:36:26] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:36:30] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:36:32] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:36:32] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:36:32] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:36:32] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:37:32] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:37:33] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:37:33] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:37:34] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:37:34] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:37:41] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:37:42] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:37:42] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:37:42] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:37:42] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:37:44] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:37:46] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:37:46] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:37:46] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:37:46] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:39:51] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:39:53] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:39:53] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:39:53] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:39:53] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:40:33] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:40:35] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:40:35] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:40:35] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:40:35] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:43:54] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:43:56] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:43:56] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:43:56] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:43:56] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:44:02] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:44:04] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:44:04] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:44:04] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:44:04] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/requests.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:45:10] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:45:12] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:45:12] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:45:12] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:45:12] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:45:46] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:45:48] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:45:48] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:45:48] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:45:48] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/ApisAndHelpers/loginServerApis.py changed.
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:00:46:31] ENGINE Re-spawning /usr/bin/python3.6 /home/jacob/PythonRepo/2019-Python-jall229/main.py
+INFO:cherrypy.error:[04/Jun/2019:00:46:33] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:00:46:33] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:46:33] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:00:46:33] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Keyboard Interrupt: shutting down bus
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:00:47:04] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Bus STARTED

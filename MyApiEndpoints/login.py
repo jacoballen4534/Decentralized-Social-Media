@@ -37,7 +37,6 @@ class Login:
             cherrypy.session['x_signature'] = x_signature
             cherrypy.session['api_key'] = api_key
             cherrypy.session['private_key'] = private_key
-            cherrypy.session['password'] = password
             raise cherrypy.HTTPRedirect('/')
         else:
             raise cherrypy.HTTPRedirect('/login?status_code=' + str(status_code))
@@ -46,7 +45,6 @@ class Login:
     def signout(self):
         """Logs the current user out, expires their session"""
         username = cherrypy.session.get('username')
-        password = cherrypy.session.get('password')
         second_password = cherrypy.session.get('second_password')
         if username is not None or password is not None or second_password is not None:
             cherrypy.lib.sessions.expire()
@@ -90,7 +88,7 @@ def authorise_user_login(username, password, key_type, key_value):
         if not status:  # The provided key is malformed
             return 4, api_key, x_signature, None
     else:  # Decrypt private data with Encryption key
-        status, private_data = loginApi.get_private_data(username, password, key_value)
+        status, private_data = loginApi.get_private_data(username=username, password=password, encryption_key=key_value)
         if not status:  # Error retrieving private data
             return 5, api_key, x_signature, None
         # This point means the private data has been retrieved and decrypted.
@@ -102,6 +100,8 @@ def authorise_user_login(username, password, key_type, key_value):
     valid_key_status = loginApi.ping(username, password, keys)
     if not valid_key_status:
         return 6, api_key, x_signature, None
+
+    # _________________________ Report the associated public key_______________________________________
 
     return 0, api_key, x_signature, keys['private_key']  # 0 = Success, return new key
 

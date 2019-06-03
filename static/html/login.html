@@ -6,7 +6,7 @@
 
 {% block base_links %}
 <link rel='stylesheet' type="text/css" href='/static/css/login.css'/>
-    <script type="text/javascript" src="/static/js/login.js"></script>
+<script type="text/javascript" src="/static/js/login.js"></script>
 {% endblock base_links%}
 
 
@@ -27,8 +27,10 @@
             <div class="form-group">
                 <label for="login-password" class="col-form-label">Password</label>
                 <div>
-                    <input type="password" required class="form-control {% if invalid_cridentials %} is-invalid {% endif %}"
+                    <input type="password" required
+                           class="form-control {% if invalid_cridentials %} is-invalid {% endif %}"
                            id="login-password" name="password" placeholder="Password">
+                    <small id="password-help" class="form-text text-muted">Your password is never stored.</small>
                 </div>
                 {% if invalid_cridentials %}
                 <div class="">
@@ -41,7 +43,8 @@
 
             <div class="form-group">
                 <label for="login-second-key" class="col-form-label">
-                    <select name="key_type" id="key_type" class="btn dropdown-toggle col-form-label" onchange="changeLoginOption(this)">
+                    <select name="key_type" id="key_type" class="btn dropdown-toggle col-form-label"
+                            onchange="changeLoginOption(this)">
                         <option name="encryption_key">Encryption Key</option>
                         <option name="private_key">Private Key</option>
                         <option name="api_key">Api Key</option>
