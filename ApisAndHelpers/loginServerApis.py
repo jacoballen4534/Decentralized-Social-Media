@@ -61,7 +61,7 @@ def ping(username=None, password=None, keys=None, api_key=None):
             header = request_helper.create_basic_header(username, password)
             signature_hex_str = crypto.sign_message(keys["public_key_hex_string"], private_key=keys['private_key'])
             payload = {
-                "pubkey": keys["public_key_hex_string"],
+                "pubkey"   : keys["public_key_hex_string"],
                 "signature": signature_hex_str
             }
             byte_payload = bytes(json.dumps(payload), "utf-8")
@@ -141,9 +141,9 @@ def report(location, username, keys, status="online", api_key=None, password=Non
 
     payload = {
         "connection_location": location,
-        "connection_address": connection_address,
-        "incoming_pubkey": keys["public_key_hex_string"],
-        "status": status,
+        "connection_address" : connection_address,
+        "incoming_pubkey"    : keys["public_key_hex_string"],
+        "status"             : status,
     }
     byte_payload = bytes(json.dumps(payload), "utf-8")
 
@@ -154,7 +154,7 @@ def report(location, username, keys, status="online", api_key=None, password=Non
         return True
     else:
         return False
-    #TODO Setup thread to keep reporting the users
+    # TODO Setup thread to keep reporting the users
 
 
 def list_users(username, api_key=None, password=None):
@@ -198,8 +198,8 @@ def add_pub_key(keys, username, api_key=None, password=None):
     signature_hex_str = crypto.sign_message(keys["public_key_hex_string"] + username, keys['private_key'])
 
     payload = {
-        "pubkey": keys["public_key_hex_string"],
-        "username": username,
+        "pubkey"   : keys["public_key_hex_string"],
+        "username" : username,
         "signature": signature_hex_str
     }
 
@@ -240,7 +240,8 @@ def get_private_data(username, encryption_key, api_key=None, password=None):
     print("Encrypted private data retrieved:")
     pprint.pprint(encrypted_private_data_base64_string)
     # _________________________ Decrypt the private data _______________________________________
-    status, decrypted_private_data_dict = crypto.decrypt_private_data(encrypted_private_data_base64_string, encryption_key)
+    status, decrypted_private_data_dict = crypto.decrypt_private_data(encrypted_private_data_base64_string,
+                                                                      encryption_key)
     if not status:
         return False, {}
     if 'prikeys' not in decrypted_private_data_dict:
@@ -305,3 +306,67 @@ def check_pubkey(username, public_key_kex_string_to_check, api_key=None, passwor
         return True, loginserver_record
     else:
         return False, ""
+
+
+def add_private_data(username, plain_text_private_data_dictonary, keys, encryption_key, api_key=None, password=None):
+    """Takes the new private data to be added (in plain text dictionary form. Will encrypt with the encryption key
+    provided. The resulting secret message will then be signed and stored on the central server."""
+    import time
+    from base64 import b64encode
+    import nacl.exceptions
+
+    add_privatedata_url = "http://cs302.kiwi.land/api/add_privatedata"
+    try:
+        if api_key is not None:
+            print("getting private data with api_key")
+            header = request_helper.create_api_header(x_username=username, api_key=api_key)
+        elif password is not None:
+            print("getting private data with HTTP Basic")
+            header = request_helper.create_basic_header(username=username, password=password)
+        else:
+            return False
+
+        private_data_plain_text_string = json.dumps(plain_text_private_data_dictonary)
+        private_data_plain_text_bytes = bytes(private_data_plain_text_string, "utf-8")
+
+        status, encrypted_message = crypto.encrypt_private_data(private_data_plain_text_bytes=private_data_plain_text_bytes
+                                                                , encryption_key=encryption_key)
+        if not status:
+            return False
+
+        status, loginserver_record = get_loginserver_record(username=username, password=password,
+                                                            api_key=api_key)  # Only one of password and api_key required
+        if not status:
+            return False
+
+        current_time = str(time.time())
+
+        # Encode the encrypted message object into base64 bytes.
+        encrypted_message_base64_bytes = b64encode(encrypted_message)
+        # Convert the base64 bytes to string to be added to the payload and added to the signature.
+        base64_string = encrypted_message_base64_bytes.decode('utf-8')
+        signature_hex_str = crypto.sign_message(base64_string + loginserver_record + current_time, keys['private_key'])
+
+        payload = {
+            "privatedata": base64_string,
+            "loginserver_record": loginserver_record,
+            "client_saved_at": current_time,
+            "signature": signature_hex_str
+        }
+
+        byte_payload = bytes(json.dumps(payload), "utf-8")
+
+        add_privatedata_request = urllib.request.Request(url=add_privatedata_url, data=byte_payload, headers=header)
+
+        json_object = request_helper.query_server(add_privatedata_request)
+        if json_object['response'] == 'ok':
+            print("\n\nSecessfully added encrypted private data")
+            pprint.pprint(json_object)
+            return True
+        else:
+            return False
+
+    except (TypeError, nacl.exceptions.CryptoError):
+        print("Could not add new private data")
+
+    return False

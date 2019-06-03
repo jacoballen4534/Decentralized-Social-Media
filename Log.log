@@ -6609,3 +6609,43 @@ INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Bus STARTING
 INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Started monitor thread 'Autoreloader'.
 INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Serving on http://192.168.1.68:5001
 INFO:cherrypy.error:[04/Jun/2019:02:48:29] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:05:42:05] ENGINE Started monitor thread 'Session cleanup'.
+INFO:cherrypy.access.140294950066888:107.6.183.226 - - [04/Jun/2019:05:42:05] "GET / HTTP/1.1" 303 110 "" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36"
+INFO:cherrypy.access.140294885840600:107.6.183.226 - - [04/Jun/2019:05:42:05] "GET /login HTTP/1.1" 301 121 "http://122.58.162.166:5001/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36"
+INFO:cherrypy.access.140294885840600:107.6.183.226 - - [04/Jun/2019:05:42:05] "GET /login/ HTTP/1.1" 200 3513 "http://122.58.162.166:5001/login" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36"
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py changed.
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Stopped thread 'Session cleanup'.
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Re-spawning python3 main.py
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:08:42:07] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py changed.
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:08:42:19] ENGINE Re-spawning python3 main.py
+INFO:cherrypy.error:[04/Jun/2019:08:42:20] ENGINE Bus STARTING
+INFO:cherrypy.error:[04/Jun/2019:08:42:20] ENGINE Started monitor thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:08:42:20] ENGINE Serving on http://192.168.1.68:5001
+INFO:cherrypy.error:[04/Jun/2019:08:42:20] ENGINE Bus STARTED
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Restarting because /home/jacob/PythonRepo/2019-Python-jall229/exampleApiAccess/apiHelpers.py changed.
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Stopped thread 'Autoreloader'.
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Bus STOPPING
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE HTTP Server cherrypy._cpwsgi_server.CPWSGIServer(('192.168.1.68', 5001)) shut down
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Bus STOPPED
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Bus EXITING
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Bus EXITED
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Waiting for child threads to terminate...
+INFO:cherrypy.error:[04/Jun/2019:08:42:37] ENGINE Re-spawning python3 main.py

@@ -14,6 +14,7 @@ x_signature = loginServerApis.ping(username="jall229", api_key=api_key)
 
 
 def test_load_new_apikey():
+    new_api_key = loginServerApis.load_new_apikey(username=username, password=password)
     loginServerApis.load_new_apikey(username=username, api_key=new_api_key, password=password)
 
 
@@ -51,4 +52,19 @@ def test_check_pubkey():
     loginServerApis.check_pubkey(username=username,public_key_kex_string_to_check=
     "b9eba910b59549774d55d3ce49a7b4d46ab5e225cdcf2ac388cf356b5928b6bc", api_key=api_key, password=password)
 
-test_get_private_data()
+
+def test_add_private_data():
+    plain_text_private_data_dictonary = {
+            'prikeys': [keys['private_key_hex_string'], ""],
+            'blocked_pubkeys': ["", ""],
+            'blocked_usernames': ["", ""],
+            'blocked_message_signatures': ["", ""],
+            'blocked_words': ["", ""],
+            'favourite_message_signatures': ["", ""],
+            'friends_usernames': ["", ""]
+        }
+
+    loginServerApis.add_private_data(username=username,
+                                     plain_text_private_data_dictonary=plain_text_private_data_dictonary,
+                                     keys=keys, encryption_key=encryption_key, password=password, api_key=api_key)
+

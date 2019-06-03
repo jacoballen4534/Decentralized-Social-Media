@@ -111,3 +111,16 @@ def create_new_key_pair():
     except (binascii.Error, nacl.exceptions.ValueError) as e:
         print(e)
         return False, {}
+
+
+def encrypt_private_data(private_data_plain_text_bytes, encryption_key):
+    """Takes the private data to be encrypted, along with the encryption key to encrypt with. Will return the encrypted
+    message object. (This contains both the cipher text and nonce."""
+    status, secret_box = create_secret_box(encryption_key)
+    if not status:
+        return False, None
+    nonce = nacl.utils.random(nacl.secret.SecretBox.NONCE_SIZE)
+    encrypted_message = secret_box.encrypt(private_data_plain_text_bytes, nonce)
+    return True, encrypted_message
+
+
