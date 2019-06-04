@@ -3,6 +3,7 @@ import urllib.request
 import cherrypy
 import json
 import time
+import threading
 import ApisAndHelpers.loginServerApis as loginServerApis
 import ApisAndHelpers.requests as request_helper
 import ApisAndHelpers.crypto as crypto
@@ -82,12 +83,12 @@ class Api(object):
 
 
 def send_broadcast(username, message, send_to_dict, keys, api_key=None, password=None):
-    """Takes a messages and a list of users to send it to.(Format of list_users). Needs the username and keys of the
-    sender, to sign the message and create the loginserver_record"""
+    """Requires api_key or password. Takes a messages and a list of users to send it to.(Format of list_users).
+    Needs the username and keys of the sender, to sign the message and create the loginserver_record"""
     status, loginserver_record = loginServerApis.get_loginserver_record(username=username, api_key=api_key, password=password)
     if not status:
-        return False
         print("Failed to get loginserver record, for sending broadcast.")
+        return False
     message = str(message)
     current_time = str(time.time())
     header = {
@@ -105,14 +106,15 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
     byte_payload = bytes(json.dumps(payload), "utf-8")
 
     for user in send_to_dict:
-        individual_thread_broadcast(user=user, byte_payload=byte_payload, header=header, api_key=api_key,
-                                    password=password, username=username)
+        broadcast_thread = threading.Thread(target=individual_thread_broadcast, args=([user, byte_payload, header,
+                                                                                       api_key, password, username]))
+        broadcast_thread.start()
     return True
 # threading.Thread(target=fun1, args=(12,10))
 
 
 def individual_thread_broadcast(user, byte_payload, header, api_key=None, password=None, username=None):
-    broadcast_url = user['connection_address'] + "/api/rx_broadcast"
+    broadcast_url = "http://" + user['connection_address'] + "/api/rx_broadcast"
     if user['username'] == 'admin':
         if api_key is not None:
             print("getting record with api_key")
@@ -122,6 +124,6 @@ def individual_thread_broadcast(user, byte_payload, header, api_key=None, passwo
             header = request_helper.create_basic_header(username=username, password=password)
         else:
             return False
-    broadcast_request = urllib.request.Request(url=broadcast_url, data=byte_payload, headers=header)
+    broadcast_request = urllib.request.Request(url=broadcast_url, data=byte_payload, headers=header, method="POST")
     json_object = request_helper.query_server(broadcast_request)
     pprint.pprint("Resuly of request to " + broadcast_url + ": " + json_object['response'])

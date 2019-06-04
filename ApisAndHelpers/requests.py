@@ -12,6 +12,7 @@ import nacl.hash
 import nacl.exceptions
 import time
 import logging
+import socket
 
 
 def query_server(request, headers=False):
@@ -33,9 +34,13 @@ def query_server(request, headers=False):
     except urllib.error.HTTPError as error:
         print(error.read())
         logging.debug("Url: " + str(request) + " gave error :" + error.reason)
-        # raise  # Log the error then pass it up.
         return {'response': 'error'}
-    except urllib.error.URLError:
+    except urllib.error.URLError as e:
+        print(e.reason)
+        return {'response': 'error'}
+    except TypeError:
+        return {'response': 'error'}
+    except socket.timeout:
         return {'response': 'error'}
 
 

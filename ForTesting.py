@@ -8,6 +8,7 @@ import pprint
 username = "jall229"
 password = "jacoballen4534_205023320"
 encryption_key = "Test"
+message = "Hows 313 going?"
 private_key_hex_bytes = 'b19d2b5bedbef07365402439cb520797dc0690540973053d14b91c1fcba1835c'
 status, keys = crypto.get_keys(private_key_hex_bytes)
 api_key = loginServerApis.load_new_apikey(username, password)
@@ -71,10 +72,27 @@ def test_add_private_data():
 
 
 def test_send_broadcast():
-    message = "Sorry for the spam"
+    message = "Test?"
     users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
     myApis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
                           password=password)
 
 
+def test_send_broadcast_to_one_person():
+    target_name = "admin"
+    # target_ip = "122.58.162.166:5001"
+    target_user = None
+    users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
+    """Try to find the target user from the list of online users. If it cant, return false."""
+    for user in users:
+        if 'username' in user and user.get('username') == target_name:
+            target_user = user
+    if target_user is None:
+        return False
+
+    myApis.send_broadcast(username=username, message=message, send_to_dict=[target_user], keys=keys, api_key=None,
+                          password=password)
+
+
+# test_send_broadcast_to_one_person()
 test_send_broadcast()
