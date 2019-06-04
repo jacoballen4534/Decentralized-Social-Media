@@ -4,3 +4,7 @@
 \.idea/
 
 __pycache__/
+
+temp/mysessions/
+
+Log\.log
