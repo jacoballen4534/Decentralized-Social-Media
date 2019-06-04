@@ -35,6 +35,8 @@ def query_server(request, headers=False):
         logging.debug("Url: " + str(request) + " gave error :" + error.reason)
         # raise  # Log the error then pass it up.
         return {'response': 'error'}
+    except urllib.error.URLError:
+        return {'response': 'error'}
 
 
 def create_basic_header(username, password):
@@ -48,8 +50,6 @@ def create_basic_header(username, password):
 
 
 def create_api_header(x_username, api_key, x_signature=None):
-    # credentials = ('%s:%s' % (username, password))
-    # b64_credentials = base64.b64encode(credentials.encode('ascii'))
     headers = {
         'X-username': x_username,
         'X-apikey': api_key,

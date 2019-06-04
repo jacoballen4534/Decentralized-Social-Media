@@ -14,6 +14,7 @@ import time
 
 
 def get_keys(signing_key_hex_string):
+    pass
 #     signing_key = nacl.signing.SigningKey(signing_key_hex_string, encoder=nacl.encoding.HexEncoder)
 #     pubkey_hex = signing_key.verify_key.encode(encoder=nacl.encoding.HexEncoder)
 #     pubkey_hex_str = pubkey_hex.decode('utf-8')
@@ -68,6 +69,7 @@ def get_keys(signing_key_hex_string):
 
 
 def report(username, password, keys):
+    pass
     # url = "http://cs302.kiwi.land/api/report"
     # header = create_header(username=username, password=password)
     #
@@ -88,6 +90,7 @@ def report(username, password, keys):
 
 
 def create_secret_box(second_password):
+    pass
     # kdf = nacl.pwhash.argon2i.kdf  # Key derivation function used to generate symmetric key.
     #
     # key_password = second_password.encode("utf-8")
@@ -124,6 +127,8 @@ def encrypt_private_data(secret_box, private_data):
 
 
 def decrypt_private_data(private_data_base64_string, secret_box):
+    pass
+
     # """Takes the base64 encoded private data string (private_data field from private_data_object) and secret box."""
     # # Extract the encrypted private data from 'get_privatedata'.
     # # convert the string back to base64 bytes.
@@ -142,6 +147,7 @@ def decrypt_private_data(private_data_base64_string, secret_box):
 
 
 def get_private_key_from_private_data(private_data_dict):
+    pass
     # if 'prikeys' in private_data_dict:
     #     try:
     #         signing_key = nacl.signing.SigningKey(str.encode(private_data_dict['prikeys']),
@@ -156,6 +162,7 @@ def get_private_key_from_private_data(private_data_dict):
 
 
 def add_pub_key(keys, username, password):
+    pass
 #     add_pup_key_url = "http://cs302.kiwi.land/api/add_pubkey"
 #
 #     header = create_header(username, password)
@@ -302,6 +309,7 @@ def add_private_data(keys, username, password, second_password):
 
 
 def ping_central_server(username=None, password=None, keys=None):
+    pass
 #     ping_url = "http://cs302.kiwi.land/api/ping"
 #     if username is None or password is None:
 #         print("Checking if the server is online")
@@ -347,6 +355,7 @@ def ping_central_server(username=None, password=None, keys=None):
 
 
 def get_private_data(username, password, second_password, allow_overwrite):
+    pass
     # if len(second_password) == 0:
     #     print("Please enter an Encryption Password")
     #     return False
@@ -457,7 +466,7 @@ def overwrite_private_data(username, password, second_password):
         return False
     add_private_data_result = add_private_data(keys, username, password, second_password)
     if add_private_data_result:
-        print("Sucessfully added private data")
+        print("Successfully added private data")
         return True
     else:
         print("An error occurred when adding your private data.")

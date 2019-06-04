@@ -1,6 +1,7 @@
 import ApisAndHelpers.crypto as crypto
 import ApisAndHelpers.loginServerApis as loginServerApis
 import ApisAndHelpers.requests as requests
+import MyApiEndpoints.apis as myApis
 import pprint
 
 
@@ -68,3 +69,12 @@ def test_add_private_data():
                                      plain_text_private_data_dictonary=plain_text_private_data_dictonary,
                                      keys=keys, encryption_key=encryption_key, password=password, api_key=api_key)
 
+
+def test_send_broadcast():
+    message = "Sorry for the spam"
+    users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
+    myApis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
+                          password=password)
+
+
+test_send_broadcast()
