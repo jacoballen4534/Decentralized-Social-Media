@@ -87,6 +87,7 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
     status, loginserver_record = loginServerApis.get_loginserver_record(username=username, api_key=api_key, password=password)
     if not status:
         return False
+        print("Failed to get loginserver record, for sending broadcast.")
     message = str(message)
     current_time = str(time.time())
     header = {
