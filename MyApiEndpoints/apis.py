@@ -112,7 +112,7 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
 
 
 def individual_thread_broadcast(user, byte_payload, header, api_key=None, password=None, username=None):
-    broadcast_url = "http://" + user['connection_address'] + "/api/rx_broadcast"
+    broadcast_url = user['connection_address'] + "/api/rx_broadcast"
     if user['username'] == 'admin':
         if api_key is not None:
             print("getting record with api_key")
@@ -124,4 +124,4 @@ def individual_thread_broadcast(user, byte_payload, header, api_key=None, passwo
             return False
     broadcast_request = urllib.request.Request(url=broadcast_url, data=byte_payload, headers=header)
     json_object = request_helper.query_server(broadcast_request)
-    pprint.pprint(json_object['response'])
+    pprint.pprint("Resuly of request to " + broadcast_url + ": " + json_object['response'])
