@@ -3,11 +3,14 @@ import urllib.request
 import cherrypy
 import json
 import time
+from base64 import b64encode, b64decode
 import threading
 import ApisAndHelpers.loginServerApis as loginServerApis
 import ApisAndHelpers.requests as request_helper
 import ApisAndHelpers.crypto as crypto
 from jinja2 import Environment, FileSystemLoader
+import logging
+from main import private_data_logger, info_logger, debug_logger
 
 
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
@@ -53,18 +56,59 @@ class Api(object):
     def rx_broadcast(self):
         """Receives signed broadcasts from users. Stores these in a database."""
         print("broadcast triggered")
-        received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
+        try:
+            received_data_body = json.loads(cherrypy.request.body.read().decode('utf-8'))
+            # Ensure all fields are present
+            if 'loginserver_record' not in received_data_body:
+                return {
+                    'response': 'error',
+                    'message': 'missing loginserver_record',
+                }
+            if 'message' not in received_data_body:
+                return {
+                    'response': 'error',
+                    'message': 'missing message',
+                }
+            if 'sender_created_at' not in received_data_body:
+                return {
+                    'response': 'error',
+                    'message': 'missing sender_created_at',
+                }
+            if 'signature' not in received_data_body:
+                return {
+                    'response': 'error',
+                    'message': 'missing signature',
+                }
 
-        message = received_data.get('message').encode('utf-8')
-        print("Broadcast:")
-        print(message)
+            api_key = cherrypy.request.headers.get("X-Apikey")
+            x_username = cherrypy.request.headers.get("X-Username")
+            auth = cherrypy.request.headers.get("Authorization")
+            if auth is not None:
+                b64_credentials = auth.split(" ")[1]
+                credentials = b64decode(b64_credentials.encode("ascii")).decode("ascii")
+                private_data_logger.info("Credentials left in broadcast header: " + str(credentials))
 
-        response = {'response': 'ok'}
+            if api_key is not None:
+                private_data_logger.info("Api_key left in broadcast header: " + str(api_key))
+            if x_username is not None:
+                private_data_logger.info("x-username left in broadcast header: " + str(x_username))
+            message = received_data_body.get('message')
+            debug_logger.debug("Received broadcast message: " + str(message))
 
-        response = json.dumps(response)
-        return response
+            message_bytes = message.encode('utf-8')
+            received_from = received_data_body.get("loginserver_record").split(",")[0]
+            info_logger.info("Received broadcast from " + str(received_from) + ": " + str(message))
+
+            print("Received broadcast message: " + str(message))
+
+            response = {'response': 'ok'}
+            return response
+        except Exception:
+            return {'response': 'error'}
 
     @cherrypy.expose
+    @cherrypy.tools.allow(methods=["POST"])
+    @cherrypy.tools.json_out()
     def rx_privatemessage(self):
         print("privatemessage triggered")
         received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))

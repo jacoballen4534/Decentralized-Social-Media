@@ -70,7 +70,6 @@ def runMainApp():
     cherrypy.tree.mount(MyApiEndpoints.login.Login(), "/login", conf)
     cherrypy.tree.mount(MyApiEndpoints.feed.Feed(), "/feed", conf)
     cherrypy.tree.mount(MyApiEndpoints.apis.Api(), "/api", conf)
-    logging.basicConfig(filename='Log.log', level=logging.DEBUG)
 
     # Tell cherrypy where to listen, and to turn autoreload on
     cherrypy.config.update({
@@ -97,3 +96,24 @@ def runMainApp():
 #Run the function to start everything
 if __name__ == '__main__':
     runMainApp()
+
+
+#Set up different log files
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+
+
+def setup_logger(name, log_file, level=logging.INFO):
+    """This sets up various log files, for different severity"""
+    handler = logging.FileHandler(log_file)
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+    return logger
+
+
+info_logger = setup_logger('info_logger', 'InfoLog.log', logging.INFO)
+private_data_logger = setup_logger('private_data_logger', 'private_data_logger.log', logging.INFO)
+debug_logger = setup_logger('debug_logger', 'DebugLog.log', logging.DEBUG)
+
