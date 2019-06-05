@@ -18,23 +18,22 @@ class Login:
     @cherrypy.expose
     def index(self, status_code=0, *args, **kwargs):
         """This is the login page where the user will enter their details to be authenticated with the login server"""
-
         login_template = env.get_template('/html/login.html')
+
         return login_template.render(server_down=(status_code == '1'), invalid_cridentials=(status_code == '2'),
-                                     something_went_wring=(status_code == '3'))
+                                     api_key_error=(status_code == '3'), private_key_error=(status_code == '4'),
+                                     private_data_error=(status_code == '5'), key_missmathch=(status_code == '6'))
 
     @cherrypy.expose
     def signin(self, username=None, password=None, key_type=None, key_value=None):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
-        status_code, api_key, x_signature, private_key = authorise_user_login(username, password, key_type, key_value)
+        status_code, api_key, private_key = authorise_user_login(username, password, key_type, key_value)
         # api_key = "2"
         # if True:
         if status_code == 0:  # Successfully logged in and generated api key
             print("\n\nSuccessful login:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
-                  "\n\t\t\t\tprivate_key: " + str(private_key) + "\n\t\t\t\tapi_key: " + str(api_key) +
-                  "\n\t\t\t\tx-signature: " + str(x_signature) + "\n\n")
+                  "\n\t\t\t\tprivate_key: " + str(private_key) + "\n\t\t\t\tapi_key: " + str(api_key) + "\n\n")
             cherrypy.session['username'] = username
-            cherrypy.session['x_signature'] = x_signature
             cherrypy.session['api_key'] = api_key
             cherrypy.session['private_key'] = private_key
             raise cherrypy.HTTPRedirect('/')
@@ -45,8 +44,9 @@ class Login:
     def signout(self):
         """Logs the current user out, expires their session"""
         username = cherrypy.session.get('username')
-        second_password = cherrypy.session.get('second_password')
-        if username is not None or password is not None or second_password is not None:
+        api_key = cherrypy.session.get('api_key')
+        private_key = cherrypy.session.get('private_key')
+        if username is not None or api_key is not None or private_key is not None:
             cherrypy.lib.sessions.expire()
 
         raise cherrypy.HTTPRedirect('/')
@@ -67,43 +67,48 @@ def authorise_user_login(username, password, key_type, key_value):
     6 = Private key does not associate with the public key registered on your account"""
     import ApisAndHelpers.loginServerApis as loginApi
     import ApisAndHelpers.crypto as crypto
+    # Clear all credentials if the are already logged in, but try to log in again.
+    cherrypy.session['username'] = None
+    cherrypy.session['api_key'] = None
+    cherrypy.session['private_key'] = None
     # _______________________________Check server is online __________________________________
     if not loginApi.ping():
-        return 1, None, None, None  # Return status and new api key for the user. 1 indicates server is down
+        return 1, None, None  # Return status and new api key for the user. 1 indicates server is down
     # ____________________Check username pass with http basic________________________________
     if not loginApi.ping(username, password):
-        return 2, None, None, None  # 2 indicates invalid credentials, therefore no api key
+        return 2, None, None  # 2 indicates invalid credentials, therefore no api key
     # _________________________ Generate new api key _______________________________________
-    api_key = loginApi.load_new_apikey(username, password)
+    api_key = loginApi.load_new_apikey(username=username, password=password)  # The only use of password
     if api_key is None:
-        return 3, None, None, None  # 3 = Something went wrong, Couldn't get an api_key
+        return 3, None, None  # 3 = Something went wrong, Couldn't get an api_key
     # _______________________________ Check api key_______________________________________
-    valid_api_key_status, x_signature = loginApi.ping(username, password, api_key=api_key)
+    valid_api_key_status = loginApi.ping(username=username, password=password, api_key=api_key)
     if not valid_api_key_status:
-        return 3, None, None, None  # 3 = Something went wrong, Invalid api_key
+        return 3, None, None  # 3 = Something went wrong, Invalid api_key
 
     # _________________________ Check private key is a key_______________________________________
     if key_type == "Private Key":
-        status, keys = crypto.get_keys(key_value)
+        status, keys = crypto.get_keys(private_key_hex_string=key_value)
         if not status:  # The provided key is malformed
-            return 4, api_key, x_signature, None
+            return 4, api_key, None
     else:  # Decrypt private data with Encryption key
-        status, private_data = loginApi.get_private_data(username=username, password=password, encryption_key=key_value)
+        status, private_data = loginApi.get_private_data(username=username, encryption_key=key_value, api_key=api_key,
+                                                         password=password)
         if not status:  # Error retrieving private data
-            return 5, api_key, x_signature, None
+            return 5, api_key, None
         # This point means the private data has been retrieved and decrypted.
         status, keys = crypto.get_keys(private_data['prikeys'][0])
         if not status:  # The provided key is malformed
-            return 4, api_key, x_signature, None
+            return 4, api_key, None
     # This point means we have a proper key, either entered directly, or from private data. Check if it is valid.
     # _________________________ Validate private key_______________________________________
     valid_key_status = loginApi.ping(username, password, keys)
     if not valid_key_status:
-        return 6, api_key, x_signature, None
+        return 6, api_key, None
 
     # _________________________ Report the associated public key_______________________________________
 
-    return 0, api_key, x_signature, keys['private_key']  # 0 = Success, return new key
+    return 0, api_key, keys['private_key']  # 0 = Success, return new key
 
 
 

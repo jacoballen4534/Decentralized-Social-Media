@@ -15,21 +15,19 @@ import logging
 import socket
 
 
-def query_server(request, headers=False):
+def query_server(request):
     """Takes a url, optional header and data. Will make a url request to then process.
     the headers argument specifies if the readers of the request should be returned.
     If the query was successful, it will convert the response to json format and return it."""
     try:
         response = urllib.request.urlopen(request, timeout=5)
         data = response.read()  # read the received bytes
-        response_headers = dict(response.info())
+        response_headers = dict(response.info()) # This could be used later
         encoding = response.info().get_content_charset('utf-8')  # load encoding if possible (default to utf-8)
         response.close()
 
         json_object = json.loads(data.decode(encoding))
         json_object['response'] = 'ok'  # to ensure there is a response for all requests
-        if headers:  # Only return the headers if they are asked for
-            return json_object, response_headers
         return json_object
     except urllib.error.HTTPError as error:
         print(error.read())
@@ -38,10 +36,9 @@ def query_server(request, headers=False):
     except urllib.error.URLError as e:
         print(e.reason)
         return {'response': 'error'}
-    except TypeError:
+    except (TypeError, socket.timeout):
         return {'response': 'error'}
-    except socket.timeout:
-        return {'response': 'error'}
+
 
 
 def create_basic_header(username, password):

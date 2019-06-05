@@ -23,26 +23,23 @@ def ping(username=None, password=None, keys=None, api_key=None):
             if json_object['response'] == 'ok':
                 print("Server is online and reachable.")
                 logging.debug("Server online")
-                return True, None
+                return True
             else:
                 logging.debug("Server offline")
                 print("Sorry, it appears the server is not reachable at this time")
-                return False, None
+                return False
         elif api_key is not None:  # Check api_key
             print("Checking if the provided api_key is valid for that username and password")
             header = request_helper.create_api_header(username, api_key)
             authentication_request = urllib.request.Request(url=ping_url, headers=header)
-            authentication_object, response_header = request_helper.query_server(authentication_request, headers=True)
+            authentication_object = request_helper.query_server(authentication_request)
             if authentication_object['response'] == 'ok' and authentication_object['authentication'] == 'api-key':
                 print("This api key is valid.")
-                x_signature = response_header.get('X-Signature')
-                if x_signature is not None:
-                    return True, x_signature
-                return True, None
+                return True
             else:
                 print("It doesnt look like those are valid credentials")
                 logging.debug("invalid credentials: " + str(username) + str(password))
-                return False, None
+                return False
         elif password is not None and keys is None:  # This means check HTTPBasic
             print("Checking if the provided username and password is valid")
             header = request_helper.create_basic_header(username, password)
@@ -51,11 +48,11 @@ def ping(username=None, password=None, keys=None, api_key=None):
 
             if authentication_object['response'] == 'ok' and authentication_object['authentication'] == 'basic':
                 print("These credentials are valid.")
-                return True, None
+                return True
             else:
                 print("It doesnt look like those are valid credentials")
                 logging.debug("invalid credentials: " + str(username) + str(password))
-                return False, None
+                return False
         elif password is not None and keys is not None:
             print("Checking if the provided key is valid")
             header = request_helper.create_basic_header(username, password)
@@ -69,13 +66,13 @@ def ping(username=None, password=None, keys=None, api_key=None):
             signature_request = urllib.request.Request(url=ping_url, data=byte_payload, headers=header)
             verify_signature_object = request_helper.query_server(signature_request)
             if verify_signature_object['response'] == 'ok' and verify_signature_object['signature'] == 'ok':
-                return True, None
+                return True
             else:
-                return False, None
+                return False
         else:
-            return False, None
+            return False
     except TypeError:
-        return False, None
+        return False
 
 
 def load_new_apikey(username, password=None, api_key=None):

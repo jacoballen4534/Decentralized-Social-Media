@@ -47,17 +47,24 @@
                             onchange="changeLoginOption(this)">
                         <option name="encryption_key">Encryption Key</option>
                         <option name="private_key">Private Key</option>
-                        <option name="api_key">Api Key</option>
                     </select>
                 </label>
                 <div>
-                    <input type="password" class="form-control {% if invalid_key %} is-invalid {% endif %}"
+                    <input type="password" class="form-control {% if private_key_error %} is-invalid {% endif %}"
                            id="login-second-key" name="key_value" required placeholder="Key">
                     <input type="checkbox" id="show-password-checkbox" onclick="showPasswords(this)">Show Passwords
                     <small id="second-key-help" class="form-text text-muted">
                         This is what you used to encrypt your data.
                     </small>
                 </div>
+                {% if private_key_error %}
+                <div class="">
+                    <small id="secondHelp" class="text-danger">
+                        That key could not be authenticated.<br/>
+                        Please try again or go to forgot my password.
+                    </small>
+                </div>
+                {% endif %}
             </div>
 
             <div class="col-centered-100">
@@ -65,11 +72,26 @@
                 </button>
                 {% if server_down %}
                 <small id="server_down_message">
-                    Unfortunately it appears the login server is unavailable
+                    Unfortunately it appears the login server<br/>
+                      is unavailable
                 </small>
                 {% elif something_went_wring %}
                 <small id="something_went_wrong_message" class="">
                     Looks like something went wrong
+                </small>
+                {% elif api_key_error %}
+                <small id="api_key_error_message" class="text-danger">
+                    There was an issue retrieving a new api_key.
+                </small>
+                {% elif private_data_error %}
+                <small id="private_data_error_error_message" class="text-danger">
+                    Your private data could not be decrypted.<br/>
+                    Try again, or go to forgot my password.
+                </small>
+                {% elif key_missmathch %}
+                <small id="key_missmathch_error_error_message" class="text-danger">
+                    Public / private key mismatch.<br/>
+                    Go to forgot my password for more details.
                 </small>
                 {% endif %}
             </div>

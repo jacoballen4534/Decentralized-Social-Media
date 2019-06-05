@@ -23,8 +23,10 @@ class Feed:
         username = cherrypy.session.get('username')
         api_key = cherrypy.session.get('api_key')
         private_key = cherrypy.session.get('private_key')
-        if username is not None and api_key is not None:
-            online_users = loginApi.list_users(username=username, api_key=api_key)
-            return feed_template.render(username=username, users=online_users)
-        else:
+        # If they shouldnt be here. Kick them back to login.
+        if username is None or api_key is None or private_key is None:
             raise cherrypy.HTTPRedirect('/')
+
+        online_users = loginApi.list_users(username=username, api_key=api_key)
+        # TODO: Start js report loop
+        return feed_template.render(username=username, users=online_users)

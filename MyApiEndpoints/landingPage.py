@@ -18,13 +18,14 @@ class LandingPage:
 
     @cherrypy.expose
     def index(self, *args, **kwargs):
-        """The landing page for my sight. If the user is allready loged in, take them to their home page,
+        """The landing page for my sight. If the user is already logged in, take them to their home page,
         otherwise, take them to the login page."""
-        # Todo: Add private key
+
         username = cherrypy.session.get('username')
-        password = cherrypy.session.get('password')
         api_key = cherrypy.session.get('api_key')
-        if username is not None and password is not None and api_key is not None:
+        private_key = cherrypy.session.get('private_key')  #TODO: Maybe just store full key object for ease of use.
+        #TODO: Note that they dont need an encryption key, as they can manualy enter priv key. Will not be able to access private data tho
+        if username is not None and private_key is not None and api_key is not None:
             raise cherrypy.HTTPRedirect('/feed')  # This will take the user to their news feed
         else:
             raise cherrypy.HTTPRedirect('/login')  # This will take the user to their news feed

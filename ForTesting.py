@@ -7,7 +7,7 @@ import pprint
 
 username = "jall229"
 password = "jacoballen4534_205023320"
-encryption_key = "Test"
+encryption_key = "This is a new key"
 message = "Hows 313 going?"
 private_key_hex_bytes = 'b19d2b5bedbef07365402439cb520797dc0690540973053d14b91c1fcba1835c'
 status, keys = crypto.get_keys(private_key_hex_bytes)
@@ -94,5 +94,33 @@ def test_send_broadcast_to_one_person():
                           password=password)
 
 
-# test_send_broadcast_to_one_person()
-test_send_broadcast()
+def test_overwrite_private_data():
+    """Takes - Username, (api_key or password), location, new Encryption key, new private_data
+    Generates a new public / private key pair.
+    Adds the new public key to the users account.
+    reports the new key as their incoming key.
+    Adds the new private data
+    """
+    new_key_status, new_keys = crypto.create_new_key_pair()
+    if not new_key_status:
+        return False
+    add_key_status = loginServerApis.add_pub_key(keys=new_keys, username=username, api_key=api_key, password=password)
+    if not add_key_status:
+        return False
+    report_status = loginServerApis.report(location="2", username=username, keys=new_keys, status="online", api_key=api_key, password=password)
+    if not report_status:
+        return False
+
+    private_data = {
+        'prikeys'                     : [new_keys['private_key_hex_string'], ""],
+        'blocked_pubkeys'             : ["T1", ""],
+        'blocked_usernames'           : ["user1", ""],
+        'blocked_message_signatures'  : ["user3", ""],
+        'blocked_words'               : ["bad word", ""],
+        'favourite_message_signatures': ["kwl message", ""],
+        'friends_usernames'           : ["no-one :(", ""]
+    }
+
+    loginServerApis.add_private_data(username=username, plain_text_private_data_dictonary=private_data, keys=new_keys,
+                                     encryption_key=encryption_key, api_key=api_key, password=password)
+
