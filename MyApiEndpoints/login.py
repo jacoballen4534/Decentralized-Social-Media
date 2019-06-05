@@ -1,8 +1,8 @@
 import pprint
 import urllib.request
 import cherrypy
-import exampleApiAccess.apiHelpers as acc
 import json
+import pickle
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
@@ -22,20 +22,26 @@ class Login:
 
         return login_template.render(server_down=(status_code == '1'), invalid_cridentials=(status_code == '2'),
                                      api_key_error=(status_code == '3'), private_key_error=(status_code == '4'),
-                                     private_data_error=(status_code == '5'), key_missmathch=(status_code == '6'))
+                                     private_data_error=(status_code == '5'), key_missmathch=(status_code == '6'),
+                                     api_key_expired=(status_code == '7'))
 
     @cherrypy.expose
     def signin(self, username=None, password=None, key_type=None, key_value=None):
         """Check their name and password and send them either to the main page, or back to the main login screen."""
-        status_code, api_key, private_key = authorise_user_login(username, password, key_type, key_value)
+        status_code, api_key, keys = authorise_user_login(username, password, key_type, key_value)
         # api_key = "2"
         # if True:
         if status_code == 0:  # Successfully logged in and generated api key
             print("\n\nSuccessful login:\n\t\t\t\tUsername: " + str(username) + "\n\t\t\t\tPassword: " + str(password) +
-                  "\n\t\t\t\tprivate_key: " + str(private_key) + "\n\t\t\t\tapi_key: " + str(api_key) + "\n\n")
+                  "\n\t\t\t\tprivate_key: " + str(keys['private_key_hex_string']) + "\n\t\t\t\tapi_key: " + str(api_key) + "\n\n")
             cherrypy.session['username'] = username
             cherrypy.session['api_key'] = api_key
-            cherrypy.session['private_key'] = private_key
+            if keys is not None:
+                pickled_keys = pickle.dumps(keys, protocol=4, fix_imports=False)
+                cherrypy.session['pickled_keys'] = pickled_keys
+            else:
+                cherrypy.session['pickled_keys'] = None
+
             raise cherrypy.HTTPRedirect('/')
         else:
             raise cherrypy.HTTPRedirect('/login?status_code=' + str(status_code))
@@ -45,8 +51,8 @@ class Login:
         """Logs the current user out, expires their session"""
         username = cherrypy.session.get('username')
         api_key = cherrypy.session.get('api_key')
-        private_key = cherrypy.session.get('private_key')
-        if username is not None or api_key is not None or private_key is not None:
+        pickled_keys = cherrypy.session.get("pickled_keys")
+        if username is not None or api_key is not None or pickled_keys is not None:
             cherrypy.lib.sessions.expire()
 
         raise cherrypy.HTTPRedirect('/')
@@ -70,7 +76,7 @@ def authorise_user_login(username, password, key_type, key_value):
     # Clear all credentials if the are already logged in, but try to log in again.
     cherrypy.session['username'] = None
     cherrypy.session['api_key'] = None
-    cherrypy.session['private_key'] = None
+    cherrypy.session['pickled_keys'] = None
     # _______________________________Check server is online __________________________________
     if not loginApi.ping():
         return 1, None, None  # Return status and new api key for the user. 1 indicates server is down
@@ -108,7 +114,7 @@ def authorise_user_login(username, password, key_type, key_value):
 
     # _________________________ Report the associated public key_______________________________________
 
-    return 0, api_key, keys['private_key']  # 0 = Success, return new key
+    return 0, api_key, keys  # 0 = Success, return new keys
 
 
 

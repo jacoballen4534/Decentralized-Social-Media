@@ -11,8 +11,8 @@ encryption_key = "This is a new key"
 message = "Hows 313 going?"
 private_key_hex_bytes = 'b19d2b5bedbef07365402439cb520797dc0690540973053d14b91c1fcba1835c'
 status, keys = crypto.get_keys(private_key_hex_bytes)
-api_key = loginServerApis.load_new_apikey(username, password)
-x_signature = loginServerApis.ping(username="jall229", api_key=api_key)
+# api_key = loginServerApis.load_new_apikey(username, password)
+# x_signature = loginServerApis.ping(username="jall229", api_key=api_key)
 
 
 def test_load_new_apikey():
@@ -79,10 +79,10 @@ def test_send_broadcast():
 
 
 def test_send_broadcast_to_one_person():
-    target_name = "admin"
+    target_name = "jall229"
     # target_ip = "122.58.162.166:5001"
     target_user = None
-    users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
+    users = loginServerApis.list_users(username=username, api_key=None, password=password)
     """Try to find the target user from the list of online users. If it cant, return false."""
     for user in users:
         if 'username' in user and user.get('username') == target_name:
@@ -124,3 +124,4 @@ def test_overwrite_private_data():
     loginServerApis.add_private_data(username=username, plain_text_private_data_dictonary=private_data, keys=new_keys,
                                      encryption_key=encryption_key, api_key=api_key, password=password)
 
+test_send_broadcast_to_one_person()

@@ -40,7 +40,6 @@ def query_server(request):
         return {'response': 'error'}
 
 
-
 def create_basic_header(username, password):
     credentials = ('%s:%s' % (username, password))
     b64_credentials = base64.b64encode(credentials.encode('ascii'))

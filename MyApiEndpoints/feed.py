@@ -3,6 +3,7 @@ import urllib.request
 import cherrypy
 import ApisAndHelpers.loginServerApis as loginApi
 import json
+import pickle
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
@@ -22,9 +23,10 @@ class Feed:
 
         username = cherrypy.session.get('username')
         api_key = cherrypy.session.get('api_key')
-        private_key = cherrypy.session.get('private_key')
+        pickled_keys = cherrypy.session.get("pickled_keys")
+
         # If they shouldnt be here. Kick them back to login.
-        if username is None or api_key is None or private_key is None:
+        if username is None or api_key is None or pickled_keys is None:
             raise cherrypy.HTTPRedirect('/')
 
         online_users = loginApi.list_users(username=username, api_key=api_key)

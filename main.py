@@ -19,13 +19,44 @@ import MyApiEndpoints.landingPage
 import MyApiEndpoints.feed
 import MyApiEndpoints.login
 import MyApiEndpoints.apis
-
-
+import sqlite3
+import db.addData as addData
 
 # The address we listen for connections on
-# LISTEN_IP = "0.0.0.0"
-LISTEN_IP = "192.168.1.68"
+LISTEN_IP = "0.0.0.0"
+# LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
+
+
+# initialize database
+def init_db():
+    """If the database doesnt allready exsist, create it, then ensure the desired tables are there, Only create them
+    if they arnt allready there."""
+    conn = None
+    try:
+        conn = sqlite3.connect("./db/database.db")
+        c = conn.cursor()
+        c.execute("""CREATE TABLE IF NOT EXISTS `broadcasts` (
+                    `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+                    `sender`        TEXT NOT NULL,
+                    `sender_pubkey` TEXT NOT NULL,
+                    `timestamp`     INTEGER NOT NULL,
+                    `message`       TEXT NOT NULL
+                );""")
+        c.execute("""CREATE TABLE IF NOT EXISTS `messages` (
+                    `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+                    `sender`         TEXT NOT NULL,
+                    `receiver`       TEXT NOT NULL,
+                    `sender_pubkey`  TEXT NOT NULL,
+                    `receiver_pubkey`TEXT NOT NULL,
+                    `timestamp`      INTEGER NOT NULL,
+                    `message`        TEXT NOT NULL
+                );""")
+    except Exception as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
 
 
 def error_page_404(status, message, traceback, version):
@@ -33,6 +64,8 @@ def error_page_404(status, message, traceback, version):
 
 
 def runMainApp():
+    # Setup the database
+    init_db()
     #set up the config
     conf = {
         '/': {
@@ -42,8 +75,7 @@ def runMainApp():
             'tools.sessions.on': True,
             'tools.sessions.timeout': 60 * 3,  # timeout is in minutes, * 60 to get hours
 
-            # The default session backend is in RAM. Other options are 'file',
-            # 'postgres', 'memcached'. For example, uncomment:
+            # Comment this out for ram based (can store objects). Uncomment for file based
             'tools.sessions.storage_class': cherrypy.lib.sessions.FileSession,
             'tools.sessions.storage_path': os.path.abspath(os.getcwd()) + '/temp/mysessions',
         },

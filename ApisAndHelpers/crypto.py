@@ -11,7 +11,6 @@ import nacl.pwhash
 import nacl.hash
 import nacl.exceptions
 import time
-import logging
 
 
 def sign_message(message_string, private_key):

@@ -128,10 +128,8 @@ def report(location, username, keys, status="online", api_key=None, password=Non
     print(connection_address)
 
     if api_key is not None:
-        print("reporting with api_key")
         header = request_helper.create_api_header(x_username=username, api_key=api_key)
     elif password is not None:
-        print("reporting with HTTP Basic")
         header = request_helper.create_basic_header(username=username, password=password)
     else:
         return False

@@ -10,6 +10,7 @@ import ApisAndHelpers.requests as request_helper
 import ApisAndHelpers.crypto as crypto
 from jinja2 import Environment, FileSystemLoader
 import logging
+import pickle
 from main import private_data_logger, info_logger, debug_logger
 
 
@@ -62,22 +63,22 @@ class Api(object):
             if 'loginserver_record' not in received_data_body:
                 return {
                     'response': 'error',
-                    'message': 'missing loginserver_record',
+                    'message' : 'missing loginserver_record',
                 }
             if 'message' not in received_data_body:
                 return {
                     'response': 'error',
-                    'message': 'missing message',
+                    'message' : 'missing message',
                 }
             if 'sender_created_at' not in received_data_body:
                 return {
                     'response': 'error',
-                    'message': 'missing sender_created_at',
+                    'message' : 'missing sender_created_at',
                 }
             if 'signature' not in received_data_body:
                 return {
                     'response': 'error',
-                    'message': 'missing signature',
+                    'message' : 'missing signature',
                 }
 
             api_key = cherrypy.request.headers.get("X-Apikey")
@@ -122,6 +123,52 @@ class Api(object):
         response = json.dumps(response)
         return response
 
+    @cherrypy.expose
+    @cherrypy.tools.allow(methods=["POST"])
+    @cherrypy.tools.json_out()
+    def report(self):
+        """This endpoint gets called by each client, from their browser. It will be called every 20 seconds, telling
+        the server to report them to the login server"""
+        received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
+        username = cherrypy.session.get("username")
+        api_key = cherrypy.session.get("api_key")
+        pickled_keys = cherrypy.session.get("pickled_keys")
+        keys = None
+        if pickled_keys is not None:
+            keys = pickle.loads(pickled_keys)
+        debug_logger.debug("Request: " + str(received_data) + " from: " + str(username))
+        report_status = loginServerApis.report(location="2", username=username, keys=keys, status="online", api_key=api_key)
+        debug_logger.debug("Reporting " + str(username) + ": status " + "sucess" if report_status else "Failed")
+
+        """If the report failed. The user may have logged in on another computer. check if their api key is still valid.
+         If its not, send them back to the log in screed and tell them this is the case."""
+        if not report_status:
+            api_key_still_valid = False
+            if username is not None and api_key is not None:
+                api_key_still_valid = loginServerApis.ping(username=username, api_key=api_key)
+            if not api_key_still_valid:
+                # cherrypy.lib.sessions.expire()
+                cherrypy.session['username'] = None
+                cherrypy.session['api_key'] = None
+                cherrypy.session['pickled_keys'] = None
+                raise cherrypy.HTTPRedirect('/login?status_code=7')
+
+        return {
+            'response'     : 'ok',
+            'report_status': 'success' if report_status else 'failed',
+            'user_id'      : username,
+        }
+
+    @cherrypy.expose
+    @cherrypy.tools.allow(methods=["GET"])
+    @cherrypy.tools.json_out()
+    def update_public_broadcasts(self):
+        """This is the endpoint my front end will subscrive to, to get new messages instantly"""
+        print("update_messages triggered")
+
+        return {'data': 'test\n\n'}
+
+
 
 # ___________________________Non exposed functions_________________________________________#
 
@@ -129,7 +176,8 @@ class Api(object):
 def send_broadcast(username, message, send_to_dict, keys, api_key=None, password=None):
     """Requires api_key or password. Takes a messages and a list of users to send it to.(Format of list_users).
     Needs the username and keys of the sender, to sign the message and create the loginserver_record"""
-    status, loginserver_record = loginServerApis.get_loginserver_record(username=username, api_key=api_key, password=password)
+    status, loginserver_record = loginServerApis.get_loginserver_record(username=username, api_key=api_key,
+                                                                        password=password)
     if not status:
         print("Failed to get loginserver record, for sending broadcast.")
         return False
@@ -143,9 +191,9 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
 
     payload = {
         "loginserver_record": loginserver_record,
-        "message": message,
-        "sender_created_at": current_time,
-        "signature": signature_hex_str
+        "message"           : message,
+        "sender_created_at" : current_time,
+        "signature"         : signature_hex_str
     }
     byte_payload = bytes(json.dumps(payload), "utf-8")
 
@@ -154,6 +202,8 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
                                                                                        api_key, password, username]))
         broadcast_thread.start()
     return True
+
+
 # threading.Thread(target=fun1, args=(12,10))
 
 

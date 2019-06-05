@@ -93,6 +93,11 @@
                     Public / private key mismatch.<br/>
                     Go to forgot my password for more details.
                 </small>
+                {% elif api_key_expired %}
+                <small id="api_key_expired_error_message" class="text-danger">
+                    It looks like your api key has expired.<br/>
+                    Please only log into 1 device per account.
+                </small>
                 {% endif %}
             </div>
         </form>

@@ -2,3 +2,24 @@
 2019-06-04 22:42:26,379 INFO Received broadcast from jall229
 2019-06-04 22:47:26,719 INFO Received broadcast from jall229
 2019-06-04 22:48:08,087 INFO Received broadcast from jall229
+2019-06-05 18:20:59,012 INFO Reporting None with api_key None and keys: None
+2019-06-05 18:21:09,114 INFO Reporting None with api_key None and keys: None
+2019-06-05 18:22:35,485 INFO Reporting jall229 with api_key bOAHwGtlQlFHn7lqVUZp and keys: {'private_key': <nacl.signing.SigningKey object at 0x7eff0c529588>, 'public_hex_bytes': b'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba', 'private_key_hex_string': '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc', 'public_key_hex_string': 'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba'}
+2019-06-05 18:22:45,572 INFO Reporting jall229 with api_key bOAHwGtlQlFHn7lqVUZp and keys: {'private_key': <nacl.signing.SigningKey object at 0x7eff0c5292b0>, 'public_hex_bytes': b'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba', 'private_key_hex_string': '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc', 'public_key_hex_string': 'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba'}
+2019-06-05 18:22:47,424 INFO Received broadcast from bwil410: Test to all soz
+2019-06-05 18:22:55,403 INFO Reporting jall229 with api_key bOAHwGtlQlFHn7lqVUZp and keys: {'private_key': <nacl.signing.SigningKey object at 0x7eff1059d748>, 'public_hex_bytes': b'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba', 'private_key_hex_string': '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc', 'public_key_hex_string': 'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba'}
+2019-06-05 18:23:05,744 INFO Reporting jall229 with api_key bOAHwGtlQlFHn7lqVUZp and keys: {'private_key': <nacl.signing.SigningKey object at 0x7eff1059d748>, 'public_hex_bytes': b'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba', 'private_key_hex_string': '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc', 'public_key_hex_string': 'fe3583f2e2777bda21d628bd9862a5f103414ace1cd6cbf4306d90d34bf3a1ba'}
+2019-06-05 18:46:26,762 INFO Received broadcast from bwil410: Test to all soz
+2019-06-05 18:50:42,687 INFO Received broadcast from tgre605: test2
+2019-06-05 18:52:01,793 INFO Received broadcast from tzha384: testestsetestest:guess who just spent two days on js
+2019-06-05 18:53:58,154 INFO Received broadcast from tgre605: hi josiah
+2019-06-05 19:21:59,322 INFO Received broadcast from sdup751: test
+2019-06-05 19:29:26,190 INFO Received broadcast from tgre605: test
+2019-06-05 19:32:05,508 INFO Received broadcast from bwil410: Test to all
+2019-06-05 20:43:36,090 INFO Received broadcast from tzha384: Test Robustness Again 
+from TZ
+2019-06-05 20:43:47,248 INFO Received broadcast from tden328: test
+2019-06-05 20:44:04,953 INFO Received broadcast from tzha384: 
+2019-06-05 20:49:42,882 INFO Received broadcast from jbea599: test
+2019-06-05 21:03:45,319 INFO Received broadcast from sdup751: test
+2019-06-05 21:05:59,646 INFO Received broadcast from sdup751: test
