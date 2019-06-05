@@ -9,6 +9,7 @@ import ApisAndHelpers.loginServerApis as loginServerApis
 import ApisAndHelpers.requests as request_helper
 import ApisAndHelpers.crypto as crypto
 from jinja2 import Environment, FileSystemLoader
+import db.addData as database
 import logging
 import pickle
 from main import private_data_logger, info_logger, debug_logger
@@ -101,7 +102,8 @@ class Api(object):
             info_logger.info("Received broadcast from " + str(received_from) + ": " + str(message))
 
             print("Received broadcast message: " + str(message))
-
+            database.add_public_broadcast(loginserver_record=received_data_body.get("loginserver_record"),
+                                          message=message, timestamp=received_data_body.get('sender_created_at'))
             response = {'response': 'ok'}
             return response
         except Exception:

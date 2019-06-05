@@ -8,10 +8,11 @@ import pprint
 username = "jall229"
 password = "jacoballen4534_205023320"
 encryption_key = "This is a new key"
-message = "Hows 313 going?"
+message = "Yo, what up dmav?"
 private_key_hex_bytes = 'b19d2b5bedbef07365402439cb520797dc0690540973053d14b91c1fcba1835c'
 status, keys = crypto.get_keys(private_key_hex_bytes)
 # api_key = loginServerApis.load_new_apikey(username, password)
+api_key = None
 # x_signature = loginServerApis.ping(username="jall229", api_key=api_key)
 
 
@@ -72,7 +73,7 @@ def test_add_private_data():
 
 
 def test_send_broadcast():
-    message = "Test?"
+    # message = "Test?"
     users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
     myApis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
                           password=password)
@@ -124,4 +125,4 @@ def test_overwrite_private_data():
     loginServerApis.add_private_data(username=username, plain_text_private_data_dictonary=private_data, keys=new_keys,
                                      encryption_key=encryption_key, api_key=api_key, password=password)
 
-test_send_broadcast_to_one_person()
+test_send_broadcast()

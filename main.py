@@ -23,8 +23,8 @@ import sqlite3
 import db.addData as addData
 
 # The address we listen for connections on
-LISTEN_IP = "0.0.0.0"
-# LISTEN_IP = "192.168.1.68"
+# LISTEN_IP = "0.0.0.0"
+LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
 
 
@@ -38,19 +38,21 @@ def init_db():
         c = conn.cursor()
         c.execute("""CREATE TABLE IF NOT EXISTS `broadcasts` (
                     `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+                    `message`       TEXT NOT NULL,
                     `sender`        TEXT NOT NULL,
-                    `sender_pubkey` TEXT NOT NULL,
                     `timestamp`     INTEGER NOT NULL,
-                    `message`       TEXT NOT NULL
+                    `sender_pubkey` TEXT NOT NULL,
+                    `signature`     TEXT NOT NULL
                 );""")
         c.execute("""CREATE TABLE IF NOT EXISTS `messages` (
                     `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
-                    `sender`         TEXT NOT NULL,
+                    `message`        TEXT NOT NULL,
+                    `sender`         TEXT NOT NULL,                    
                     `receiver`       TEXT NOT NULL,
+                    `timestamp`      INTEGER NOT NULL,                    
                     `sender_pubkey`  TEXT NOT NULL,
                     `receiver_pubkey`TEXT NOT NULL,
-                    `timestamp`      INTEGER NOT NULL,
-                    `message`        TEXT NOT NULL
+                    `signature`      TEXT NOT NULL
                 );""")
     except Exception as e:
         print(e)

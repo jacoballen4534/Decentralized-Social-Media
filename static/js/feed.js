@@ -19,15 +19,15 @@ function startReportTimer() {
             },
             body: JSON.stringify(payload)
         };
-        try {
+
            fetch('/api/report', options).then(response => {
             if (response.redirected) {
                 location.replace(response.url);
             }
-        })
-        } catch (e) {
-            ;
-        }
+        }).catch(() => {
+            console.log("could not report to server")
+           });
+
 
     }, 35000)
 }
