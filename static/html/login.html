@@ -11,97 +11,107 @@
 
 
 {% block base_body %}
-<div class="container" style="padding-top: 3em">
-    <div class="row col-centered-50">
-        <form action="/login/signin" method="POST" enctype="multipart/form-data" style="min-width: 20%">
-            <div class="form-group">
-                <label for="login-username" class="col-sm-1.4 col-form-label">Username</label>
-                <div>
-                    <input type="text" required class="form-control {% if invalid_cridentials %} is-invalid {% endif %}"
-                           id="login-username" aria-describedby="usernameHelp" name="username" placeholder="Username">
-                    <small id="username-help" class="form-text text-muted">Username is typically your university UPI.
-                    </small>
+<div class="flex-column col-centered-50 mt-3">
+    <form action="/login/signin" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <div class="row mb-lg-3 mb-2">
+            <div class="col">
+                <label for="login-username">Username</label>
+                <input type="text" required class="form-control" id="login-username" name="username"
+                       placeholder="Username" aria-describedby="username-help">
+                <div class="invalid-feedback">
+                    Please provide a username.
                 </div>
+                <small id="username-help" class="form-text text-muted flex-wrap">Username is typically your university
+                    UPI.
+                </small>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="login-password" class="col-form-label">Password</label>
-                <div>
-                    <input type="password" required
-                           class="form-control {% if invalid_cridentials %} is-invalid {% endif %}"
-                           id="login-password" name="password" placeholder="Password">
-                    <small id="password-help" class="form-text text-muted">Your password is never stored.</small>
+        <div class="row mb-lg-3 mb-2">
+            <div class="col">
+                <label for="login-password">Password</label>
+                <input type="password" required class="form-control" id="login-password" name="password"
+                       placeholder="Password" aria-describedby="password-help">
+                <div class="invalid-feedback">
+                    Please provide a password.
                 </div>
+                <small id="password-help" class="form-text text-muted flex-wrap">Your password is never stored.</small>
                 {% if invalid_cridentials %}
-                <div class="">
-                    <small id="passwordHelp" class="text-danger">
-                        Invalid Username or Password.
-                    </small>
-                </div>
+                <small id="passwordHelp" class="form-text text-danger flex-wrap">Invalid Username or
+                    Password.
+                </small>
                 {% endif %}
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="login-second-key" class="col-form-label">
-                    <select name="key_type" id="key_type" class="btn dropdown-toggle col-form-label"
-                            onchange="changeLoginOption(this)">
-                        <option name="encryption_key">Encryption Key</option>
-                        <option name="private_key">Private Key</option>
-                    </select>
-                </label>
-                <div>
-                    <input type="password" class="form-control {% if private_key_error %} is-invalid {% endif %}"
-                           id="login-second-key" name="key_value" required placeholder="Key">
-                    <input type="checkbox" id="show-password-checkbox" onclick="showPasswords(this)">Show Passwords
-                    <small id="second-key-help" class="form-text text-muted">
-                        This is what you used to encrypt your data.
-                    </small>
+        <div class="row mb-lg-3 mb-2">
+            <div class="col">
+                <select class="form-control" id="key_type" onchange="changeLoginOption(this)">
+                    <option name="encryption_key">Encryption Key</option>
+                    <option name="private_key">Private Key</option>
+                </select>
+                <div class="row mb-lg-3 mb-2"></div>
+                <input type="password" class="form-control {% if private_key_error %} is-invalid {% endif %}"
+                       id="login-key" name="key_value" required placeholder="Key">
+                <div class="invalid-feedback">
+                    {% if private_key_error %}
+                        That key could not be authenticated. Please try again or go to forgot my password.
+                    {% else %}
+                        Please provide a key.
+                    {% endif %}
                 </div>
-                {% if private_key_error %}
-                <div class="">
-                    <small id="secondHelp" class="text-danger">
-                        That key could not be authenticated.<br/>
-                        Please try again or go to forgot my password.
-                    </small>
-                </div>
-                {% endif %}
+                <small id="login-key-help" class="form-text text-muted flex-wrap">This is what you used to
+                    encrypt your data.
+                </small>
             </div>
+        </div>
 
-            <div class="col-centered-100">
-                <button type="submit" class="btn btn-primary btn-block">Login
+        <div class="row mb-lg-3 mb-2">
+            <div class="col">
+                <input type="checkbox" id="show-password-checkbox" onclick="showPasswords(this)">Show Passwords
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button type="submit" id="login-button" class="btn btn-primary btn-block">
+                    Login
                 </button>
+            </div>
+        </div>
+
+        <div class="row mb-lg-3 mb-2">
+            <div class="col">
                 {% if server_down %}
-                <small id="server_down_message">
-                    Unfortunately it appears the login server<br/>
-                      is unavailable
+                <small id="server_down_message" class="text-info flex-wrap">Unfortunately it appears the login server
+                    is unavailable.
                 </small>
                 {% elif something_went_wring %}
-                <small id="something_went_wrong_message" class="">
+                <small id="something_went_wrong_message" class="text-muted flex-wrap">
                     Looks like something went wrong
                 </small>
                 {% elif api_key_error %}
-                <small id="api_key_error_message" class="text-danger">
+                <small id="api_key_error_message" class="text-danger flex-wrap">
                     There was an issue retrieving a new api_key.
                 </small>
                 {% elif private_data_error %}
-                <small id="private_data_error_error_message" class="text-danger">
-                    Your private data could not be decrypted.<br/>
-                    Try again, or go to forgot my password.
+                <small id="private_data_error_error_message" class="text-danger flex-wrap">
+                    Your private data could not be decrypted. Try again, or go to forgot my password.
                 </small>
                 {% elif key_missmathch %}
-                <small id="key_missmathch_error_error_message" class="text-danger">
-                    Public / private key mismatch.<br/>
-                    Go to forgot my password for more details.
+                <small id="key_missmathch_error_error_message" class="text-danger flex-wrap">
+                    Public / private key mismatch. Go to forgot my password for more details.
                 </small>
                 {% elif api_key_expired %}
-                <small id="api_key_expired_error_message" class="text-danger">
-                    It looks like your api key has expired.<br/>
-                    Please only log into 1 device per account.
+                <small id="api_key_expired_error_message" class="text-danger flex-wrap">
+                    It looks like your api key has expired. Please only log into 1 device per account.
                 </small>
                 {% endif %}
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+
+
 </div>
 
 {% endblock base_body%}
