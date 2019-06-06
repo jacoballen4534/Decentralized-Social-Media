@@ -1,6 +1,6 @@
 function showPasswords(checkbox) {
     let password = document.getElementById("login-password");
-    let key_password = document.getElementById("login-second-key");
+    let key_password = document.getElementById("login-key");
     if (checkbox.checked) {
         password.type = 'text';
         key_password.type = 'text';
@@ -12,16 +12,48 @@ function showPasswords(checkbox) {
 
 function changeLoginOption(selection) {
     if (selection.value === "Encryption Key") {
-        document.getElementById("second-key-help").innerText = "This is what you used to encrypt your data.";
+        document.getElementById("login-key-help").innerText = "This is what you used to encrypt your data.";
     } else if (selection.value === "Private Key") {
-        document.getElementById("second-key-help").innerText = "Your private key in hex string form.";
+        document.getElementById("login-key-help").innerText = "Your private key in hex string form.";
     } else { //Api key - Make input box disappear
-        document.getElementById("second-key-help").innerText = "Use Api key for quick login.";
+        document.getElementById("login-key-help").innerText = "Use Api key for quick login.";
     }
 
     if (selection.value === "Api Key") {
-        document.getElementById("login-second-key").style.display = "none";
+        document.getElementById("login-key").style.display = "none";
     } else {
-        document.getElementById("login-second-key").style.display = "block";
+        document.getElementById("login-key").style.display = "block";
     }
 }
+
+function loadingButton() {
+    button = document.getElementById("login-button");
+    console.log("Clicked");
+    button.disabled = true;
+    button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Verifying...';
+}
+
+
+((loadingButton) => {
+        'use strict';
+        window.addEventListener('load', (loadingButton) => {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            let forms = document.getElementsByClassName('needs-validation');
+            //remove un needed elements
+
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, form => {
+                form.addEventListener('submit', event => {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+                        //If they all passed, disable the button.
+                        loadingButton()
+                    }
+                    form.classList.add('was-validated');
+                }, false)
+            });
+        }, false);
+    }
+)();
