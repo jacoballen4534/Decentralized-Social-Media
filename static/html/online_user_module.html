@@ -1,0 +1,13 @@
+<ul id="user_list" class="list-group">
+    {% for user in users -%}
+        {% if user['status'] == 'online' %}
+            <li class="list-group-item-success">{{user['username']}} - {{ user['status'] }}</li>
+        {% elif user['status'] == 'away' %}
+            <li class="list-group-item-warning">{{user['username']}} - {{ user['status'] }}</li>
+        {% elif user['status'] == 'busy' %}
+            <li class="list-group-item-info">{{user['username']}} - {{ user['status'] }}</li>
+        {% else %}
+            <li class="list-group-item-danger">{{user['username']}} - {{ user['status'] }}</li>
+        {% endif %}
+    {%- endfor %}
+</ul>

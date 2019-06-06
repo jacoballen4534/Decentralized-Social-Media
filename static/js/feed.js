@@ -1,12 +1,13 @@
 $(document).ready(() => {
+    //This function starts all of the set timeouts on page load
     startReportTimer();
-    // subscribeToPublicBroadcast();
+    pollNewMessages();
 });
 
 function startReportTimer() {
     //This function will be called on page load, It will periodically report the user to my server by calling the
     // report api. This will be every 35 seconds
-    setInterval(()=> {
+    setInterval(() => {
         //Define a generic payload to send to the server.
         const payload = {
             'request': 'report',
@@ -20,23 +21,24 @@ function startReportTimer() {
             body: JSON.stringify(payload)
         };
 
-           fetch('/api/report', options).then(response => {
+        fetch('/api/report', options).then(response => {
             if (response.redirected) {
                 location.replace(response.url);
             }
         }).catch(() => {
             console.log("could not report to server")
-           });
+        });
 
 
     }, 35000)
 }
 
 function pollNewMessages() {
-    setInterval(()=> {
+    //Update the list of online users every 8 seconds
+    setInterval(() => {
         //Define a generic payload to send to the server.
         const payload = {
-            'request': 'report',
+            'request': 'update_user_list',
         };
 
         const options = {
@@ -47,14 +49,12 @@ function pollNewMessages() {
             body: JSON.stringify(payload)
         };
 
-           fetch('/updates/update_online_users', options).then(response => {
-            if (response.redirected) {
-                location.replace(response.url);
-            }
-        }).catch(() => {
-            console.log("could not report to server")
-           });
-
-
-    }, 35000)
+        fetch('/updates/update_online_users', options).then(response => {
+            return response.json();
+        }).then((html_list) => {
+            let list = document.getElementById('user_list');
+            list.innerHTML = html_list;
+            console.log("Updated user list")
+        })
+    }, 8000)
 }

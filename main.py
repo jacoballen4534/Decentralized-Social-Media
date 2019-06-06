@@ -55,6 +55,13 @@ def init_db():
                     `receiver_pubkey`TEXT NOT NULL,
                     `signature`      TEXT NOT NULL
                 );""")
+        c.execute("""CREATE TABLE IF NOT EXISTS `all_seen_users` (
+                            `username`              VARCHAR(100) PRIMARY KEY UNIQUE,
+                            `incoming_pubkey`       TEXT NOT NULL,
+                            `connection_updated_at` INTEGER NOT NULL,                    
+                            `connection_address`    VARCHAR(50) NOT NULL,
+                            `connection_location`   INTEGER NOT NULL
+                        );""")
     except Exception as e:
         print(e)
     finally:

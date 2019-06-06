@@ -13,9 +13,7 @@
 <div class="d-flex flex-row justify-content-between flex-wrap">
     <div class="d-flex flex-column flex-wrap">
         <div class="p-2">
-            Welcome {{ username }} This is your home page.<br/>
-            You are now<font color='green'> visible</font> on the login server.<br/>
-            <a href='/login/signout'>Sign out</a>
+
         </div>
     </div>
     <div class="d-flex flex-column flex-wrap">
@@ -26,12 +24,18 @@
             It doesnt look like anyone else is online.
             {% endif %}
         </div>
-        <ul>
-            {% for user in users %}
-                {# if user['username'] != username #}
-            <li>{{user['username']}} - {{user['status']}}</li>
-                {# endif #}
-            {% endfor %}
+        <ul id="user_list" class="list-group">
+            {% for user in users -%}
+                {% if user['status'] == 'online' %}
+                    <li class="list-group-item-success">{{user['username']}} - {{user['status']}}</li>
+                {% elif user['status'] == 'away' %}
+                    <li class="list-group-item-warning">{{user['username']}} - {{user['status']}}</li>
+                {% elif user['status'] == 'busy' %}
+                    <li class="list-group-item-info">{{user['username']}} - {{user['status']}}</li>
+                {% else %}
+                    <li class="list-group-item-danger">{{user['username']}} - {{user['status']}}</li>
+                {% endif %}
+            {%- endfor %}
         </ul>
     </div>
 </div>

@@ -5,6 +5,7 @@ import pprint
 import logging
 import ApisAndHelpers.requests as request_helper
 import ApisAndHelpers.crypto as crypto
+import db.addData as database
 
 
 def ping(username=None, password=None, keys=None, api_key=None):
@@ -168,8 +169,12 @@ def list_users(username, api_key=None, password=None):
     req = urllib.request.Request(url=list_users_url, headers=header)
     list_users_object = request_helper.query_server(req)
     if list_users_object['response'] == 'ok':
-        pprint.pprint(list_users_object)
-        return list_users_object['users']
+        users = list_users_object['users']
+        # pprint.pprint(list_users_object)
+        for user in users:
+            database.update_user_list(user)
+
+        return users
     else:
         list_users_object['users'] = [{}]
         return list_users_object
