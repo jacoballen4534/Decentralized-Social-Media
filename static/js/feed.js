@@ -43,7 +43,7 @@ function subscribeToPublicBroadcast() {
     //This function will create a new event source, this will allow the browser to subscribe to the servers
     // update_public_broadcasts endpoint. This will allow the client to instantly get new messages.
 
-    let source = new EventSource('/api/update_public_broadcasts');
+    let source = new EventSource('/update_public_broadcasts/stream');
 
     source.onopen = function () {
         console.log("New broadcast update connection established");

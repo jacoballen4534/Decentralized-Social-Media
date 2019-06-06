@@ -1997,3 +1997,13 @@ from TZ
 2019-06-06 14:11:36,093 DEBUG Reporting jall229: status sucess
 2019-06-06 14:12:10,067 DEBUG Request: {'request': 'report'} from: jall229
 2019-06-06 14:12:11,271 DEBUG Reporting jall229: status sucess
+2019-06-06 14:55:03,278 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 14:55:04,502 DEBUG Reporting jall229: status sucess
+2019-06-06 14:55:38,277 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 14:56:22,763 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 14:56:24,413 DEBUG Reporting jall229: status sucess
+2019-06-06 14:57:09,618 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 14:57:10,798 DEBUG Reporting jall229: status sucess
+2019-06-06 14:57:44,625 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 14:57:45,825 DEBUG Reporting jall229: status sucess
+2019-06-06 14:59:30,229 DEBUG Received broadcast message: kiss kiss

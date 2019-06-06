@@ -95,6 +95,7 @@ def runMainApp():
         },
     }
 
+
     cherrypy.site = {
         'base_path': os.path.abspath(os.getcwd())
     }
@@ -104,6 +105,7 @@ def runMainApp():
     cherrypy.tree.mount(MyApiEndpoints.login.Login(), "/login", conf)
     cherrypy.tree.mount(MyApiEndpoints.feed.Feed(), "/feed", conf)
     cherrypy.tree.mount(MyApiEndpoints.apis.Api(), "/api", conf)
+    cherrypy.tree.mount(MyApiEndpoints.apis.UserLogStream(), "/update_public_broadcasts", conf)
 
     # Tell cherrypy where to listen, and to turn autoreload on
     cherrypy.config.update({

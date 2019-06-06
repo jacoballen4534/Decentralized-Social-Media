@@ -162,31 +162,27 @@ class Api(object):
             'user_id'      : username,
         }
 
+
+class UserLogStream(object):
+    messages = ["message1", "message2", "message3", "message4", "message5"]
+
     @cherrypy.expose
-    @cherrypy.tools.allow(methods=["GET"])
-    @cherrypy.tools.json_out()
-    def update_public_broadcasts(self):
+    # @cherrypy.tools.allow(methods=["GET"])
+    # @cherrypy.tools.json_out()
+    def stream(self):
         """This is the endpoint my front end will subscrive to, to get new messages instantly"""
+        # cherrypy.response.headers['Content-Type'] = 'text/event-stream'
         print("update_messages triggered")
-        cherrypy.response.headers['Content-Type'] = 'text/event-stream'
-
-        # yield 'retry: 1000\n\n'
-        def generator():
-            id = 0
-            while True:
-                id = id + 1
-                yield 'id: ' + str(id) + '\n' \
-                                         'event: new_broadcast\n' \
-                                         'data: There is a new broadcast\n\n' \
-                                         'data: message number will be on 3rd line\n' \
-                                         'data: Message number: ' + str(id) + '\n\n'
-                time.sleep(1)
-
-        return generator()
-
-    update_public_broadcasts._cp_config = {'response.stream': True}
-
-
+        while True:
+            if len(self.messages) > 0:
+                for msg in self.messages:
+                    data = "data:" + msg + "\n\n"
+                    yield data
+                self.messages = []
+    stream._cp_config = {
+        'response.stream': True,
+        'Content-Type': 'text/event-stream'
+    }
 # ___________________________Non exposed functions_________________________________________#
 
 
@@ -238,3 +234,22 @@ def individual_thread_broadcast(user, byte_payload, header, api_key=None, passwo
     broadcast_request = urllib.request.Request(url=broadcast_url, data=byte_payload, headers=header, method="POST")
     json_object = request_helper.query_server(broadcast_request)
     pprint.pprint("Resuly of request to " + broadcast_url + ": " + json_object['response'])
+
+
+
+
+# # yield 'retry: 1000\n\n'
+#         def generator():
+#             id = 0
+#             while True:
+#                 id = id + 1
+#                 yield 'id: ' + str(id) + '\n' \
+#                                          'event: new_broadcast\n' \
+#                                          'data: There is a new broadcast\n\n' \
+#                                          'data: message number will be on 3rd line\n' \
+#                                          'data: Message number: ' + str(id) + '\n\n'
+#                 time.sleep(1)
+#
+#         return generator()
+#
+#     update_public_broadcasts._cp_config = {'response.stream': True}
