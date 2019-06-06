@@ -30,5 +30,4 @@ class Feed:
             raise cherrypy.HTTPRedirect('/')
 
         online_users = loginApi.list_users(username=username, api_key=api_key)
-        # TODO: Start js report loop
         return feed_template.render(username=username, users=online_users)

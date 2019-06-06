@@ -19,6 +19,7 @@ import MyApiEndpoints.landingPage
 import MyApiEndpoints.feed
 import MyApiEndpoints.login
 import MyApiEndpoints.apis
+import MyApiEndpoints.updates
 import sqlite3
 import db.addData as addData
 
@@ -104,6 +105,7 @@ def runMainApp():
     cherrypy.tree.mount(MyApiEndpoints.login.Login(), "/login", conf)
     cherrypy.tree.mount(MyApiEndpoints.feed.Feed(), "/feed", conf)
     cherrypy.tree.mount(MyApiEndpoints.apis.Api(), "/api", conf)
+    cherrypy.tree.mount(MyApiEndpoints.updates.Updates(), "/updates", conf)
 
     # Tell cherrypy where to listen, and to turn autoreload on
     cherrypy.config.update({

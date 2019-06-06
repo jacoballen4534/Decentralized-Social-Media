@@ -794,3 +794,134 @@ from TZ
 2019-06-06 04:04:34,189 DEBUG Reporting jall229: status sucess
 2019-06-06 04:05:08,164 DEBUG Request: {'request': 'report'} from: jall229
 2019-06-06 04:05:09,621 DEBUG Reporting jall229: status sucess
+2019-06-06 20:30:43,021 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:30:44,415 DEBUG Reporting jall229: status sucess
+2019-06-06 20:31:08,045 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:09,969 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:14,373 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:15,003 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:15,082 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:15,499 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:18,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:31:19,156 DEBUG Reporting jall229: status sucess
+2019-06-06 20:31:21,546 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:22,567 DEBUG Received broadcast message: !Meta:favourite_broadcast:[605022c173713367b56bf1ca91886b877df1295741484e2c827fc5c083f34c0877afa39e8e02b75e277466ad17612112e1eaeb8f81745da776dfb309c61ec607]
+2019-06-06 20:31:23,691 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:31:53,024 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:32:09,490 DEBUG Reporting jall229: status sucess
+2019-06-06 20:32:28,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:32:29,011 DEBUG Reporting jall229: status sucess
+2019-06-06 20:32:30,465 DEBUG Received broadcast message: make
+2019-06-06 20:32:32,037 DEBUG Received broadcast message: !Meta:favourite_broadcast:[8708f0951fd189c5265bd642511900a7813679cdb4fa088b969fefe76bc20e4c3ee2250bc19ea4072692822565ddafc02136392bd90eed9427e9ee190b692f04]
+2019-06-06 20:32:33,355 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:32:33,955 DEBUG Received broadcast message: !Meta:favourite_broadcast:[8708f0951fd189c5265bd642511900a7813679cdb4fa088b969fefe76bc20e4c3ee2250bc19ea4072692822565ddafc02136392bd90eed9427e9ee190b692f04]
+2019-06-06 20:33:03,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:33:04,090 DEBUG Reporting jall229: status sucess
+2019-06-06 20:33:38,024 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:33:40,080 DEBUG Reporting jall229: status sucess
+2019-06-06 20:33:43,163 DEBUG Received broadcast message: !Meta:favourite_broadcast:[8708f0951fd189c5265bd642511900a7813679cdb4fa088b969fefe76bc20e4c3ee2250bc19ea4072692822565ddafc02136392bd90eed9427e9ee190b692f04]
+2019-06-06 20:33:43,883 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:34:13,024 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:34:14,009 DEBUG Reporting jall229: status sucess
+2019-06-06 20:34:42,865 DEBUG Received broadcast message: !Meta:favourite_broadcast:[8708f0951fd189c5265bd642511900a7813679cdb4fa088b969fefe76bc20e4c3ee2250bc19ea4072692822565ddafc02136392bd90eed9427e9ee190b692f04]
+2019-06-06 20:34:43,785 DEBUG Received broadcast message: !Meta:favourite_broadcast:[f27a0a730cc7289a2f05ed3b2fbee7089975fb980cc51afa58b5e04d6ba6054be9a50f1d0915e1ddb3054077acc99658ae53ea341a7eadbab275021be434360a]
+2019-06-06 20:34:48,019 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:34:50,327 DEBUG Reporting jall229: status sucess
+2019-06-06 20:34:50,412 DEBUG Received broadcast message: m
+2019-06-06 20:34:53,103 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5b72acaaa3fd64ae68d2848b7c2e9ee3cbfd4082607f8ef12abd661df5a5811e2155983c1cb09eb54eea02418399095bdae1bd0fadbb82f5967169e03e658d08]
+2019-06-06 20:35:20,751 DEBUG Received broadcast message: test
+2019-06-06 20:35:23,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:35:24,631 DEBUG Reporting jall229: status sucess
+2019-06-06 20:35:30,071 DEBUG Received broadcast message: !Meta:favourite_broadcast:[068c01ba0d74356a47d9ac7ffdb6795366b7c308150cf8b7db549d03f5d48afd21b8780f6728438bc3030993506210c720da3191c83f159906a9a1e7d68a230e]
+2019-06-06 20:35:58,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:35:59,192 DEBUG Reporting jall229: status sucess
+2019-06-06 20:36:33,024 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:36:34,136 DEBUG Reporting jall229: status sucess
+2019-06-06 20:36:55,269 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:36:56,656 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:36:56,927 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:36:57,829 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:37:08,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:37:09,032 DEBUG Reporting jall229: status sucess
+2019-06-06 20:37:12,985 DEBUG Received broadcast message: pub broadcast
+2019-06-06 20:37:43,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:37:44,408 DEBUG Reporting jall229: status sucess
+2019-06-06 20:38:18,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:38:19,192 DEBUG Reporting jall229: status sucess
+2019-06-06 20:38:28,966 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:38:30,398 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:38:31,117 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:38:31,284 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5f8980456736166e684e349030fa6eab1785f4549acd4ad94c4719ddaf5db332bb596a818fc42050f1341401c7f1060b8b187b9abdfb924304543c31386f2d08]
+2019-06-06 20:38:39,314 DEBUG Received broadcast message: !Meta:favourite_broadcast:[5b72acaaa3fd64ae68d2848b7c2e9ee3cbfd4082607f8ef12abd661df5a5811e2155983c1cb09eb54eea02418399095bdae1bd0fadbb82f5967169e03e658d08]
+2019-06-06 20:38:40,433 DEBUG Received broadcast message: !Meta:favourite_broadcast:[8708f0951fd189c5265bd642511900a7813679cdb4fa088b969fefe76bc20e4c3ee2250bc19ea4072692822565ddafc02136392bd90eed9427e9ee190b692f04]
+2019-06-06 20:38:53,022 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:38:53,992 DEBUG Reporting jall229: status sucess
+2019-06-06 20:38:56,716 DEBUG Received broadcast message: again
+2019-06-06 20:39:02,655 DEBUG Received broadcast message: !Meta:favourite_broadcast:[715f66c150cdefcf6e15e76ded3f4f6f2c618873ffcbd1ee5b57e890d14ec23bd5a5809a7e7028f7391d5a7e3c9f360eb5cadb1b01c76f83b345b2765a19f505]
+2019-06-06 20:39:28,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:39:29,220 DEBUG Reporting jall229: status sucess
+2019-06-06 20:40:11,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:40:12,582 DEBUG Reporting jall229: status sucess
+2019-06-06 20:40:46,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:40:47,192 DEBUG Reporting jall229: status sucess
+2019-06-06 20:41:21,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:41:22,419 DEBUG Reporting jall229: status sucess
+2019-06-06 20:41:56,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:41:57,383 DEBUG Reporting jall229: status sucess
+2019-06-06 20:42:31,112 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:42:32,255 DEBUG Reporting jall229: status sucess
+2019-06-06 20:43:06,111 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:43:07,096 DEBUG Reporting jall229: status sucess
+2019-06-06 20:43:41,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:43:42,279 DEBUG Reporting jall229: status sucess
+2019-06-06 20:44:16,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:44:17,728 DEBUG Reporting jall229: status sucess
+2019-06-06 20:44:51,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:44:52,409 DEBUG Reporting jall229: status sucess
+2019-06-06 20:45:26,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:45:27,539 DEBUG Reporting jall229: status sucess
+2019-06-06 20:46:01,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:46:02,484 DEBUG Reporting jall229: status sucess
+2019-06-06 20:46:36,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:46:38,978 DEBUG Reporting jall229: status sucess
+2019-06-06 20:47:11,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:47:12,386 DEBUG Reporting jall229: status sucess
+2019-06-06 20:47:46,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:47:47,858 DEBUG Reporting jall229: status sucess
+2019-06-06 20:48:21,119 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:48:22,241 DEBUG Reporting jall229: status sucess
+2019-06-06 20:48:56,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:48:58,303 DEBUG Reporting jall229: status sucess
+2019-06-06 20:49:31,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:49:32,260 DEBUG Reporting jall229: status sucess
+2019-06-06 20:50:06,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:50:07,072 DEBUG Reporting jall229: status sucess
+2019-06-06 20:50:37,968 DEBUG Received broadcast message: second test
+2019-06-06 20:50:41,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:50:42,962 DEBUG Reporting jall229: status sucess
+2019-06-06 20:51:16,118 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:51:17,367 DEBUG Reporting jall229: status sucess
+2019-06-06 20:51:51,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 20:51:52,106 DEBUG Reporting jall229: status sucess
+2019-06-06 21:23:53,837 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:23:54,945 DEBUG Reporting jall229: status sucess
+2019-06-06 21:24:28,840 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:24:34,816 DEBUG Failed
+2019-06-06 21:25:03,840 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:25:04,849 DEBUG Reporting jall229: status sucess
+2019-06-06 21:25:38,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:25:41,037 DEBUG Reporting jall229: status sucess
+2019-06-06 21:26:13,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:26:14,800 DEBUG Reporting jall229: status sucess
+2019-06-06 21:26:48,840 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:26:49,953 DEBUG Reporting jall229: status sucess
+2019-06-06 21:27:23,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:27:26,614 DEBUG Reporting jall229: status sucess
+2019-06-06 21:27:58,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:27:59,893 DEBUG Reporting jall229: status sucess
+2019-06-06 21:28:33,836 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:28:34,836 DEBUG Reporting jall229: status sucess
+2019-06-06 21:29:08,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:29:10,040 DEBUG Reporting jall229: status sucess
+2019-06-06 21:29:43,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-06 21:29:44,933 DEBUG Reporting jall229: status sucess

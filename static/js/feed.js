@@ -32,30 +32,29 @@ function startReportTimer() {
     }, 35000)
 }
 
+function pollNewMessages() {
+    setInterval(()=> {
+        //Define a generic payload to send to the server.
+        const payload = {
+            'request': 'report',
+        };
 
-function subscribeToPublicBroadcast() {
-    //This function will create a new event source, this will allow the browser to subscribe to the servers
-    // update_public_broadcasts endpoint. This will allow the client to instantly get new messages.
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+            body: JSON.stringify(payload)
+        };
 
-    let source = new EventSource('/api/update_public_broadcasts');
+           fetch('/updates/update_online_users', options).then(response => {
+            if (response.redirected) {
+                location.replace(response.url);
+            }
+        }).catch(() => {
+            console.log("could not report to server")
+           });
 
-    source.onopen = function () {
-        console.log("New broadcast update connection established");
-    };
 
-    source.onerror = () => {
-        console.log("broadcast error function");
-    };
-
-    source.addEventListener("data", function (event) {
-        console.log("From data listener:\n" + event.data)
-    });
-
-    source.onmessage = (event) => {
-        console.log("From data message:\n" + event.id, event.data);
-
-        if (event.id === "CLOSE") {
-            source.close()
-        }
-    }
+    }, 35000)
 }

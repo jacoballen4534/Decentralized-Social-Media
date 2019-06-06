@@ -156,20 +156,10 @@ class Api(object):
                 raise cherrypy.HTTPRedirect('/login?status_code=7')
 
         return {
-            'response'     : 'ok',
+            'response': 'ok',
             'report_status': 'success' if report_status else 'failed',
-            'user_id'      : username,
+            'user_id': username,
         }
-
-    @cherrypy.expose
-    @cherrypy.tools.allow(methods=["GET"])
-    @cherrypy.tools.json_out()
-    def update_public_broadcasts(self):
-        """This is the endpoint my front end will subscrive to, to get new messages instantly"""
-        print("update_messages triggered")
-
-        return {'data': 'test\n\n'}
-
 
 
 # ___________________________Non exposed functions_________________________________________#
