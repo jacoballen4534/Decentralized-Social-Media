@@ -1,12 +1,13 @@
 $(document).ready(() => {
     startReportTimer();
-    // subscribeToPublicBroadcast();
+    subscribeToPublicBroadcast();
 });
 
 function startReportTimer() {
     //This function will be called on page load, It will periodically report the user to my server by calling the
     // report api. This will be every 35 seconds
-    setInterval(()=> {
+    let missed_reports = 0;
+    setInterval(() => {
         //Define a generic payload to send to the server.
         const payload = {
             'request': 'report',
@@ -20,13 +21,18 @@ function startReportTimer() {
             body: JSON.stringify(payload)
         };
 
-           fetch('/api/report', options).then(response => {
+        fetch('/api/report', options).then(response => {
             if (response.redirected) {
                 location.replace(response.url);
             }
+            missed_reports = 0;
         }).catch(() => {
-            console.log("could not report to server")
-           });
+            console.log("could not report to server");
+            missed_reports++;
+            if (missed_reports > 4) { //If the client hasn't been able to reach the server for 2 minutes, log off.
+                location.replace("/");
+            }
+        });
 
 
     }, 35000)
@@ -47,8 +53,8 @@ function subscribeToPublicBroadcast() {
         console.log("broadcast error function");
     };
 
-    source.addEventListener("data", function (event) {
-        console.log("From data listener:\n" + event.data)
+    source.addEventListener("new_broadcast", function (event) {
+        console.log("Her is a new broadcast:\n" + event.data)
     });
 
     source.onmessage = (event) => {

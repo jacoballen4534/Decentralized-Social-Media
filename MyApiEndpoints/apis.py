@@ -139,7 +139,8 @@ class Api(object):
         if pickled_keys is not None:
             keys = pickle.loads(pickled_keys)
         debug_logger.debug("Request: " + str(received_data) + " from: " + str(username))
-        report_status = loginServerApis.report(location="2", username=username, keys=keys, status="online", api_key=api_key)
+        report_status = loginServerApis.report(location="2", username=username, keys=keys, status="online",
+                                               api_key=api_key)
         debug_logger.debug("Reporting " + str(username) + ": status " + "sucess" if report_status else "Failed")
 
         """If the report failed. The user may have logged in on another computer. check if their api key is still valid.
@@ -167,9 +168,23 @@ class Api(object):
     def update_public_broadcasts(self):
         """This is the endpoint my front end will subscrive to, to get new messages instantly"""
         print("update_messages triggered")
+        cherrypy.response.headers['Content-Type'] = 'text/event-stream'
 
-        return {'data': 'test\n\n'}
+        # yield 'retry: 1000\n\n'
+        def generator():
+            id = 0
+            while True:
+                id = id + 1
+                yield 'id: ' + str(id) + '\n' \
+                                         'event: new_broadcast\n' \
+                                         'data: There is a new broadcast\n\n' \
+                                         'data: message number will be on 3rd line\n' \
+                                         'data: Message number: ' + str(id) + '\n\n'
+                time.sleep(1)
 
+        return generator()
+
+    update_public_broadcasts._cp_config = {'response.stream': True}
 
 
 # ___________________________Non exposed functions_________________________________________#

@@ -75,7 +75,7 @@ def runMainApp():
             'tools.encode.on': True,
             'tools.encode.encoding': 'utf-8',
             'tools.sessions.on': True,
-            'tools.sessions.timeout': 60 * 3,  # timeout is in minutes, * 60 to get hours
+            'tools.sessions.timeout': 60 * 10,  # timeout is in minutes, * 60 to get hours
 
             # Comment this out for ram based (can store objects). Uncomment for file based
             'tools.sessions.storage_class': cherrypy.lib.sessions.FileSession,
