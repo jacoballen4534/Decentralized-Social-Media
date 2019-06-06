@@ -20,11 +20,14 @@ import MyApiEndpoints.feed
 import MyApiEndpoints.login
 import MyApiEndpoints.apis
 import sqlite3
+import threading
+import db.messageStreamer
 import db.addData as addData
 
+
 # The address we listen for connections on
-# LISTEN_IP = "0.0.0.0"
-LISTEN_IP = "192.168.1.68"
+LISTEN_IP = "0.0.0.0"
+# LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
 
 
@@ -66,8 +69,6 @@ def error_page_404(status, message, traceback, version):
 
 
 def runMainApp():
-    # Setup the database
-    init_db()
     #set up the config
     conf = {
         '/': {
@@ -95,7 +96,6 @@ def runMainApp():
         },
     }
 
-
     cherrypy.site = {
         'base_path': os.path.abspath(os.getcwd())
     }
@@ -105,17 +105,16 @@ def runMainApp():
     cherrypy.tree.mount(MyApiEndpoints.login.Login(), "/login", conf)
     cherrypy.tree.mount(MyApiEndpoints.feed.Feed(), "/feed", conf)
     cherrypy.tree.mount(MyApiEndpoints.apis.Api(), "/api", conf)
-    cherrypy.tree.mount(MyApiEndpoints.apis.UserLogStream(), "/update_public_broadcasts", conf)
 
-    # Tell cherrypy where to listen, and to turn autoreload on
     cherrypy.config.update({
         'server.socket_host': LISTEN_IP,
         'server.socket_port': LISTEN_PORT,
+        'server.thread_pool': 25,
+        'server.socket_queue_size': 10,
         'engine.autoreload.on': True,
         'error_page.404': error_page_404,
     })
-
-    #cherrypy.tools.auth = cherrypy.Tool('before_handler', auth.check_auth, 99)
+    #cherrypy.tools.auth = cherrypy.Tool('before_handler', auth.check_auth, 99) TODO: Look at
 
     print("========================================")
     print("             Jacob Allen")
@@ -131,7 +130,13 @@ def runMainApp():
 
 #Run the function to start everything
 if __name__ == '__main__':
+    # Setup the database on startup
+    cherrypy.engine.subscribe("start", init_db)
+    cherrypy.engine.subscribe("store_new_broadcast", db.addData.add_public_broadcast)
+
     runMainApp()
+
+
 
 
 #Set up different log files

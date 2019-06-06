@@ -8,7 +8,13 @@ import ApisAndHelpers.crypto as crypto
 import sqlite3
 
 
-def add_public_broadcast(loginserver_record, message, timestamp):
+def add_public_broadcast(data):
+    # loginserver_record, message, timestamp
+    loginserver_record = data.get('loginserver_record')
+    message = data.get('message')
+    timestamp = data.get('timestamp')
+    if loginserver_record is None or message is None or timestamp is None:
+        return False
 
     status, sender, sender_pubkey, time_stamp, signature = pre_process_broadcast(loginserver_record, timestamp)
     if not status:
@@ -24,6 +30,9 @@ def add_public_broadcast(loginserver_record, message, timestamp):
                     (?,?,?,?,?)""", (message, sender, time_stamp, sender_pubkey, signature,))
         conn.commit()
         print("Added message to db")
+        # Put this on a different bus to only send broadcasts that get stored
+        # TODO: Change this to the actual message
+        cherrypy.engine.publish("client_broadcast_update", "event: new_broadcast\n\rdata: some data\n\r\n\r")
     except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
         print(e)
     finally:

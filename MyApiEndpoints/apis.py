@@ -8,12 +8,12 @@ import threading
 import ApisAndHelpers.loginServerApis as loginServerApis
 import ApisAndHelpers.requests as request_helper
 import ApisAndHelpers.crypto as crypto
+import db.messageStreamer as messageStreamer
 from jinja2 import Environment, FileSystemLoader
 import db.addData as database
-import logging
+import datetime
 import pickle
 from main import private_data_logger, info_logger, debug_logger
-
 
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
@@ -79,7 +79,7 @@ class Api(object):
             if 'signature' not in received_data_body:
                 return {
                     'response': 'error',
-                    'message' : 'missing signature',
+                    'message': 'missing signature',
                 }
 
             api_key = cherrypy.request.headers.get("X-Apikey")
@@ -102,8 +102,16 @@ class Api(object):
             info_logger.info("Received broadcast from " + str(received_from) + ": " + str(message))
 
             print("Received broadcast message: " + str(message))
-            database.add_public_broadcast(loginserver_record=received_data_body.get("loginserver_record"),
-                                          message=message, timestamp=received_data_body.get('sender_created_at'))
+            # Publish the new message to the cherrypy bus for adding to db and sending to al clients
+            cherrypy.engine.publish("store_new_broadcast",
+                                    {
+                                        'loginserver_record': received_data_body.get("loginserver_record"),
+                                        'message': message,
+                                        'timestamp': received_data_body.get('sender_created_at')
+                                    })
+            #
+            # database.add_public_broadcast(loginserver_record=received_data_body.get("loginserver_record"),
+            #                               message=message, timestamp=received_data_body.get('sender_created_at'))
             response = {'response': 'ok'}
             return response
         except Exception:
@@ -162,27 +170,26 @@ class Api(object):
             'user_id'      : username,
         }
 
-
-class UserLogStream(object):
-    messages = ["message1", "message2", "message3", "message4", "message5"]
-
     @cherrypy.expose
-    # @cherrypy.tools.allow(methods=["GET"])
-    # @cherrypy.tools.json_out()
     def stream(self):
-        """This is the endpoint my front end will subscrive to, to get new messages instantly"""
-        # cherrypy.response.headers['Content-Type'] = 'text/event-stream'
-        print("update_messages triggered")
-        while True:
-            if len(self.messages) > 0:
-                for msg in self.messages:
-                    data = "data:" + msg + "\n\n"
-                    yield data
-                self.messages = []
-    stream._cp_config = {
-        'response.stream': True,
-        'Content-Type': 'text/event-stream'
-    }
+        """This is the endpoint my front end will subscribe to, to get new messages instantly"""
+        channel = 'client_broadcast_update'
+
+        doorman = messageStreamer.MessageStreamer(channel)
+        cherrypy.response.headers["Content-Type"] = "text/html; charset-utf-8"
+
+        def publish():
+            for message in doorman.messages():
+                try:
+                    yield message
+                except GeneratorExit:
+                    # cherrypy shuts down the generator when the client
+                    # disconnects. Catch disconnect and unsubscribe to clean up
+                    doorman.unsubscribe()
+                    return
+        return publish()
+
+    stream._cp_config = {'response.stream': True}
 # ___________________________Non exposed functions_________________________________________#
 
 

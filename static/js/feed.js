@@ -3,6 +3,11 @@ $(document).ready(() => {
     subscribeToPublicBroadcast();
 });
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     startReportTimer();
+//     subscribeToPublicBroadcast();
+// }, false);
+
 function startReportTimer() {
     //This function will be called on page load, It will periodically report the user to my server by calling the
     // report api. This will be every 35 seconds
@@ -35,15 +40,20 @@ function startReportTimer() {
         });
 
 
-    }, 35000)
+    }, 5000)
 }
 
 
 function subscribeToPublicBroadcast() {
     //This function will create a new event source, this will allow the browser to subscribe to the servers
     // update_public_broadcasts endpoint. This will allow the client to instantly get new messages.
-
-    let source = new EventSource('/update_public_broadcasts/stream');
+    let source;
+    if (!!window.EventSource) {
+        source = new EventSource('/api/stream');
+    } else {
+        console.log("This browser doesnt support event sources");
+        return
+    }
 
     source.onopen = function () {
         console.log("New broadcast update connection established");
