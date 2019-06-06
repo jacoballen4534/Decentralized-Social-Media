@@ -26,8 +26,8 @@ import db.addData as addData
 
 
 # The address we listen for connections on
-LISTEN_IP = "0.0.0.0"
-# LISTEN_IP = "192.168.1.68"
+# LISTEN_IP = "0.0.0.0"
+LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
 
 
@@ -109,8 +109,6 @@ def runMainApp():
     cherrypy.config.update({
         'server.socket_host': LISTEN_IP,
         'server.socket_port': LISTEN_PORT,
-        'server.thread_pool': 25,
-        'server.socket_queue_size': 10,
         'engine.autoreload.on': True,
         'error_page.404': error_page_404,
     })

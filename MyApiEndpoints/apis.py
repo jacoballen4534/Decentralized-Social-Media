@@ -176,12 +176,15 @@ class Api(object):
         channel = 'client_broadcast_update'
 
         doorman = messageStreamer.MessageStreamer(channel)
-        cherrypy.response.headers["Content-Type"] = "text/html; charset-utf-8"
+        cherrypy.response.headers["Content-Type"] = "text/event-stream; charset=utf-8"
+        cherrypy.response.headers["Content-Type"] = "text/plain"
+        # cherrypy.response.headers["Cache-Control"] = "no-cache"
+        # cherrypy.response.headers["Connection"] = "keep-alive"
 
         def publish():
             for message in doorman.messages():
                 try:
-                    yield message
+                    return message
                 except GeneratorExit:
                     # cherrypy shuts down the generator when the client
                     # disconnects. Catch disconnect and unsubscribe to clean up
