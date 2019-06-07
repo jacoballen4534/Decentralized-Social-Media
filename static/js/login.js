@@ -26,17 +26,10 @@ function changeLoginOption(selection) {
     }
 }
 
-function loadingButton() {
-    button = document.getElementById("login-button");
-    console.log("Clicked");
-    button.disabled = true;
-    button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Verifying...';
-}
 
-
-((loadingButton) => {
+(() => {
         'use strict';
-        window.addEventListener('load', (loadingButton) => {
+        window.addEventListener('load', () => {
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
             let forms = document.getElementsByClassName('needs-validation');
             //remove un needed elements
@@ -49,7 +42,9 @@ function loadingButton() {
                         event.stopPropagation();
                     } else {
                         //If they all passed, disable the button.
-                        loadingButton()
+                        let button = document.getElementById("login-button");
+                        button.disabled = true;
+                        button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Verifying...';
                     }
                     form.classList.add('was-validated');
                 }, false)

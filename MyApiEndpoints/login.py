@@ -4,6 +4,8 @@ import cherrypy
 import json
 import pickle
 from jinja2 import Environment, FileSystemLoader
+import ApisAndHelpers.loginServerApis as loginApi
+from main import LOCATION
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
 
@@ -52,6 +54,15 @@ class Login:
         username = cherrypy.session.get('username')
         api_key = cherrypy.session.get('api_key')
         pickled_keys = cherrypy.session.get("pickled_keys")
+        keys = None
+        try:
+            # Set the user status to offline before signing out
+            keys = pickle.loads(pickled_keys)
+            loginApi.report(location=LOCATION, username=username, keys=keys, status="offline",
+                            api_key=api_key)
+        except Exception:
+            pass
+
         if username is not None or api_key is not None or pickled_keys is not None:
             cherrypy.lib.sessions.expire()
 
@@ -71,7 +82,6 @@ def authorise_user_login(username, password, key_type, key_value):
     4 = Private key error
     5 = Error retrieving private data, or no private data available.
     6 = Private key does not associate with the public key registered on your account"""
-    import ApisAndHelpers.loginServerApis as loginApi
     import ApisAndHelpers.crypto as crypto
     # Clear all credentials if the are already logged in, but try to log in again.
     cherrypy.session['username'] = None
@@ -113,6 +123,10 @@ def authorise_user_login(username, password, key_type, key_value):
         return 6, api_key, None
 
     # _________________________ Report the associated public key_______________________________________
+    report_status = loginApi.report(location=LOCATION, username=username, keys=keys, status="online",
+                                    api_key=api_key, password=password)
+    if not report_status:
+        return 4, api_key, keys
 
     return 0, api_key, keys  # 0 = Success, return new keys
 

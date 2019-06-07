@@ -1,0 +1,35 @@
+{% macro display_broadcast(broadcasts) -%}
+{% for broadcast in broadcasts -%}
+<div class="card mr-4 mb-4" data-message-id="{{ broadcast['id'] }}" style="width: 100%;">
+    <div class="card-body mb-0 pb-0">
+        <h5 class="card-title">
+            {{ broadcast['sender'] }}
+        </h5>
+        <p class="card-text pb-0" style="overflow-y: auto; max-height: 50vh;">
+            {{ broadcast['message'] }}
+        </p>
+        <p class="card-text">
+            <small class="text-muted"> {{ broadcast['timestamp'] }}</small>
+        </p>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="float-left">
+                    {% if broadcast['liked'] -%}
+                    <i class="fa fa-heart"></i>
+                    {% else -%}
+                    <i class="fa fa-heart-o"></i>
+                    {%- endif %}
+                    <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0 ml-1 mr-3">Favorite</button>
+                </div>
+                <div class="float-right">
+                    <i class="fa fa-ban "></i>
+                    <button href="#" class="btn btn-outline-danger btn-sm my-2 my-sm-0 ml-1 mr-3"> Block</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{%- endmacro%}

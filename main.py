@@ -27,6 +27,7 @@ import db.addData as addData
 # LISTEN_IP = "0.0.0.0"
 LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
+LOCATION = "2"
 
 
 # initialize database
@@ -43,7 +44,7 @@ def init_db():
                     `sender`        TEXT NOT NULL,
                     `timestamp`     INTEGER NOT NULL,
                     `sender_pubkey` TEXT NOT NULL,
-                    `signature`     TEXT NOT NULL
+                    `signature`     TEXT NOT NULL UNIQUE 
                 );""")
         c.execute("""CREATE TABLE IF NOT EXISTS `messages` (
                     `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -139,24 +140,3 @@ def runMainApp():
 #Run the function to start everything
 if __name__ == '__main__':
     runMainApp()
-
-
-#Set up different log files
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-
-
-def setup_logger(name, log_file, level=logging.INFO):
-    """This sets up various log files, for different severity"""
-    handler = logging.FileHandler(log_file)
-    handler.setFormatter(formatter)
-
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
-    logger.addHandler(handler)
-    return logger
-
-
-info_logger = setup_logger('info_logger', 'InfoLog.log', logging.INFO)
-private_data_logger = setup_logger('private_data_logger', 'private_data_logger.log', logging.INFO)
-debug_logger = setup_logger('debug_logger', 'DebugLog.log', logging.DEBUG)
-

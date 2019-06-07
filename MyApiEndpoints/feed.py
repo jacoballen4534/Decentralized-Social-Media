@@ -18,6 +18,7 @@ class Feed:
 
     @cherrypy.expose
     def index(self, *args, **kwargs):
+        import db.getData as getData
         """This is the users home page. This is where new public messages are posted."""
         feed_template = env.get_template('/html/feed.html')
 
@@ -30,4 +31,6 @@ class Feed:
             raise cherrypy.HTTPRedirect('/')
 
         online_users = loginApi.list_users(username=username, api_key=api_key)
-        return feed_template.render(username=username, users=online_users)
+        # Get the last (upto) 20 messages to display on the home page.
+        broadcasts = getData.get_public_broadcast(last_broadcast_id=0, limit=20)
+        return feed_template.render(username=username, users=online_users, broadcasts=broadcasts)

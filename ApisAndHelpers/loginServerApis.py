@@ -114,6 +114,7 @@ def report(location, username, keys, status="online", api_key=None, password=Non
     global ip
     ip = main.LISTEN_IP
     port = main.LISTEN_PORT
+    location = main.LOCATION
     if location == "0" or location == "1":  # If the user is at uni, use local ip
         ip = socket.gethostbyname(socket.gethostname())
     else:  # Otherwise, try to get public ip of server
@@ -150,7 +151,6 @@ def report(location, username, keys, status="online", api_key=None, password=Non
         return True
     else:
         return False
-    # TODO Setup thread to keep reporting the users
 
 
 def list_users(username, api_key=None, password=None):

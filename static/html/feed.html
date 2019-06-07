@@ -1,4 +1,5 @@
 {% extends "/html/post_login_template.html" %}
+{% from '/html/newMessage.html' import display_broadcast %}
 
 {% block base_title %}
 <title>{{ username }} - Feed</title>
@@ -7,34 +8,46 @@
 {% block post_login_links -%}
 <link rel='stylesheet' type="text/css" href='/static/css/feed.css'/>
 <script src="/static/js/feed.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 {% endblock post_login_links %}
 
 {% block post_login_body -%}
-<div class="d-flex flex-row justify-content-between flex-wrap">
-    <div class="d-flex flex-column flex-wrap">
-        <div class="p-2">
-
-        </div>
+<div class="d-flex flex-row justify-content-center" style="padding-top: 70px">
+    <div class="form-inline my-2 my-lg-0" style="min-width: 50%">
+        <input id="broadcast-message-box" class="form-control mr-sm-2" style="min-width: 70%" type="text" placeholder="Type a message... "
+               aria-label="message-to-send">
+        <button onclick="sendBroadcast()" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-3" type="submit">
+            Post Broadcast
+        </button>
     </div>
-    <div class="d-flex flex-column flex-wrap">
-        <div class="p-2">
+</div>
+<div class="d-flex flex-row justify-content-between flex-wrap">
+
+    <div id="broadcasts" class="d-flex flex-column align-content-start flex-wrap ml-lg-5 ml-4 mb-sm-3 mt-3"
+         style="width: 50%">
+        {{ display_broadcast(broadcasts) }}
+    </div>
+
+
+    <div class="d-flex flex-column flex-wrap mx-sm-4 mr-lg-4 ml-lg-5 ml-4 mt-3">
+        <div class="flex-row">
             {% if users and users[0] %}
-            Here is a list of other users the currently online:
+            Here is a list of other users who have reported in the last 5 minutes:
             {% else %}
             It doesnt look like anyone else is online.
             {% endif %}
         </div>
         <ul id="user_list" class="list-group">
             {% for user in users -%}
-                {% if user['status'] == 'online' %}
-                    <li class="list-group-item-success">{{user['username']}} - {{user['status']}}</li>
-                {% elif user['status'] == 'away' %}
-                    <li class="list-group-item-warning">{{user['username']}} - {{user['status']}}</li>
-                {% elif user['status'] == 'busy' %}
-                    <li class="list-group-item-info">{{user['username']}} - {{user['status']}}</li>
-                {% else %}
-                    <li class="list-group-item-danger">{{user['username']}} - {{user['status']}}</li>
-                {% endif %}
+            {% if user['status'] == 'online' %}
+            <li class="list-group-item-success">{{user['username']}} - {{user['status']}}</li>
+            {% elif user['status'] == 'away' %}
+            <li class="list-group-item-warning">{{user['username']}} - {{user['status']}}</li>
+            {% elif user['status'] == 'busy' %}
+            <li class="list-group-item-info">{{user['username']}} - {{user['status']}}</li>
+            {% else %}
+            <li class="list-group-item-danger">{{user['username']}} - {{user['status']}}</li>
+            {% endif %}
             {%- endfor %}
         </ul>
     </div>

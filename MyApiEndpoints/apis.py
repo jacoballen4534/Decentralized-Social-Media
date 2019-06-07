@@ -12,11 +12,26 @@ from jinja2 import Environment, FileSystemLoader
 import db.addData as database
 import logging
 import pickle
-from main import private_data_logger, info_logger, debug_logger
-
-
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
+#Set up different log files
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+
+
+def setup_logger(name, log_file, level=logging.INFO):
+    """This sets up various log files, for different severity"""
+    handler = logging.FileHandler(log_file)
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+    return logger
+
+
+info_logger = setup_logger('info_logger', 'InfoLog.log', logging.INFO)
+private_data_logger = setup_logger('private_data_logger', 'private_data_logger.log', logging.INFO)
+debug_logger = setup_logger('debug_logger', 'DebugLog.log', logging.DEBUG)
 
 class Api(object):
     @cherrypy.expose
@@ -161,13 +176,13 @@ class Api(object):
             'user_id': username,
         }
 
-
 # ___________________________Non exposed functions_________________________________________#
 
 
 def send_broadcast(username, message, send_to_dict, keys, api_key=None, password=None):
     """Requires api_key or password. Takes a messages and a list of users to send it to.(Format of list_users).
     Needs the username and keys of the sender, to sign the message and create the loginserver_record"""
+    import db.addData
     status, loginserver_record = loginServerApis.get_loginserver_record(username=username, api_key=api_key,
                                                                         password=password)
     if not status:
@@ -188,15 +203,12 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
         "signature"         : signature_hex_str
     }
     byte_payload = bytes(json.dumps(payload), "utf-8")
-
+    db.addData.add_public_broadcast(loginserver_record, message, current_time)
     for user in send_to_dict:
         broadcast_thread = threading.Thread(target=individual_thread_broadcast, args=([user, byte_payload, header,
                                                                                        api_key, password, username]))
         broadcast_thread.start()
     return True
-
-
-# threading.Thread(target=fun1, args=(12,10))
 
 
 def individual_thread_broadcast(user, byte_payload, header, api_key=None, password=None, username=None):

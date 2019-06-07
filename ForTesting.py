@@ -7,12 +7,12 @@ import pprint
 
 username = "jall229"
 password = "jacoballen4534_205023320"
-encryption_key = "This is a new key"
+encryption_key = "key"
 message = "Yo, what up"
-private_key_hex_bytes = 'b19d2b5bedbef07365402439cb520797dc0690540973053d14b91c1fcba1835c'
+private_key_hex_bytes = '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc'
 status, keys = crypto.get_keys(private_key_hex_bytes)
-# api_key = loginServerApis.load_new_apikey(username, password)
-api_key = None
+api_key = loginServerApis.load_new_apikey(username, password)
+# api_key = None
 # x_signature = loginServerApis.ping(username="jall229", api_key=api_key)
 
 
@@ -38,7 +38,7 @@ def test_add_pub_key():
 
 
 def test_get_private_data():
-    data = loginServerApis.get_private_data(username, encryption_key, api_key=api_key, password=password)
+    status, data = loginServerApis.get_private_data(username, encryption_key, api_key=api_key, password=password)
     print("This is the data that was returned \n\n\n\n")
     pprint.pprint(data)
 
@@ -52,11 +52,12 @@ def test_get_loginserver_record():
 
 
 def test_check_pubkey():
-    loginServerApis.check_pubkey(username=username,public_key_kex_string_to_check=
+    loginServerApis.check_pubkey(username=username, public_key_kex_string_to_check=
     "b9eba910b59549774d55d3ce49a7b4d46ab5e225cdcf2ac388cf356b5928b6bc", api_key=api_key, password=password)
 
 
 def test_add_private_data():
+    #  Call get priv data and update keys with that
     plain_text_private_data_dictonary = {
             'prikeys': [keys['private_key_hex_string'], ""],
             'blocked_pubkeys': ["", ""],
@@ -73,7 +74,6 @@ def test_add_private_data():
 
 
 def test_send_broadcast():
-    # message = "Test?"
     users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
     myApis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
                           password=password)
@@ -126,4 +126,5 @@ def test_overwrite_private_data():
                                      encryption_key=encryption_key, api_key=api_key, password=password)
 
 
-test_report(status='away')
+# test_report(status='away')
+test_add_private_data()
