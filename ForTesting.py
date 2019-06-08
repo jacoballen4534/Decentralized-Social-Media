@@ -53,7 +53,7 @@ def test_get_loginserver_record():
 
 def test_check_pubkey():
     loginServerApis.check_pubkey(username=username, public_key_kex_string_to_check=
-    "b9eba910b59549774d55d3ce49a7b4d46ab5e225cdcf2ac388cf356b5928b6bc", api_key=api_key, password=password)
+    'b9eba910b59549774d55d3ce49a7b4d46ab5e225cdcf2ac388cf356b5928b6bc', api_key=api_key, password=password)
 
 
 def test_add_private_data():
@@ -80,7 +80,7 @@ def test_send_broadcast():
 
 
 def test_send_broadcast_to_one_person():
-    target_name = "jall229"
+    target_name = "tmag741"
     # target_ip = "122.58.162.166:5001"
     target_user = None
     users = loginServerApis.list_users(username=username, api_key=None, password=password)
@@ -146,4 +146,4 @@ def test_call_ping_check():
     myApis.call_ping_check(send_to_dict=users)
 
 
-test_call_ping_check_on_one_person()
+test_send_broadcast_to_one_person()

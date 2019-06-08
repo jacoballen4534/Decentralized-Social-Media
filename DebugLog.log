@@ -5161,3 +5161,1044 @@ from TZ
 2019-06-08 19:45:08,227 DEBUG Reporting jall229: status sucess
 2019-06-08 19:45:41,919 DEBUG Request: {'request': 'report'} from: jall229
 2019-06-08 19:45:44,281 DEBUG Reporting jall229: status sucess
+2019-06-08 19:46:17,517 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:46:18,683 DEBUG Reporting jall229: status sucess
+2019-06-08 19:46:51,919 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:46:52,952 DEBUG Reporting jall229: status sucess
+2019-06-08 19:47:26,919 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:47:28,569 DEBUG Reporting jall229: status sucess
+2019-06-08 19:48:01,923 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:48:03,294 DEBUG Reporting jall229: status sucess
+2019-06-08 19:48:36,919 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:48:38,422 DEBUG Reporting jall229: status sucess
+2019-06-08 19:49:11,914 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:49:13,242 DEBUG Reporting jall229: status sucess
+2019-06-08 19:49:46,923 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:49:47,891 DEBUG Reporting jall229: status sucess
+2019-06-08 19:50:21,919 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:50:23,087 DEBUG Reporting jall229: status sucess
+2019-06-08 19:50:57,522 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:50:58,930 DEBUG Reporting jall229: status sucess
+2019-06-08 19:51:32,023 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:51:33,099 DEBUG Reporting jall229: status sucess
+2019-06-08 19:52:06,919 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:52:07,984 DEBUG Reporting jall229: status sucess
+2019-06-08 19:52:42,019 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:52:43,285 DEBUG Reporting jall229: status sucess
+2019-06-08 19:53:17,939 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 19:53:19,231 DEBUG Reporting jall229: status sucess
+2019-06-08 20:00:23,428 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:00:29,645 DEBUG Failed
+2019-06-08 20:00:58,428 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:00:59,493 DEBUG Reporting jall229: status sucess
+2019-06-08 20:01:34,138 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:01:35,095 DEBUG Reporting jall229: status sucess
+2019-06-08 20:02:08,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:02:09,796 DEBUG Reporting jall229: status sucess
+2019-06-08 20:02:43,428 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:02:44,765 DEBUG Reporting jall229: status sucess
+2019-06-08 20:03:18,532 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:03:20,248 DEBUG Reporting jall229: status sucess
+2019-06-08 20:03:53,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:03:55,243 DEBUG Reporting jall229: status sucess
+2019-06-08 20:04:30,551 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:04:32,135 DEBUG Reporting jall229: status sucess
+2019-06-08 20:05:03,529 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:05:04,905 DEBUG Reporting jall229: status sucess
+2019-06-08 20:05:38,424 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:05:39,779 DEBUG Reporting jall229: status sucess
+2019-06-08 20:06:25,230 DEBUG Received broadcast message: hello
+2019-06-08 20:06:35,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:06:36,847 DEBUG Reporting jall229: status sucess
+2019-06-08 20:07:10,849 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:07:11,952 DEBUG Reporting jall229: status sucess
+2019-06-08 20:07:46,652 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:07:47,793 DEBUG Reporting jall229: status sucess
+2019-06-08 20:08:20,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:08:21,978 DEBUG Reporting jall229: status sucess
+2019-06-08 20:08:55,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:08:56,949 DEBUG Reporting jall229: status sucess
+2019-06-08 20:09:30,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:09:32,687 DEBUG Reporting jall229: status sucess
+2019-06-08 20:10:05,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:10:07,051 DEBUG Reporting jall229: status sucess
+2019-06-08 20:10:42,662 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:10:43,958 DEBUG Reporting jall229: status sucess
+2019-06-08 20:11:37,293 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:11:39,768 DEBUG Reporting jall229: status sucess
+2019-06-08 20:12:12,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:12:13,970 DEBUG Reporting jall229: status sucess
+2019-06-08 20:12:48,097 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:12:49,106 DEBUG Reporting jall229: status sucess
+2019-06-08 20:13:22,295 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:13:23,808 DEBUG Reporting jall229: status sucess
+2019-06-08 20:13:57,289 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:13:59,137 DEBUG Reporting jall229: status sucess
+2019-06-08 20:14:32,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:14:33,749 DEBUG Reporting jall229: status sucess
+2019-06-08 20:15:07,293 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:15:08,320 DEBUG Reporting jall229: status sucess
+2019-06-08 20:15:42,299 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:15:44,201 DEBUG Reporting jall229: status sucess
+2019-06-08 20:16:17,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:16:18,557 DEBUG Reporting jall229: status sucess
+2019-06-08 20:16:52,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:16:53,285 DEBUG Reporting jall229: status sucess
+2019-06-08 20:17:27,997 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:17:29,013 DEBUG Reporting jall229: status sucess
+2019-06-08 20:18:02,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:18:03,410 DEBUG Reporting jall229: status sucess
+2019-06-08 20:18:37,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:18:38,898 DEBUG Reporting jall229: status sucess
+2019-06-08 20:19:12,293 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:19:13,734 DEBUG Reporting jall229: status sucess
+2019-06-08 20:19:47,288 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:19:48,631 DEBUG Reporting jall229: status sucess
+2019-06-08 20:20:22,292 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:20:23,508 DEBUG Reporting jall229: status sucess
+2019-06-08 20:20:57,287 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:20:58,559 DEBUG Reporting jall229: status sucess
+2019-06-08 20:21:32,294 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:21:33,454 DEBUG Reporting jall229: status sucess
+2019-06-08 20:22:07,695 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:22:08,998 DEBUG Reporting jall229: status sucess
+2019-06-08 20:22:12,048 DEBUG Received broadcast message: yeeti
+2019-06-08 20:22:42,293 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:22:43,835 DEBUG Reporting jall229: status sucess
+2019-06-08 20:23:17,293 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:23:18,260 DEBUG Reporting jall229: status sucess
+2019-06-08 20:24:20,849 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:24:21,904 DEBUG Reporting jall229: status sucess
+2019-06-08 20:24:55,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:24:56,926 DEBUG Reporting jall229: status sucess
+2019-06-08 20:25:03,939 DEBUG Received broadcast message: yeeti
+2019-06-08 20:25:15,924 DEBUG Received broadcast message: !Meta:favourite_broadcast:[57c0605e1a446fe6912df50945469d93c62cbe92160995e742f0341ad10226f8204dd1e110008e168875f4828685449f5f157ea3d5010a769181bf9d54ca0207]
+2019-06-08 20:25:17,860 DEBUG Received broadcast message: !Meta:favourite_broadcast:[0aff979454f10cc1f6c8224d29e7420426e004cb2d50c09ecfff84bd9106313c3aebddd8885b3f25c64f0879e0c9a3b023ae6f8c720eee45310ceabecabe4605]
+2019-06-08 20:25:31,652 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:25:32,895 DEBUG Reporting jall229: status sucess
+2019-06-08 20:26:05,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:26:07,308 DEBUG Reporting jall229: status sucess
+2019-06-08 20:26:40,847 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:26:42,165 DEBUG Reporting jall229: status sucess
+2019-06-08 20:27:15,843 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:27:21,950 DEBUG Failed
+2019-06-08 20:27:50,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:27:53,591 DEBUG Reporting jall229: status sucess
+2019-06-08 20:28:25,853 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:28:27,115 DEBUG Reporting jall229: status sucess
+2019-06-08 20:29:00,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:29:01,807 DEBUG Reporting jall229: status sucess
+2019-06-08 20:29:35,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:29:36,831 DEBUG Reporting jall229: status sucess
+2019-06-08 20:30:11,345 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:30:12,445 DEBUG Reporting jall229: status sucess
+2019-06-08 20:30:45,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:30:47,363 DEBUG Reporting jall229: status sucess
+2019-06-08 20:31:20,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:31:22,122 DEBUG Reporting jall229: status sucess
+2019-06-08 20:31:55,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:31:56,861 DEBUG Reporting jall229: status sucess
+2019-06-08 20:32:30,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:32:32,165 DEBUG Reporting jall229: status sucess
+2019-06-08 20:33:05,843 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:33:06,906 DEBUG Reporting jall229: status sucess
+2019-06-08 20:33:34,498 DEBUG Received broadcast message: hello
+2019-06-08 20:33:40,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:33:42,317 DEBUG Reporting jall229: status sucess
+2019-06-08 20:34:15,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:34:16,821 DEBUG Reporting jall229: status sucess
+2019-06-08 20:34:51,752 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:34:53,072 DEBUG Reporting jall229: status sucess
+2019-06-08 20:35:14,768 DEBUG Received broadcast message: chur
+2019-06-08 20:35:25,847 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:35:27,017 DEBUG Reporting jall229: status sucess
+2019-06-08 20:36:00,849 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:36:02,653 DEBUG Reporting jall229: status sucess
+2019-06-08 20:36:20,994 DEBUG Received broadcast message: chello
+2019-06-08 20:36:35,847 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:36:37,232 DEBUG Reporting jall229: status sucess
+2019-06-08 20:37:10,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:37:12,236 DEBUG Reporting jall229: status sucess
+2019-06-08 20:37:45,843 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:37:47,176 DEBUG Reporting jall229: status sucess
+2019-06-08 20:38:04,171 DEBUG Received broadcast message: yoyoyoyoyo
+2019-06-08 20:38:20,847 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:38:22,941 DEBUG Reporting jall229: status sucess
+2019-06-08 20:38:55,847 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:38:57,347 DEBUG Reporting jall229: status sucess
+2019-06-08 20:39:31,652 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:39:32,983 DEBUG Reporting jall229: status sucess
+2019-06-08 20:40:05,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:40:06,876 DEBUG Reporting jall229: status sucess
+2019-06-08 20:40:10,243 DEBUG Received broadcast message: hellololo
+2019-06-08 20:40:40,848 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:40:42,000 DEBUG Reporting jall229: status sucess
+2019-06-08 20:41:03,827 DEBUG Received broadcast message: test
+2019-06-08 20:41:32,426 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:41:33,574 DEBUG Reporting jall229: status sucess
+2019-06-08 20:41:52,462 DEBUG Received broadcast message: @jacob yes!
+2019-06-08 20:42:20,939 DEBUG Received broadcast message: @tomas yes
+2019-06-08 20:42:28,301 DEBUG Received broadcast message: Can y'all check my signature please
+2019-06-08 20:42:31,311 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:42:32,283 DEBUG Reporting jall229: status sucess
+2019-06-08 20:43:10,331 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:43:11,959 DEBUG Reporting jall229: status sucess
+2019-06-08 20:43:45,331 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:43:46,347 DEBUG Reporting jall229: status sucess
+2019-06-08 20:44:33,841 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:44:35,165 DEBUG Reporting jall229: status sucess
+2019-06-08 20:54:43,628 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:54:46,078 DEBUG Reporting jall229: status sucess
+2019-06-08 20:55:00,735 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:55:01,803 DEBUG Reporting jall229: status sucess
+2019-06-08 20:55:35,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:55:36,539 DEBUG Reporting jall229: status sucess
+2019-06-08 20:56:17,348 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:56:18,638 DEBUG Reporting jall229: status sucess
+2019-06-08 20:56:39,332 DEBUG Received broadcast message: please check my sig 
+2019-06-08 20:59:15,008 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:59:16,800 DEBUG Reporting jall229: status sucess
+2019-06-08 20:59:50,002 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 20:59:50,980 DEBUG Reporting jall229: status sucess
+2019-06-08 21:00:25,815 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:00:27,221 DEBUG Reporting jall229: status sucess
+2019-06-08 21:01:00,009 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:01:01,131 DEBUG Reporting jall229: status sucess
+2019-06-08 21:01:54,253 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:01:55,408 DEBUG Reporting jall229: status sucess
+2019-06-08 21:02:29,253 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:02:30,394 DEBUG Reporting jall229: status sucess
+2019-06-08 21:02:56,447 DEBUG Received broadcast message: !Meta:favourite_broadcast:[10f9ea4113decfbf2d25d685189318e67f290aa1c4ffd96b0e73bab2dd215bf53b0d5a8518e52209013df55e4a7278bce647776608a375c0325de52f1a7e530b]
+2019-06-08 21:03:07,918 DEBUG Received broadcast message: !Meta:favourite_broadcast:[48b119ae4cb5599b9a84638265c513067e3fb23e062a5a8b49a23f993cae318846982eb8794cfb30e7398395adca5280bc4cd22fda0f8cd11c5086458c9f8d05]
+2019-06-08 21:03:20,408 DEBUG Received broadcast message: !Meta:favourite_broadcast:[686d3bf9bd4b1eb30a43ef3fd2de5253fb36485d015b27cc8cc4ebe9548ad71fa5f619edd9b9a772284b44c7e3f8666b9b4931ed23ceb1763a053ce5b53d6405]
+2019-06-08 21:03:59,404 DEBUG Received broadcast message: test from home
+2019-06-08 21:03:59,550 DEBUG Received broadcast message: !Meta:favourite_broadcast:[3cc2525dabebf3cffc673be1277842cf78081c49d701cf185ded3fb0401938343196cad152636a763e8d826182b4807319f4a7a622a5de581d55ac648a3f2704]
+2019-06-08 21:03:59,554 DEBUG Received broadcast message: !Meta:favourite_broadcast:[b040bff3989b927dad9f98820f4f73b605a376a0ea3721ffaf247b311d6523c59bc43ff095a583a38c2aee41df7b83aa4670a7a789b955cd761792a4b5ffc502]
+2019-06-08 21:04:35,376 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:04:36,684 DEBUG Reporting jall229: status sucess
+2019-06-08 21:05:10,372 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:05:11,373 DEBUG Reporting jall229: status sucess
+2019-06-08 21:07:14,616 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:07:15,965 DEBUG Reporting jall229: status sucess
+2019-06-08 21:07:50,720 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:07:51,668 DEBUG Reporting jall229: status sucess
+2019-06-08 21:08:27,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:08:28,258 DEBUG Reporting jall229: status sucess
+2019-06-08 21:09:16,703 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:09:18,047 DEBUG Reporting jall229: status sucess
+2019-06-08 21:10:09,224 DEBUG Received broadcast message: test 3
+2019-06-08 21:10:37,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:10:39,370 DEBUG Reporting jall229: status sucess
+2019-06-08 21:11:12,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:11:13,960 DEBUG Reporting jall229: status sucess
+2019-06-08 21:11:48,744 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:11:49,923 DEBUG Reporting jall229: status sucess
+2019-06-08 21:12:22,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:12:23,842 DEBUG Reporting jall229: status sucess
+2019-06-08 21:13:14,554 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:13:15,804 DEBUG Reporting jall229: status sucess
+2019-06-08 21:13:49,554 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:13:50,536 DEBUG Reporting jall229: status sucess
+2019-06-08 21:14:25,465 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:14:26,807 DEBUG Reporting jall229: status sucess
+2019-06-08 21:14:59,554 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:15:00,938 DEBUG Reporting jall229: status sucess
+2019-06-08 21:15:34,554 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:15:35,577 DEBUG Reporting jall229: status sucess
+2019-06-08 21:16:38,614 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:16:39,809 DEBUG Reporting jall229: status sucess
+2019-06-08 21:17:40,287 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:17:41,555 DEBUG Reporting jall229: status sucess
+2019-06-08 21:18:16,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:18:18,110 DEBUG Reporting jall229: status sucess
+2019-06-08 21:18:51,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:18:53,276 DEBUG Reporting jall229: status sucess
+2019-06-08 21:19:28,409 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:19:44,843 DEBUG Reporting jall229: status sucess
+2019-06-08 21:20:26,695 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:20:46,929 DEBUG Reporting jall229: status sucess
+2019-06-08 21:21:09,156 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:21:10,343 DEBUG Reporting jall229: status sucess
+2019-06-08 21:21:45,927 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:21:47,515 DEBUG Reporting jall229: status sucess
+2019-06-08 21:21:54,999 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:21:56,328 DEBUG Reporting jall229: status sucess
+2019-06-08 21:22:23,907 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:22:25,139 DEBUG Reporting jall229: status sucess
+2019-06-08 21:22:56,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:22:58,546 DEBUG Reporting jall229: status sucess
+2019-06-08 21:23:31,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:23:33,350 DEBUG Reporting jall229: status sucess
+2019-06-08 21:24:07,498 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:24:09,234 DEBUG Reporting jall229: status sucess
+2019-06-08 21:24:41,995 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:24:43,434 DEBUG Reporting jall229: status sucess
+2019-06-08 21:25:16,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:25:18,558 DEBUG Reporting jall229: status sucess
+2019-06-08 21:25:51,995 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:25:53,169 DEBUG Reporting jall229: status sucess
+2019-06-08 21:26:26,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:26:28,034 DEBUG Reporting jall229: status sucess
+2019-06-08 21:27:02,000 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:27:04,234 DEBUG Reporting jall229: status sucess
+2019-06-08 21:27:36,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:27:37,988 DEBUG Reporting jall229: status sucess
+2019-06-08 21:28:11,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:28:13,090 DEBUG Reporting jall229: status sucess
+2019-06-08 21:29:21,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:29:23,418 DEBUG Reporting jall229: status sucess
+2019-06-08 21:30:24,020 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:30:25,175 DEBUG Reporting jall229: status sucess
+2019-06-08 21:30:59,019 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:31:00,143 DEBUG Reporting jall229: status sucess
+2019-06-08 21:31:34,424 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:31:35,484 DEBUG Reporting jall229: status sucess
+2019-06-08 21:32:09,020 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:32:10,848 DEBUG Reporting jall229: status sucess
+2019-06-08 21:36:46,988 DEBUG Received broadcast message: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+2019-06-08 21:59:09,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:59:10,932 DEBUG Reporting jall229: status sucess
+2019-06-08 21:59:40,294 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 21:59:41,496 DEBUG Reporting tmag741: status sucess
+2019-06-08 21:59:44,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 21:59:46,041 DEBUG Reporting jall229: status sucess
+2019-06-08 22:00:16,361 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:00:17,691 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:00:21,147 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:00:23,322 DEBUG Reporting jall229: status sucess
+2019-06-08 22:00:54,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:00:56,497 DEBUG Reporting jall229: status sucess
+2019-06-08 22:01:29,941 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:01:31,517 DEBUG Reporting jall229: status sucess
+2019-06-08 22:01:32,646 DEBUG Received broadcast message: Hi all
+2019-06-08 22:01:33,950 DEBUG Received broadcast message: hello everyone
+2019-06-08 22:01:33,965 DEBUG Received broadcast message: hello everyone
+2019-06-08 22:01:36,035 DEBUG Received broadcast message: Hi all
+2019-06-08 22:02:05,044 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:02:06,345 DEBUG Reporting jall229: status sucess
+2019-06-08 22:02:39,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:02:41,006 DEBUG Reporting jall229: status sucess
+2019-06-08 22:03:14,938 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:03:16,366 DEBUG Reporting jall229: status sucess
+2019-06-08 22:03:50,044 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:03:51,036 DEBUG Reporting jall229: status sucess
+2019-06-08 22:04:04,538 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:04:05,723 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:04:24,938 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:04:26,617 DEBUG Reporting jall229: status sucess
+2019-06-08 22:04:40,332 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:04:41,297 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:04:59,936 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:05:00,875 DEBUG Reporting jall229: status sucess
+2019-06-08 22:05:15,823 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:05:16,958 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:05:35,044 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:05:36,022 DEBUG Reporting jall229: status sucess
+2019-06-08 22:05:50,267 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:05:51,404 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:06:09,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:06:11,230 DEBUG Reporting jall229: status sucess
+2019-06-08 22:06:25,208 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:06:27,065 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:06:45,142 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:06:46,589 DEBUG Reporting jall229: status sucess
+2019-06-08 22:07:01,614 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:07:02,907 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:07:19,946 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:07:21,143 DEBUG Reporting jall229: status sucess
+2019-06-08 22:07:29,805 DEBUG Received broadcast message: F
+2019-06-08 22:07:35,216 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:07:36,490 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:07:45,791 DEBUG Received broadcast message: F
+2019-06-08 22:07:57,052 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:07:58,021 DEBUG Reporting jall229: status sucess
+2019-06-08 22:08:11,855 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:08:13,192 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:08:29,941 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:08:31,144 DEBUG Reporting jall229: status sucess
+2019-06-08 22:08:45,300 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:08:46,150 DEBUG Failed
+2019-06-08 22:09:04,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:09:05,982 DEBUG Reporting jall229: status sucess
+2019-06-08 22:09:40,342 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:09:41,335 DEBUG Reporting jall229: status sucess
+2019-06-08 22:10:14,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:10:16,046 DEBUG Reporting jall229: status sucess
+2019-06-08 22:10:50,037 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:10:51,004 DEBUG Reporting jall229: status sucess
+2019-06-08 22:11:24,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:11:25,981 DEBUG Reporting jall229: status sucess
+2019-06-08 22:11:59,936 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:12:04,087 DEBUG Reporting jall229: status sucess
+2019-06-08 22:12:34,943 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:12:35,996 DEBUG Reporting jall229: status sucess
+2019-06-08 22:13:09,940 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:13:11,395 DEBUG Reporting jall229: status sucess
+2019-06-08 22:13:16,927 DEBUG Received broadcast message: please dont crash
+2019-06-08 22:13:55,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:13:57,218 DEBUG Reporting jall229: status sucess
+2019-06-08 22:14:26,576 DEBUG Received broadcast message: send 4
+2019-06-08 22:14:30,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:14:32,041 DEBUG Reporting jall229: status sucess
+2019-06-08 22:15:06,211 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:15:07,706 DEBUG Reporting jall229: status sucess
+2019-06-08 22:15:40,806 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:15:41,776 DEBUG Reporting jall229: status sucess
+2019-06-08 22:16:17,646 DEBUG Received broadcast message: send 7
+2019-06-08 22:17:29,664 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:17:30,961 DEBUG Reporting jall229: status sucess
+2019-06-08 22:18:04,664 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:18:05,740 DEBUG Reporting jall229: status sucess
+2019-06-08 22:19:01,399 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:19:07,221 DEBUG Failed
+2019-06-08 22:20:12,866 DEBUG Received broadcast message: 😀👍😂 test on firefox
+2019-06-08 22:20:22,029 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:20:24,220 DEBUG Reporting jall229: status sucess
+2019-06-08 22:21:30,677 DEBUG Received broadcast message: F
+2019-06-08 22:21:32,264 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:21:33,237 DEBUG Reporting jall229: status sucess
+2019-06-08 22:22:23,663 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:22:24,948 DEBUG Reporting jall229: status sucess
+2019-06-08 22:23:44,462 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:23:46,019 DEBUG Reporting jall229: status sucess
+2019-06-08 22:25:28,605 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:25:29,779 DEBUG Reporting jall229: status sucess
+2019-06-08 22:25:34,988 DEBUG Received broadcast message: Howdy Team
+2019-06-08 22:26:03,604 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:26:04,695 DEBUG Reporting jall229: status sucess
+2019-06-08 22:27:00,250 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:27:01,325 DEBUG Reporting jall229: status sucess
+2019-06-08 22:28:24,448 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:28:25,436 DEBUG Reporting jall229: status sucess
+2019-06-08 22:28:59,448 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:29:00,856 DEBUG Reporting jall229: status sucess
+2019-06-08 22:29:53,781 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:29:55,000 DEBUG Reporting jall229: status sucess
+2019-06-08 22:30:28,780 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:30:29,791 DEBUG Reporting jall229: status sucess
+2019-06-08 22:31:28,284 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:31:29,267 DEBUG Reporting jall229: status sucess
+2019-06-08 22:32:20,027 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:32:21,039 DEBUG Reporting jall229: status sucess
+2019-06-08 22:32:55,020 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:32:56,136 DEBUG Reporting jall229: status sucess
+2019-06-08 22:33:30,628 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:33:32,289 DEBUG Reporting jall229: status sucess
+2019-06-08 22:34:05,026 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 22:34:06,030 DEBUG Reporting jall229: status sucess
+2019-06-08 22:53:30,282 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:53:31,278 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:54:12,936 DEBUG Received broadcast message: Hey Rgos
+2019-06-08 22:54:40,223 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:54:41,333 DEBUG Failed
+2019-06-08 22:54:44,672 DEBUG Received broadcast message: fasdasdafasd
+2019-06-08 22:55:48,217 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:55:49,225 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:56:22,211 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:56:23,413 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:56:58,038 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:56:59,001 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:57:32,982 DEBUG Received broadcast message: test
+2019-06-08 22:57:35,984 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:57:37,477 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:58:07,174 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:58:08,195 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:58:42,300 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:58:43,697 DEBUG Reporting tmag741: status sucess
+2019-06-08 22:59:29,097 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 22:59:30,201 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:00:04,071 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:00:51,066 DEBUG Failed
+2019-06-08 23:01:01,188 DEBUG Request: {'request': 'report'} from: jalp521
+2019-06-08 23:01:01,240 DEBUG Request: {'request': 'report'} from: None
+2019-06-08 23:01:12,246 DEBUG Failed
+2019-06-08 23:01:37,246 DEBUG Failed
+2019-06-08 23:01:52,400 DEBUG Received broadcast message: Rishab
+2019-06-08 23:01:55,458 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:01:56,457 DEBUG Reporting jall229: status sucess
+2019-06-08 23:01:56,460 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:02:07,190 DEBUG Reporting jall229: status sucess
+2019-06-08 23:02:17,002 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:03:02,037 DEBUG Failed
+2019-06-08 23:03:16,730 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:03:27,568 DEBUG Failed
+2019-06-08 23:03:57,417 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:03:58,454 DEBUG Reporting jall229: status sucess
+2019-06-08 23:04:59,833 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:05:01,018 DEBUG Reporting jall229: status sucess
+2019-06-08 23:05:13,134 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:05:14,096 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:05:34,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:05:35,994 DEBUG Reporting jall229: status sucess
+2019-06-08 23:05:47,366 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:05:48,559 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:06:10,442 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:06:11,835 DEBUG Reporting jall229: status sucess
+2019-06-08 23:06:23,604 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:06:25,102 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:06:44,833 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:06:45,970 DEBUG Reporting jall229: status sucess
+2019-06-08 23:06:58,131 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:06:58,998 DEBUG Failed
+2019-06-08 23:07:19,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:07:21,218 DEBUG Reporting jall229: status sucess
+2019-06-08 23:07:54,842 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:07:56,049 DEBUG Reporting jall229: status sucess
+2019-06-08 23:08:29,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:08:31,234 DEBUG Reporting jall229: status sucess
+2019-06-08 23:08:53,133 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:08:54,298 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:09:04,843 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:09:06,011 DEBUG Reporting jall229: status sucess
+2019-06-08 23:09:28,128 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:09:29,152 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:09:39,265 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:09:40,236 DEBUG Reporting jall229: status sucess
+2019-06-08 23:10:29,001 DEBUG Received broadcast message: Another test
+2019-06-08 23:10:34,741 DEBUG Received broadcast message: Another test
+2019-06-08 23:10:40,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:10:42,136 DEBUG Reporting jall229: status sucess
+2019-06-08 23:11:15,016 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:11:16,023 DEBUG Reporting jall229: status sucess
+2019-06-08 23:11:51,142 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:11:52,129 DEBUG Reporting jall229: status sucess
+2019-06-08 23:12:25,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:12:37,046 DEBUG Reporting jall229: status sucess
+2019-06-08 23:12:51,040 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:12:52,282 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:13:00,834 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:13:24,488 DEBUG Reporting jall229: status sucess
+2019-06-08 23:13:52,034 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:13:53,029 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:13:53,517 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:13:54,586 DEBUG Received broadcast message: Utsav
+2019-06-08 23:13:54,944 DEBUG Reporting jall229: status sucess
+2019-06-08 23:14:10,019 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:14:11,108 DEBUG Reporting jall229: status sucess
+2019-06-08 23:14:17,105 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:14:18,401 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:14:45,843 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:14:51,713 DEBUG Failed
+2019-06-08 23:17:12,100 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:17:13,277 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:17:17,294 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:17:18,277 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:17:24,134 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:17:25,469 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:17:31,996 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:17:33,358 DEBUG Reporting jall229: status sucess
+2019-06-08 23:17:57,143 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:17:58,151 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:18:06,995 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:18:08,405 DEBUG Reporting jall229: status sucess
+2019-06-08 23:18:32,164 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:18:33,198 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:18:42,604 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:18:44,094 DEBUG Reporting jall229: status sucess
+2019-06-08 23:19:07,108 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:19:17,838 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:19:35,341 DEBUG Reporting jall229: status sucess
+2019-06-08 23:19:37,159 DEBUG Failed
+2019-06-08 23:19:42,527 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:19:44,762 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:19:52,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:20:10,318 DEBUG Reporting jall229: status sucess
+2019-06-08 23:20:17,119 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:20:17,978 DEBUG Failed
+2019-06-08 23:20:27,943 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:20:28,959 DEBUG Reporting jall229: status sucess
+2019-06-08 23:21:02,833 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:21:04,017 DEBUG Reporting jall229: status sucess
+2019-06-08 23:21:37,837 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:22:22,878 DEBUG Failed
+2019-06-08 23:22:42,958 DEBUG Request: {'request': 'report'} from: None
+2019-06-08 23:23:02,974 DEBUG Failed
+2019-06-08 23:23:03,061 DEBUG Request: {'request': 'report'} from: None
+2019-06-08 23:23:23,079 DEBUG Failed
+2019-06-08 23:32:27,120 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:32:42,374 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:33:08,163 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:33:09,363 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:33:36,738 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:33:38,042 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:34:11,362 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:34:12,562 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:34:47,100 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:34:48,319 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:35:02,776 DEBUG Received broadcast message: test
+2019-06-08 23:35:22,336 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:35:23,353 DEBUG Reporting tmag741: status sucess
+2019-06-08 23:35:57,914 DEBUG Received broadcast message: Hey Azizul!
+2019-06-08 23:37:23,072 DEBUG Received broadcast message: ASD
+2019-06-08 23:40:00,581 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-08 23:40:01,533 DEBUG Failed
+2019-06-08 23:40:36,306 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:40:37,313 DEBUG Reporting jall229: status sucess
+2019-06-08 23:41:11,305 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:41:12,529 DEBUG Reporting jall229: status sucess
+2019-06-08 23:41:14,728 DEBUG Received broadcast message: asd
+2019-06-08 23:41:46,726 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:41:48,276 DEBUG Reporting jall229: status sucess
+2019-06-08 23:42:21,278 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:42:22,467 DEBUG Reporting jall229: status sucess
+2019-06-08 23:52:51,277 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:52:52,203 DEBUG Failed
+2019-06-08 23:53:45,423 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:53:46,936 DEBUG Reporting jall229: status sucess
+2019-06-08 23:53:56,568 DEBUG Received broadcast message: !Meta:favourite_broadcast:[a8c0519a3799183b1382bfd2eaffb360313b00a90b8e625e3f31333dea11b4d413148962f2a3ace576de63c18a03624d393636fc36d7500021a8759cb6b1aa0a]
+2019-06-08 23:54:10,103 DEBUG Received broadcast message: !Meta:favourite_broadcast:[dea12d715165d65a42140b8dadafcb813b978d19b858bcdfb2cb09ec5fab4b4f62798f5475034f430858de1f0e2aa2e336c63c6594106fcd273bb05e854a3d0e]
+2019-06-08 23:54:20,423 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:54:21,648 DEBUG Reporting jall229: status sucess
+2019-06-08 23:54:51,178 DEBUG Received broadcast message: !Meta:favourite_broadcast:[1e695d3b9e1d1af6592f35ee86ac54be31ca6168ea2d21c912f97d0c2ad2889e8cf7ffd20ccb78c9d10b0f5d12d61f2b5d3d6ea6477fa2ff40371eeb99571007]
+2019-06-08 23:54:57,298 DEBUG Received broadcast message: test
+2019-06-08 23:54:58,037 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:55:04,146 DEBUG Failed
+2019-06-08 23:55:30,424 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:55:31,518 DEBUG Reporting jall229: status sucess
+2019-06-08 23:56:05,424 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:56:07,123 DEBUG Reporting jall229: status sucess
+2019-06-08 23:56:51,660 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:56:53,159 DEBUG Reporting jall229: status sucess
+2019-06-08 23:57:41,444 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:57:42,468 DEBUG Reporting jall229: status sucess
+2019-06-08 23:57:57,630 DEBUG Received broadcast message: neat site, im still tryna get mine working
+2019-06-08 23:58:02,263 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:58:03,302 DEBUG Reporting jall229: status sucess
+2019-06-08 23:58:52,527 DEBUG Received broadcast message: @Ahua lol uhhh good luck fam
+2019-06-08 23:59:27,599 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:59:29,122 DEBUG Failed
+2019-06-08 23:59:29,415 DEBUG Request: {'request': 'report'} from: None
+2019-06-08 23:59:30,223 DEBUG Failed
+2019-06-08 23:59:30,314 DEBUG Request: {'request': 'report'} from: None
+2019-06-08 23:59:31,313 DEBUG Failed
+2019-06-08 23:59:31,326 DEBUG Request: {'request': 'report'} from: None
+2019-06-08 23:59:32,234 DEBUG Failed
+2019-06-08 23:59:43,456 DEBUG Received broadcast message: @AHUA btw, if you get kicked out, its cause i restarted my serve.
+2019-06-08 23:59:50,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-08 23:59:55,460 DEBUG Reporting jall229: status sucess
+2019-06-09 00:00:21,837 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:00:22,815 DEBUG Reporting jall229: status sucess
+2019-06-09 00:00:56,840 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:00:57,903 DEBUG Reporting jall229: status sucess
+2019-06-09 00:01:31,834 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:01:33,027 DEBUG Reporting jall229: status sucess
+2019-06-09 00:01:57,554 DEBUG Received broadcast message: !Meta:favourite_broadcast:[2b1459448dcad4921e39ebdda6c32a3bd065d7689958e07ef137cf3e4bd9502145f38981e7f5af657d2c8b7ca6f116d07b68e592c2768a011a02dc9b50220908]
+2019-06-09 00:02:06,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:02:08,260 DEBUG Reporting jall229: status sucess
+2019-06-09 00:02:43,368 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:02:44,390 DEBUG Reporting jall229: status sucess
+2019-06-09 00:03:16,660 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:03:18,849 DEBUG Reporting jall229: status sucess
+2019-06-09 00:03:51,660 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:03:52,689 DEBUG Reporting jall229: status sucess
+2019-06-09 00:04:26,658 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:04:28,213 DEBUG Reporting jall229: status sucess
+2019-06-09 00:05:46,295 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:05:47,270 DEBUG Reporting jall229: status sucess
+2019-06-09 00:06:21,295 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:06:22,315 DEBUG Reporting jall229: status sucess
+2019-06-09 00:07:00,424 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:07:01,448 DEBUG Reporting jall229: status sucess
+2019-06-09 00:07:50,097 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:07:51,237 DEBUG Reporting jall229: status sucess
+2019-06-09 00:08:25,091 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:08:26,644 DEBUG Reporting jall229: status sucess
+2019-06-09 00:09:00,399 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:09:05,068 DEBUG Reporting jall229: status sucess
+2019-06-09 00:09:35,100 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:09:37,120 DEBUG Reporting jall229: status sucess
+2019-06-09 00:10:10,100 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:10:11,092 DEBUG Reporting jall229: status sucess
+2019-06-09 00:10:12,861 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:10:16,546 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:10:45,094 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:10:46,072 DEBUG Reporting jall229: status sucess
+2019-06-09 00:10:48,050 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:10:50,172 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:11:24,033 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:11:25,068 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:11:58,050 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:11:59,124 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:12:32,126 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:12:33,967 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:12:36,901 DEBUG Received broadcast message: test2
+2019-06-09 00:12:56,127 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:12:57,073 DEBUG Reporting jall229: status sucess
+2019-06-09 00:13:12,574 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:13:13,977 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:13:15,427 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:13:16,627 DEBUG Reporting jall229: status sucess
+2019-06-09 00:13:47,599 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 00:13:48,761 DEBUG Reporting tmag741: status sucess
+2019-06-09 00:13:50,629 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:13:52,097 DEBUG Reporting jall229: status sucess
+2019-06-09 00:14:25,427 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:14:26,782 DEBUG Reporting jall229: status sucess
+2019-06-09 00:14:26,786 DEBUG Received broadcast message: test2
+2019-06-09 00:15:00,427 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:15:01,569 DEBUG Reporting jall229: status sucess
+2019-06-09 00:15:35,425 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:15:36,718 DEBUG Reporting jall229: status sucess
+2019-06-09 00:16:10,840 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:16:11,913 DEBUG Reporting jall229: status sucess
+2019-06-09 00:16:47,239 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:16:48,601 DEBUG Reporting jall229: status sucess
+2019-06-09 00:17:20,526 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:17:21,518 DEBUG Reporting jall229: status sucess
+2019-06-09 00:17:55,839 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:17:57,117 DEBUG Reporting jall229: status sucess
+2019-06-09 00:19:16,003 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:19:52,214 DEBUG Reporting jall229: status sucess
+2019-06-09 00:20:32,717 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:20:44,044 DEBUG Reporting jall229: status sucess
+2019-06-09 00:21:37,148 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:21:38,165 DEBUG Reporting jall229: status sucess
+2019-06-09 00:22:08,844 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:22:10,127 DEBUG Reporting jall229: status sucess
+2019-06-09 00:22:44,045 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:22:45,364 DEBUG Reporting jall229: status sucess
+2019-06-09 00:23:18,847 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:23:19,815 DEBUG Reporting jall229: status sucess
+2019-06-09 00:23:53,844 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:23:54,830 DEBUG Reporting jall229: status sucess
+2019-06-09 00:24:09,092 DEBUG Received broadcast message: Hi
+2019-06-09 00:24:28,948 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:24:30,126 DEBUG Reporting jall229: status sucess
+2019-06-09 00:25:03,844 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:25:04,978 DEBUG Reporting jall229: status sucess
+2019-06-09 00:25:45,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:25:47,050 DEBUG Reporting jall229: status sucess
+2019-06-09 00:26:20,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:26:21,931 DEBUG Reporting jall229: status sucess
+2019-06-09 00:26:56,218 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:26:57,446 DEBUG Reporting jall229: status sucess
+2019-06-09 00:27:30,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:27:31,937 DEBUG Reporting jall229: status sucess
+2019-06-09 00:28:05,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:28:07,300 DEBUG Reporting jall229: status sucess
+2019-06-09 00:28:40,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:28:42,224 DEBUG Reporting jall229: status sucess
+2019-06-09 00:29:15,911 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:29:17,268 DEBUG Reporting jall229: status sucess
+2019-06-09 00:29:52,329 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:29:53,683 DEBUG Reporting jall229: status sucess
+2019-06-09 00:30:28,130 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:30:30,389 DEBUG Reporting jall229: status sucess
+2019-06-09 00:31:00,919 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:31:02,334 DEBUG Reporting jall229: status sucess
+2019-06-09 00:31:36,117 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:31:37,109 DEBUG Reporting jall229: status sucess
+2019-06-09 00:32:10,923 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:32:12,125 DEBUG Reporting jall229: status sucess
+2019-06-09 00:32:24,572 DEBUG Received broadcast message: test again
+2019-06-09 00:32:45,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:32:46,953 DEBUG Reporting jall229: status sucess
+2019-06-09 00:33:20,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:33:23,031 DEBUG Reporting jall229: status sucess
+2019-06-09 00:33:55,914 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:33:57,201 DEBUG Reporting jall229: status sucess
+2019-06-09 00:34:30,916 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:34:32,219 DEBUG Reporting jall229: status sucess
+2019-06-09 00:35:05,911 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:35:07,319 DEBUG Reporting jall229: status sucess
+2019-06-09 00:35:40,920 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:35:42,363 DEBUG Reporting jall229: status sucess
+2019-06-09 00:36:26,461 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:36:27,634 DEBUG Reporting jall229: status sucess
+2019-06-09 00:37:12,331 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:37:13,394 DEBUG Reporting jall229: status sucess
+2019-06-09 00:37:41,241 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:37:43,836 DEBUG Reporting jall229: status sucess
+2019-06-09 00:38:16,446 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:38:17,701 DEBUG Reporting jall229: status sucess
+2019-06-09 00:38:55,207 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:38:56,209 DEBUG Reporting jall229: status sucess
+2019-06-09 00:40:20,718 DEBUG Received broadcast message: !Meta:favourite_broadcast:[4dbe5f3ecfccd308888c0cd22687cd80dd717779d3ee136a9f8d47c6b8bc13af6e7555bcc6f3f14baaeece7459b17e0c66535f9da6678915a0da65764b9eba08]
+2019-06-09 00:41:12,219 DEBUG Received broadcast message: !Meta:favourite_broadcast:[d637d03a5b5503a337e5bb193fe934485e4245da6d0b6cb847d518620442531c6718b58861fb425ac5940b2c62a129d17d9aea859e6393c6a35e71f696281507]
+2019-06-09 00:48:59,186 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:49:00,833 DEBUG Reporting jall229: status sucess
+2019-06-09 00:49:38,436 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:49:40,538 DEBUG Reporting jall229: status sucess
+2019-06-09 00:50:13,435 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:50:14,467 DEBUG Reporting jall229: status sucess
+2019-06-09 00:50:48,540 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:50:49,965 DEBUG Reporting jall229: status sucess
+2019-06-09 00:51:23,435 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:51:24,428 DEBUG Reporting jall229: status sucess
+2019-06-09 00:51:58,435 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:51:59,444 DEBUG Reporting jall229: status sucess
+2019-06-09 00:52:33,435 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:52:35,580 DEBUG Reporting jall229: status sucess
+2019-06-09 00:53:08,436 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:53:09,704 DEBUG Reporting jall229: status sucess
+2019-06-09 00:53:44,542 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:53:45,640 DEBUG Reporting jall229: status sucess
+2019-06-09 00:54:46,943 DEBUG Received broadcast message: hello
+2019-06-09 00:55:15,278 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:55:16,273 DEBUG Reporting jall229: status sucess
+2019-06-09 00:55:28,637 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:55:29,690 DEBUG Reporting jall229: status sucess
+2019-06-09 00:59:57,387 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 00:59:58,557 DEBUG Reporting jall229: status sucess
+2019-06-09 01:04:04,719 DEBUG Received broadcast message: hello?
+2019-06-09 01:27:26,601 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:27:27,585 DEBUG Reporting jall229: status sucess
+2019-06-09 01:27:47,570 DEBUG Received broadcast message: !Meta:favourite_broadcast:[75c3f1b373374560cb6dbb43c63b798c04bd4e7bf34ac9a90c3276c042b908d4979faf9c066b1c8401f4dd1a2f115a17f2d1490ef21f782e7c73e8248d9e3e09]
+2019-06-09 01:27:51,675 DEBUG Received broadcast message: test
+2019-06-09 01:28:13,170 DEBUG Received broadcast message: test
+2019-06-09 01:29:10,725 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:29:12,005 DEBUG Reporting jall229: status sucess
+2019-06-09 01:30:26,572 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:30:27,670 DEBUG Reporting jall229: status sucess
+2019-06-09 01:30:42,670 DEBUG Received broadcast message: !Meta:favourite_broadcast:[86f7d221efeff71e0bd54ae8bfadf700e2867bd408a4562e65bb59c4aac970760f67d45e0eda7e265663a903c9709d431c33961ba96a16c326b6b7a6cd920c0b]
+2019-06-09 01:31:12,355 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:31:13,618 DEBUG Reporting jall229: status sucess
+2019-06-09 01:31:47,253 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:31:48,808 DEBUG Reporting jall229: status sucess
+2019-06-09 01:32:08,317 DEBUG Received broadcast message: 123abc
+2019-06-09 01:32:18,413 DEBUG Received broadcast message: test
+2019-06-09 01:32:21,552 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:32:22,644 DEBUG Reporting jall229: status sucess
+2019-06-09 01:32:47,712 DEBUG Received broadcast message: does it?
+2019-06-09 01:32:56,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:32:57,231 DEBUG Reporting jall229: status sucess
+2019-06-09 01:32:57,837 DEBUG Received broadcast message: test
+2019-06-09 01:33:31,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:33:32,373 DEBUG Reporting jall229: status sucess
+2019-06-09 01:33:42,071 DEBUG Received broadcast message: oi
+2019-06-09 01:33:45,044 DEBUG Received broadcast message: oi
+2019-06-09 01:33:46,372 DEBUG Received broadcast message: 
+2019-06-09 01:33:48,318 DEBUG Received broadcast message: 
+2019-06-09 01:33:48,935 DEBUG Received broadcast message: 
+2019-06-09 01:33:49,547 DEBUG Received broadcast message: 
+2019-06-09 01:33:53,851 DEBUG Received broadcast message: 
+2019-06-09 01:34:06,254 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:34:07,510 DEBUG Reporting jall229: status sucess
+2019-06-09 01:34:41,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:34:42,397 DEBUG Reporting jall229: status sucess
+2019-06-09 01:35:17,455 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:35:18,665 DEBUG Reporting jall229: status sucess
+2019-06-09 01:35:51,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:35:52,287 DEBUG Reporting jall229: status sucess
+2019-06-09 01:36:26,250 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:36:27,388 DEBUG Reporting jall229: status sucess
+2019-06-09 01:37:01,450 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:37:02,558 DEBUG Reporting jall229: status sucess
+2019-06-09 01:37:06,284 DEBUG Received broadcast message: Ola
+2019-06-09 01:37:36,254 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:37:37,786 DEBUG Reporting jall229: status sucess
+2019-06-09 01:38:11,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:38:12,599 DEBUG Reporting jall229: status sucess
+2019-06-09 01:38:46,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:38:47,516 DEBUG Reporting jall229: status sucess
+2019-06-09 01:39:21,354 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:39:22,505 DEBUG Reporting jall229: status sucess
+2019-06-09 01:39:47,255 DEBUG Received broadcast message: test
+2019-06-09 01:39:51,016 DEBUG Received broadcast message: !Meta:favourite_broadcast:[b33bc814cef232273424ad6cc54c705dd9f0ada471d50e79ce101503a2144b3574ae91093926cb6379bbc491106ff8910736e07b1dc26596fd149f328b9cf10c]
+2019-06-09 01:39:55,420 DEBUG Received broadcast message: !Meta:favourite_broadcast:[dbec2991d853a20c021ea6ae2235236ff1ae7a14e9c6d2c80e8845246bbd380ddd2c6f76e511cedb315633260582c127366c19daaa22b6a6d8319e0cced0b705]
+2019-06-09 01:39:56,247 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:39:57,241 DEBUG Reporting jall229: status sucess
+2019-06-09 01:40:29,211 DEBUG Received broadcast message: !Meta:favourite_broadcast:[429626addba4293ea04d70dae09526beb958acaf608963a490ce980b60fbc6914ab37374be5d87517a6a39f6462ac457d192da6f6754190ae72ff56854af9403]
+2019-06-09 01:40:31,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:40:32,740 DEBUG Reporting jall229: status sucess
+2019-06-09 01:40:57,371 DEBUG Received broadcast message: !Meta:favourite_broadcast:[67907f9637a87a9676c933995b6515bb5560a6185c19d192a99a43a72b0c4484e3a5f5767f25fdcf1d8368288e7b73271e9ccee1f64e948db2da13441dce2a00]
+2019-06-09 01:41:01,851 DEBUG Received broadcast message: !Meta:favourite_broadcast:[67907f9637a87a9676c933995b6515bb5560a6185c19d192a99a43a72b0c4484e3a5f5767f25fdcf1d8368288e7b73271e9ccee1f64e948db2da13441dce2a00]
+2019-06-09 01:41:04,336 DEBUG Received broadcast message: !Meta:favourite_broadcast:[02e4fc9b483c63f39512045cbb5b76faa893c1f82a8062e8cff6fce65ec95b921a19a0edbe6ba60fe062e7a9d4e3493ffc9caf7efdbbeaf86d539669cd736706]
+2019-06-09 01:41:06,354 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:41:06,791 DEBUG Received broadcast message: !Meta:favourite_broadcast:[02e4fc9b483c63f39512045cbb5b76faa893c1f82a8062e8cff6fce65ec95b921a19a0edbe6ba60fe062e7a9d4e3493ffc9caf7efdbbeaf86d539669cd736706]
+2019-06-09 01:41:07,844 DEBUG Reporting jall229: status sucess
+2019-06-09 01:41:13,047 DEBUG Received broadcast message: !Meta:favourite_broadcast:[b33bc814cef232273424ad6cc54c705dd9f0ada471d50e79ce101503a2144b3574ae91093926cb6379bbc491106ff8910736e07b1dc26596fd149f328b9cf10c]
+2019-06-09 01:41:42,152 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:41:44,064 DEBUG Reporting jall229: status sucess
+2019-06-09 01:42:16,249 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:42:17,480 DEBUG Reporting jall229: status sucess
+2019-06-09 01:42:51,248 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:42:52,456 DEBUG Reporting jall229: status sucess
+2019-06-09 01:43:26,244 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:43:27,201 DEBUG Reporting jall229: status sucess
+2019-06-09 01:43:37,412 DEBUG Request: {'request': 'report'} from: tmag741
+2019-06-09 01:43:38,807 DEBUG Failed
+2019-06-09 01:45:16,448 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:45:17,659 DEBUG Reporting jall229: status sucess
+2019-06-09 01:45:42,104 DEBUG Request: {'request': 'report'} from: None
+2019-06-09 01:45:48,380 DEBUG Failed
+2019-06-09 01:45:49,418 DEBUG Request: {'request': 'report'} from: None
+2019-06-09 01:45:50,735 DEBUG Failed
+2019-06-09 01:45:50,768 DEBUG Request: {'request': 'report'} from: None
+2019-06-09 01:45:51,963 DEBUG Failed
+2019-06-09 01:47:12,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:47:13,781 DEBUG Reporting jall229: status sucess
+2019-06-09 01:47:47,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:47:48,861 DEBUG Reporting jall229: status sucess
+2019-06-09 01:48:22,584 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:48:23,744 DEBUG Reporting jall229: status sucess
+2019-06-09 01:48:57,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:48:58,508 DEBUG Reporting jall229: status sucess
+2019-06-09 01:49:24,687 DEBUG Received broadcast message: hello
+2019-06-09 01:49:32,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:49:33,440 DEBUG Reporting jall229: status sucess
+2019-06-09 01:50:07,584 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:50:08,644 DEBUG Reporting jall229: status sucess
+2019-06-09 01:50:42,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:50:43,904 DEBUG Reporting jall229: status sucess
+2019-06-09 01:51:17,478 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:51:18,464 DEBUG Reporting jall229: status sucess
+2019-06-09 01:51:25,910 DEBUG Received broadcast message: hiii
+2019-06-09 01:51:52,580 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:51:53,916 DEBUG Reporting jall229: status sucess
+2019-06-09 01:52:27,480 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:52:28,845 DEBUG Reporting jall229: status sucess
+2019-06-09 01:53:02,882 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:53:04,909 DEBUG Reporting jall229: status sucess
+2019-06-09 01:53:37,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:53:38,839 DEBUG Reporting jall229: status sucess
+2019-06-09 01:54:12,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:54:13,486 DEBUG Reporting jall229: status sucess
+2019-06-09 01:54:47,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:54:48,490 DEBUG Reporting jall229: status sucess
+2019-06-09 01:55:22,584 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:55:57,631 DEBUG Failed
+2019-06-09 01:56:48,381 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:56:59,507 DEBUG Reporting jall229: status sucess
+2019-06-09 01:57:03,006 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:57:29,341 DEBUG Failed
+2019-06-09 01:57:29,833 DEBUG Received broadcast message: !Meta:favourite_broadcast:ba9ebf249dde507dcafc990ba1313fd40c5f74b292881c6ac1f25d2af0ae913dbbd6182468242c83b3604788d1c4bceaa780085ed6e836e18c19f39a1be48b06
+2019-06-09 01:58:50,881 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:58:51,853 DEBUG Reporting jall229: status sucess
+2019-06-09 01:58:53,515 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:58:54,576 DEBUG Reporting jall229: status sucess
+2019-06-09 01:58:58,555 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:58:59,916 DEBUG Reporting jall229: status sucess
+2019-06-09 01:59:02,055 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:59:03,698 DEBUG Reporting jall229: status sucess
+2019-06-09 01:59:27,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 01:59:28,771 DEBUG Reporting jall229: status sucess
+2019-06-09 02:00:02,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:00:05,670 DEBUG Reporting jall229: status sucess
+2019-06-09 02:00:37,477 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:00:38,950 DEBUG Reporting jall229: status sucess
+2019-06-09 02:01:12,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:01:13,824 DEBUG Reporting jall229: status sucess
+2019-06-09 02:01:47,479 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:01:48,504 DEBUG Reporting jall229: status sucess
+2019-06-09 02:02:22,484 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:02:24,115 DEBUG Reporting jall229: status sucess
+2019-06-09 02:03:29,597 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:04:09,629 DEBUG Failed
+2019-06-09 02:04:29,723 DEBUG Request: {'request': 'report'} from: None
+2019-06-09 02:04:49,740 DEBUG Failed
+2019-06-09 02:04:49,904 DEBUG Request: {'request': 'report'} from: None
+2019-06-09 02:05:09,922 DEBUG Failed
+2019-06-09 02:05:10,031 DEBUG Request: {'request': 'report'} from: None
+2019-06-09 02:05:11,244 DEBUG Failed
+2019-06-09 02:07:14,435 DEBUG Received broadcast message: a
+2019-06-09 02:36:52,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:36:53,470 DEBUG Reporting jall229: status sucess
+2019-06-09 02:37:27,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:37:29,578 DEBUG Reporting jall229: status sucess
+2019-06-09 02:38:02,237 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:38:03,487 DEBUG Reporting jall229: status sucess
+2019-06-09 02:38:37,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:38:38,369 DEBUG Reporting jall229: status sucess
+2019-06-09 02:39:12,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:39:13,626 DEBUG Reporting jall229: status sucess
+2019-06-09 02:39:47,136 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:39:48,711 DEBUG Reporting jall229: status sucess
+2019-06-09 02:40:21,638 DEBUG Received broadcast message: Hi Drop Kicks
+2019-06-09 02:40:22,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:40:23,466 DEBUG Reporting jall229: status sucess
+2019-06-09 02:40:55,657 DEBUG Received broadcast message: yea me too tbh
+2019-06-09 02:40:57,138 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:40:58,116 DEBUG Reporting jall229: status sucess
+2019-06-09 02:41:32,239 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:41:33,269 DEBUG Reporting jall229: status sucess
+2019-06-09 02:42:07,134 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:42:08,560 DEBUG Reporting jall229: status sucess
+2019-06-09 02:42:19,778 DEBUG Received broadcast message: test3
+2019-06-09 02:42:42,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:42:43,137 DEBUG Reporting jall229: status sucess
+2019-06-09 02:43:17,129 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:43:18,082 DEBUG Reporting jall229: status sucess
+2019-06-09 02:43:50,567 DEBUG Received broadcast message: ok
+2019-06-09 02:43:52,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:43:54,217 DEBUG Reporting jall229: status sucess
+2019-06-09 02:44:27,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:44:28,730 DEBUG Reporting jall229: status sucess
+2019-06-09 02:45:02,239 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:45:03,340 DEBUG Reporting jall229: status sucess
+2019-06-09 02:45:38,234 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:45:39,757 DEBUG Reporting jall229: status sucess
+2019-06-09 02:46:12,128 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:46:13,303 DEBUG Reporting jall229: status sucess
+2019-06-09 02:46:34,834 DEBUG Received broadcast message: Lets see who receives this
+2019-06-09 02:46:47,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:46:49,020 DEBUG Reporting jall229: status sucess
+2019-06-09 02:47:22,836 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:47:24,200 DEBUG Reporting jall229: status sucess
+2019-06-09 02:47:27,168 DEBUG Received broadcast message: Wow, litterally 2 people receive this
+2019-06-09 02:47:57,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:47:59,373 DEBUG Reporting jall229: status sucess
+2019-06-09 02:55:32,234 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 02:55:33,244 DEBUG Reporting jall229: status sucess
+2019-06-09 02:56:07,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:40:27,133 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:40:28,518 DEBUG Reporting jall229: status sucess
+2019-06-09 03:43:57,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:44:03,558 DEBUG Failed
+2019-06-09 03:44:32,165 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:44:33,545 DEBUG Reporting jall229: status sucess
+2019-06-09 03:45:07,146 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:45:08,202 DEBUG Reporting jall229: status sucess
+2019-06-09 03:45:42,142 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:45:43,268 DEBUG Reporting jall229: status sucess
+2019-06-09 03:46:17,171 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:46:19,057 DEBUG Reporting jall229: status sucess
+2019-06-09 03:46:52,142 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:46:53,532 DEBUG Reporting jall229: status sucess
+2019-06-09 03:47:27,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:47:28,614 DEBUG Reporting jall229: status sucess
+2019-06-09 03:48:02,239 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:48:03,300 DEBUG Reporting jall229: status sucess
+2019-06-09 03:48:37,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:48:38,313 DEBUG Reporting jall229: status sucess
+2019-06-09 03:49:12,137 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:49:13,289 DEBUG Reporting jall229: status sucess
+2019-06-09 03:49:47,238 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:49:48,260 DEBUG Reporting jall229: status sucess
+2019-06-09 03:50:22,137 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:50:23,195 DEBUG Reporting jall229: status sucess
+2019-06-09 03:50:57,157 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:50:58,379 DEBUG Reporting jall229: status sucess
+2019-06-09 03:51:32,154 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:51:33,556 DEBUG Reporting jall229: status sucess
+2019-06-09 03:52:07,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:52:08,698 DEBUG Reporting jall229: status sucess
+2019-06-09 03:52:42,130 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:52:43,468 DEBUG Reporting jall229: status sucess
+2019-06-09 03:52:57,055 DEBUG Received broadcast message: testing button
+2019-06-09 03:53:17,157 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:53:18,335 DEBUG Reporting jall229: status sucess
+2019-06-09 03:53:52,142 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:53:53,208 DEBUG Reporting jall229: status sucess
+2019-06-09 03:54:27,145 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:54:28,353 DEBUG Reporting jall229: status sucess
+2019-06-09 03:55:02,246 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:55:03,509 DEBUG Reporting jall229: status sucess
+2019-06-09 03:55:37,155 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:55:38,730 DEBUG Reporting jall229: status sucess
+2019-06-09 03:56:12,134 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:56:13,421 DEBUG Reporting jall229: status sucess
+2019-06-09 03:56:47,239 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:56:48,338 DEBUG Reporting jall229: status sucess
+2019-06-09 03:57:22,164 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:57:23,448 DEBUG Reporting jall229: status sucess
+2019-06-09 03:57:57,142 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:57:58,460 DEBUG Reporting jall229: status sucess
+2019-06-09 03:58:32,157 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:58:33,327 DEBUG Reporting jall229: status sucess
+2019-06-09 03:59:07,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:59:08,397 DEBUG Reporting jall229: status sucess
+2019-06-09 03:59:42,141 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 03:59:43,609 DEBUG Reporting jall229: status sucess
+2019-06-09 04:16:02,239 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-09 04:16:03,255 DEBUG Reporting jall229: status sucess

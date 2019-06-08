@@ -3,12 +3,16 @@ $(document).ready(() => {
     startReportTimer();
     pollListUsers();
     pollNewMessages();
+    callPingCheck();
+    converter = new showdown.Converter();
 });
 
 //These are here to allow stopInterval
 let reportInterval;
 let listUsersInterval;
 let updateMessagesInterval;
+let converter;
+let pingCheckinterval;
 
 
 function startReportTimer() {
@@ -69,33 +73,47 @@ function pollListUsers() {
 function pollNewMessages() {
     //Ask my server for any new messages every 3 seconds
     updateMessagesInterval = setInterval(() => {
-        //Tell the server the id of the last message it received.
-        let broadcast_list = document.getElementById("broadcasts");
-        let lastMessageId = 0;
-        if (broadcast_list.children.length > 0) {
-            lastMessageId = broadcast_list.children[0].getAttribute('data-message-id');
-        }
-        let payload = {
-            'request': 'update_user_list',
-            'last_message': lastMessageId,
-        };
+            //Tell the server the id of the last message it received.
+            let broadcast_list = document.getElementById("broadcasts");
+            let lastMessageId = 0;
+            if (broadcast_list.children.length > 0) {
+                lastMessageId = broadcast_list.children[0].getAttribute('data-message-id');
+            }
+            let payload = {
+                'request': 'update_user_list',
+                'last_message': lastMessageId,
+            };
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8',
-            },
-            body: JSON.stringify(payload)
-        };
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                },
+                body: JSON.stringify(payload)
+            };
 
-        fetch('/updates/update_new_broadcasts', options).then(response => {
-            return response.json();
-        }).then((html_messages) => {
-            let list = document.getElementById('broadcasts');
-            list.innerHTML = html_messages + list.innerHTML;
-            console.log("Updated New messages")
-        })
-    }, 3000)
+            fetch('/updates/update_new_broadcasts', options).then(response => {
+                return response.json();
+            }).then((html_messages) => {
+                let list = document.getElementById('broadcasts');
+
+                if (html_messages.length <= 0) {
+                    return;
+                }
+
+                let lastMessageAdded = list.children[0].getAttribute("data-message-id");
+                let newMessages = html_messages.split('<div class="card mr-4 mb-4" id=');
+
+                for (let i = 1; i < newMessages.length; i++) {
+                    let newMessageNumber = newMessages[i].split("message-number-")[1].split('"')[0];
+                    if (newMessageNumber > lastMessageAdded) {
+                        lastMessageAdded = newMessageNumber;
+                        list.innerHTML = '<div class="card mr-4 mb-4" id="' + newMessages[i] + list.innerHTML;
+                    }
+                }
+            })
+        },3000
+    )
 }
 
 function searchMessage() {
@@ -122,12 +140,13 @@ function searchMessage() {
 
     fetch('/updates/search_broadcasts', options).then(response => {
         return response.json();
-    }).then((html_messages) => {
+    }).then((md_messages) => {
         let list = document.getElementById('broadcasts');
-        list.innerHTML = html_messages;
+        list.innerHTML = md_messages;
         console.log("Searched New messages")
     })
 }
+
 
 function sendBroadcast() {
 
@@ -155,4 +174,47 @@ function sendBroadcast() {
     };
     // Dont need the result
     fetch('/updates/send_broadcast', options)
+}
+
+
+function previewMarkdownMessage() {
+    // for (let i = 0; i < )
+    let message = document.getElementById("broadcast-message-box").value;
+    let trimmedMd = message.trim(); //Remove leading and trailing white space
+    let previewBox = document.getElementById("markdown-preview");
+    let previewMessage = converter.makeHtml(trimmedMd);
+    previewBox.innerHTML = previewMessage;
+}
+
+function convertAllMessagesToMd(button) {
+    let messageId = button.getAttribute('data-parent-id');
+    let parrentCard = document.getElementById("message-number-" + messageId);
+    let md = parrentCard.children[0].children[1].innerHTML;
+
+    let trimmedMd = md.trim(); //Remove leading and trailing white space
+
+    let htmlMessage = converter.makeHtml(trimmedMd);
+    parrentCard.children[0].children[1].innerHTML = htmlMessage;
+}
+
+
+function callPingCheck() {
+    //Ping check all other servers every 5 minutes
+    pingCheckinterval = setInterval(() => {
+        //Tell the server the id of the last message it received.
+
+        let payload = {
+            'request': 'call_ping_check',
+        };
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+            },
+            body: JSON.stringify(payload)
+        };
+
+        fetch('/updates/call_ping_check', options)
+    }, 300000)
 }

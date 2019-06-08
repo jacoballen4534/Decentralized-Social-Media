@@ -23,6 +23,7 @@ import MyApiEndpoints.updates
 import sqlite3
 import db.addData as addData
 
+
 # The address we listen for connections on
 # LISTEN_IP = "0.0.0.0"
 LISTEN_IP = "192.168.1.68"
@@ -46,7 +47,7 @@ def init_db():
                     `sender_pubkey` TEXT NOT NULL,
                     `signature`     TEXT NOT NULL UNIQUE 
                 );""")
-        c.execute("""CREATE TABLE IF NOT EXISTS `messages` (
+        c.execute("""CREATE TABLE IF NOT EXISTS `private_messages` (
                     `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
                     `message`        TEXT NOT NULL,
                     `sender`         TEXT NOT NULL,                    
@@ -57,11 +58,18 @@ def init_db():
                     `signature`      TEXT NOT NULL
                 );""")
         c.execute("""CREATE TABLE IF NOT EXISTS `all_seen_users` (
-                            `username`              VARCHAR(100) PRIMARY KEY UNIQUE,
+                            `username`              VARCHAR(100) PRIMARY KEY UNIQUE NOT NULL,
                             `incoming_pubkey`       TEXT NOT NULL,
                             `connection_updated_at` INTEGER NOT NULL,                    
                             `connection_address`    VARCHAR(50) NOT NULL,
                             `connection_location`   INTEGER NOT NULL
+                        );""")
+        c.execute("""CREATE TABLE IF NOT EXISTS `favourite_broadcast` (
+                            `username`      VARCHAR(100) NOT NULL,
+                            `pubkey`        TEXT NOT NULL,
+                            `timestamp`     INTEGER NOT NULL,
+                            `signature`     TEXT NOT NULL UNIQUE, 
+                            FOREIGN KEY (signature) REFERENCES broadcasts(signature)
                         );""")
     except Exception as e:
         print(e)
@@ -77,30 +85,30 @@ def error_page_404(status, message, traceback, version):
 def runMainApp():
     # Setup the database
     init_db()
-    #set up the config
+    # set up the config
     conf = {
-        '/': {
-            'tools.staticdir.root': os.path.abspath(os.getcwd()),
-            'tools.encode.on': True,
-            'tools.encode.encoding': 'utf-8',
-            'tools.sessions.on': True,
-            'tools.sessions.timeout': 60 * 3,  # timeout is in minutes, * 60 to get hours
+        '/'           : {
+            'tools.staticdir.root'        : os.path.abspath(os.getcwd()),
+            'tools.encode.on'             : True,
+            'tools.encode.encoding'       : 'utf-8',
+            'tools.sessions.on'           : True,
+            'tools.sessions.timeout'      : 60 * 3,  # timeout is in minutes, * 60 to get hours
 
             # Comment this out for ram based (can store objects). Uncomment for file based
             'tools.sessions.storage_class': cherrypy.lib.sessions.FileSession,
-            'tools.sessions.storage_path': os.path.abspath(os.getcwd()) + '/temp/mysessions',
+            'tools.sessions.storage_path' : os.path.abspath(os.getcwd()) + '/temp/mysessions',
         },
 
-        #configuration for the static assets directory
-        '/static': {
-            'tools.staticdir.on': True,
+        # configuration for the static assets directory
+        '/static'     : {
+            'tools.staticdir.on' : True,
             'tools.staticdir.dir': './static',
         },
 
-        #once a favicon is set up, the following code could be used to select it for cherrypy
+        # once a favicon is set up, the following code could be used to select it for cherrypy
         '/favicon.ico': {
-           'tools.staticfile.on': True,
-           'tools.staticfile.filename': os.getcwd() + '/static/favicon.ico',
+            'tools.staticfile.on'      : True,
+            'tools.staticfile.filename': os.getcwd() + '/static/favicon.ico',
         },
     }
 
@@ -117,13 +125,13 @@ def runMainApp():
 
     # Tell cherrypy where to listen, and to turn autoreload on
     cherrypy.config.update({
-        'server.socket_host': LISTEN_IP,
-        'server.socket_port': LISTEN_PORT,
+        'server.socket_host'  : LISTEN_IP,
+        'server.socket_port'  : LISTEN_PORT,
         'engine.autoreload.on': True,
-        'error_page.404': error_page_404,
+        'error_page.404'      : error_page_404,
     })
 
-    #cherrypy.tools.auth = cherrypy.Tool('before_handler', auth.check_auth, 99)
+    # cherrypy.tools.auth = cherrypy.Tool('before_handler', auth.check_auth, 99)
 
     print("========================================")
     print("             Jacob Allen")
@@ -137,6 +145,6 @@ def runMainApp():
     cherrypy.engine.block()
 
 
-#Run the function to start everything
+# Run the function to start everything
 if __name__ == '__main__':
     runMainApp()

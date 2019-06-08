@@ -117,16 +117,17 @@ def authorise_user_login(username, password, key_type, key_value):
         if not status:  # The provided key is malformed
             return 4, api_key, None
     # This point means we have a proper key, either entered directly, or from private data. Check if it is valid.
-    # _________________________ Validate private key_______________________________________
-    valid_key_status = loginApi.ping(username, password, keys)
-    if not valid_key_status:
-        return 6, api_key, None
 
-    # _________________________ Report the associated public key_______________________________________
+    # _________________________ Report the public key_______________________________________
     report_status = loginApi.report(location=main.LOCATION, username=username, keys=keys, status="online",
                                     api_key=api_key, password=password)
     if not report_status:
         return 4, api_key, keys
+
+    # _________________________ Check if that is valid private key_______________________________________
+    valid_key_status = loginApi.ping(username, password, keys)
+    if not valid_key_status:
+        return 6, api_key, None
 
     return 0, api_key, keys  # 0 = Success, return new keys
 

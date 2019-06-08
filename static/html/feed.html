@@ -18,7 +18,7 @@
     <div class="form-inline my-2 my-lg-0" style="min-width: 80%">
         <p class="lead emoji-picker-container" id="outer-message-container" style="width: 100%">
         <textarea id="broadcast-message-box" data-provide="markdown" data-emojiable="true"
-                  class="form-control textarea-control mr-sm-2 mdhtmlform-md"
+                  class="form-control textarea-control mr-sm-2"
                   style="min-width: 70%" type="text" placeholder="Type a message... "
                   rows="3" aria-label="message-to-send">
         </textarea>
@@ -32,11 +32,12 @@
         <h5 class="card-title">
             <u>Markdown Preview</u>
         </h5>
-        <p class="card-text pb-0" style="overflow-y: auto; max-height: 50vh;">
-        <div id="markdown-preview" class="mdhtmlform-html"></div>
+        <p class="card-text pb-0" style="overflow-y: auto; max-height: 50vh">
+        <div id="markdown-preview" class=""></div>
         </p>
         <p class="card-text">
-            <button onclick="sendBroadcast()" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-3" type="submit">
+            <button onclick="previewMarkdownMessage()" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-3" type="button">Markdown Preview</button>
+            <button onclick="sendBroadcast()" class="btn btn-outline-success my-2 my-sm-0 ml-1 mr-3" type="submit">
                 Post Broadcast
             </button>
         </p>

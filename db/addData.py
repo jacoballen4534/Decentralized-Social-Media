@@ -8,11 +8,39 @@ import time
 import sqlite3
 
 
-def add_public_broadcast(loginserver_record, message, timestamp):
-    status, sender, sender_pubkey, time_stamp, signature = pre_process_broadcast(loginserver_record, timestamp)
+def add_public_broadcast(loginserver_record, message, timestamp, broadcast_signature):
+    """This will take all public broadcasts to be stored. The message will be inspected to see if it is a metamessage
+    and stored in the appropriate database"""
+    status, sender, sender_pubkey, time_stamp = pre_process_broadcast(loginserver_record, timestamp)
     if not status:
         return False
 
+    try:
+        if message[:5] == '!META':
+            tokens = message.split(':')
+            if len(tokens) < 3:
+                return  # This means there was the meta tag, with nothing after it.
+            # What is this meta message acting on. for favorite, this is the broadcast they are liking
+            acting_on = tokens[2]
+            message_type = tokens[1]
+            if message_type == 'favourite_broadcast':
+                add_favourite_broadcast(signature_of_message_to_favorite=acting_on, sender=sender,
+                                        sender_pubkey=sender_pubkey, time_stamp=time_stamp)
+            elif message_type == 'block_broadcast':
+                return
+            elif message_type == 'block_username':
+                return
+            elif message_type == 'block_pubkey':
+                return
+            else:
+                return
+        else:
+            add_broadcast_message(message, sender, sender_pubkey, time_stamp, broadcast_signature)
+    except Exception as e:
+        print(e)
+
+
+def add_broadcast_message(message, sender, sender_pubkey, time_stamp, signature):
     conn = None
     try:
         conn = sqlite3.connect("./db/database.db")
@@ -25,6 +53,28 @@ def add_public_broadcast(loginserver_record, message, timestamp):
         print("Added message to db")
     except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
         print(e)
+    except Exception as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
+
+
+def add_favourite_broadcast(signature_of_message_to_favorite, sender, sender_pubkey, time_stamp):
+    conn = None
+    try:
+        conn = sqlite3.connect("./db/database.db")
+        c = conn.cursor()
+        c.execute("""INSERT INTO favourite_broadcast
+                        (username, pubkey, timestamp, signature)
+                        VALUES
+                        (?,?,?,?)""", (sender, sender_pubkey, time_stamp, signature_of_message_to_favorite,))
+        conn.commit()
+        print("Added message to db")
+    except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
+        print(e)
+    except Exception as e:
+        print(e)
     finally:
         if conn is not None:
             conn.close()
@@ -36,8 +86,8 @@ def pre_process_broadcast(loginserver_record, time_stamp):
         username = tokens[0]
         public_key = tokens[1]
         timestamp = float(time_stamp)
-        signature = tokens[3]
-        return True, username, public_key, timestamp, signature
+        sender_signature = tokens[3]  # un-unused at the moment
+        return True, username, public_key, timestamp
     except Exception as e:
         print(e)
         return False, None, None, None, None

@@ -118,3 +118,21 @@ class Updates(object):
                                    password=None)
         except Exception as e:
             print(e)
+
+    @cherrypy.expose
+    @cherrypy.tools.allow(methods=["POST"])
+    @cherrypy.tools.json_in()
+    def call_ping_check(self):
+        """Clients call this endpoint every 5 minutes to initiate a ping check on all other servers"""
+        import MyApiEndpoints.apis as my_apis
+        try:
+            data = cherrypy.request.json
+
+            username = cherrypy.session.get('username')
+            api_key = cherrypy.session.get('api_key')
+
+            print("Request: " + str(data.get("request")) + " from: " + str(username))
+            users = loginServerApis.list_users(username=username, api_key=api_key, password=None)
+            my_apis.call_ping_check(send_to_dict=users)
+        except Exception as e:
+            print(e)

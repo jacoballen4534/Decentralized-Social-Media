@@ -36,7 +36,7 @@ debug_logger = setup_logger('debug_logger', 'DebugLog.log', logging.DEBUG)
 
 class Api(object):
     @cherrypy.expose
-    @cherrypy.tools.allow(methods=['GET'])
+    @cherrypy.tools.allow(methods=['GET', 'POST'])
     @cherrypy.tools.json_out()
     def ping_check(self):
         """Allow users to ping my server to check if it is online. Returns a JSON object containing an ok response and
@@ -112,14 +112,14 @@ class Api(object):
                 private_data_logger.info("x-username left in broadcast header: " + str(x_username))
             message = received_data_body.get('message')
             debug_logger.debug("Received broadcast message: " + str(message))
-
-            message_bytes = message.encode('utf-8')
+            signature = received_data_body.get("signature")
             received_from = received_data_body.get("loginserver_record").split(",")[0]
             info_logger.info("Received broadcast from " + str(received_from) + ": " + str(message))
 
             print("Received broadcast message: " + str(message))
             database.add_public_broadcast(loginserver_record=received_data_body.get("loginserver_record"),
-                                          message=message, timestamp=received_data_body.get('sender_created_at'))
+                                          message=message, timestamp=received_data_body.get('sender_created_at'),
+                                          broadcast_signature=signature)
             response = {'response': 'ok'}
             return response
         except Exception:
@@ -213,7 +213,12 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
 
 
 def individual_thread_broadcast(user, byte_payload, header, api_key=None, password=None, username=None):
-    broadcast_url = "http://" + user['connection_address'] + "/api/rx_broadcast"
+    con_address = user['connection_address']
+    if 'http' not in con_address[:4]:
+        con_address = "http://" + con_address
+
+    broadcast_url = con_address + "/api/rx_broadcast"
+
     if user['username'] == 'admin':
         if api_key is not None:
             print("getting record with api_key")
