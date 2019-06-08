@@ -13,6 +13,7 @@ let listUsersInterval;
 let updateMessagesInterval;
 let converter;
 let pingCheckinterval;
+let missed_reports;
 
 
 function startReportTimer() {
@@ -36,10 +37,14 @@ function startReportTimer() {
             if (response.redirected) {
                 location.replace(response.url);
             }
+            missed_reports = 0;
         }).catch(() => {
-            console.log("could not report to server")
+            console.log("could not report to server");
+            missed_reports++;
+            if (missed_reports > 4) { //If the client hasn't been able to reach the server for 2 minutes, log off.
+                location.replace("/");
+            }
         });
-
 
     }, 35000)
 }
@@ -66,7 +71,7 @@ function pollListUsers() {
             let list = document.getElementById('user_list');
             list.innerHTML = html_list;
             console.log("Updated user list")
-        })
+        }).catch()
     }, 8000)
 }
 
@@ -111,7 +116,7 @@ function pollNewMessages() {
                         list.innerHTML = '<div class="card mr-4 mb-4" id="' + newMessages[i] + list.innerHTML;
                     }
                 }
-            })
+            }).catch()
         },3000
     )
 }
@@ -144,7 +149,7 @@ function searchMessage() {
         let list = document.getElementById('broadcasts');
         list.innerHTML = md_messages;
         console.log("Searched New messages")
-    })
+    }).catch()
 }
 
 
@@ -173,7 +178,7 @@ function sendBroadcast() {
         body: JSON.stringify(payload)
     };
     // Dont need the result
-    fetch('/updates/send_broadcast', options)
+    fetch('/updates/send_broadcast', options).catch()
 }
 
 
@@ -199,7 +204,7 @@ function convertAllMessagesToMd(button) {
 
 
 function callPingCheck() {
-    //Ping check all other servers every 5 minutes
+    //Ping check all other servers every minute
     pingCheckinterval = setInterval(() => {
         //Tell the server the id of the last message it received.
 
@@ -215,6 +220,6 @@ function callPingCheck() {
             body: JSON.stringify(payload)
         };
 
-        fetch('/updates/call_ping_check', options)
-    }, 300000)
+        fetch('/updates/call_ping_check', options).catch()
+    }, 60000)
 }
