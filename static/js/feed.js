@@ -136,8 +136,11 @@ function sendBroadcast() {
         return
     }
     console.log("Send message clicked");
+    //Clear the message box and the markdown preview
     document.getElementById("broadcast-message-box").value = "";
-
+    document.getElementById("outer-message-container").children[0].value = "";
+    document.getElementById("outer-message-container").children[1].innerHTML = "";
+    document.getElementById("markdown-preview").innerHTML = "";
     let payload = {
         'request': 'send_message',
         'message': message,

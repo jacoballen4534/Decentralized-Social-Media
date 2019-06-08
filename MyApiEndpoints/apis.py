@@ -33,16 +33,17 @@ info_logger = setup_logger('info_logger', 'InfoLog.log', logging.INFO)
 private_data_logger = setup_logger('private_data_logger', 'private_data_logger.log', logging.INFO)
 debug_logger = setup_logger('debug_logger', 'DebugLog.log', logging.DEBUG)
 
+
 class Api(object):
     @cherrypy.expose
     @cherrypy.tools.allow(methods=['GET'])
     @cherrypy.tools.json_out()
-    def ping(self):
+    def ping_check(self):
         """Allow users to ping my server to check if it is online. Returns a JSON object containing an ok response and
          the current server time"""
         response = {
-            'response'   : 'ok',
-            'server_time': time.time(),
+            'response': 'ok',
+            'my_time': time.time(),
         }
         return response
 
@@ -52,7 +53,7 @@ class Api(object):
     def list_apis(self):
         """Returns a list of API's that have been implemented"""
         response = {
-            "/ping"        : {
+            "/ping_check"        : {
                 "method" : "GET",
                 "purpose": """returns an 'ok' message and the current time. Used to check if my server is reachable"""
             },
@@ -63,7 +64,7 @@ class Api(object):
             "/rx_broadcast": {
                 "method" : "POST",
                 "purpose": "Receives signed broadcasts from users, stores these in a database."
-            }
+            },
         }
         return response
 
@@ -224,4 +225,59 @@ def individual_thread_broadcast(user, byte_payload, header, api_key=None, passwo
             return False
     broadcast_request = urllib.request.Request(url=broadcast_url, data=byte_payload, headers=header, method="POST")
     json_object = request_helper.query_server(broadcast_request)
-    pprint.pprint("Resuly of request to " + broadcast_url + ": " + json_object['response'])
+    pprint.pprint("Result of request to " + broadcast_url + ": " + json_object['response'])
+
+
+def call_ping_check(send_to_dict):
+    import urllib.error
+    import socket
+    import main
+
+    global ip
+    ip = main.LISTEN_IP
+    port = main.LISTEN_PORT
+    location = main.LOCATION
+    if location == "0" or location == "1":  # If the user is at uni, use local ip
+        ip = socket.gethostbyname(socket.gethostname())
+    else:  # Otherwise, try to get public ip of server
+        try:
+            ip_url = "https://api.ipify.org/?format=json"
+            ip_request = urllib.request.Request(url=ip_url)
+            ip_object = request_helper.query_server(ip_request)
+            if 'ip' in ip_object:
+                ip = ip_object['ip']
+        except urllib.error.URLError as e:
+            print(e)
+        except Exception:
+            pass
+    connection_address = str(ip) + ":" + str(port)
+    print(connection_address)
+
+    current_time = str(time.time())
+    header = {
+        'Content-Type': 'application/json; charset=utf-8',
+    }
+
+    payload = {
+        "my_time"           : current_time,
+        "connection_address": connection_address,
+        "connection_location": location,
+    }
+    byte_payload = bytes(json.dumps(payload), "utf-8")
+
+    for user in send_to_dict:
+        broadcast_thread = threading.Thread(target=individual_call_ping_check, args=([user, byte_payload, header]))
+        broadcast_thread.start()
+    return True
+
+
+def individual_call_ping_check(user, byte_payload, header):
+    con_address = user['connection_address']
+    if 'http' not in con_address[:4]:
+        con_address = "http://" + con_address
+
+    ping_url = con_address + "/api/ping_check"
+
+    broadcast_request = urllib.request.Request(url=ping_url, headers=header, data=byte_payload, method="POST")
+    json_object = request_helper.query_server(broadcast_request)
+    pprint.pprint("Result of request to " + ping_url + ": " + json_object['response'])

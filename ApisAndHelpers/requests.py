@@ -25,7 +25,6 @@ def query_server(request):
         response_headers = dict(response.info()) # This could be used later
         encoding = response.info().get_content_charset('utf-8')  # load encoding if possible (default to utf-8)
         response.close()
-
         json_object = json.loads(data.decode(encoding))
         json_object['response'] = 'ok'  # to ensure there is a response for all requests
         return json_object
@@ -36,7 +35,10 @@ def query_server(request):
     except urllib.error.URLError as e:
         print(e.reason)
         return {'response': 'error'}
-    except (TypeError, socket.timeout):
+    except (TypeError, socket.timeout, json.decoder.JSONDecodeError):
+        return {'response': 'error'}
+    except Exception as e:
+        print("query server failed for some other reason" + str(e))
         return {'response': 'error'}
 
 

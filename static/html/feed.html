@@ -9,18 +9,42 @@
 <link rel='stylesheet' type="text/css" href='/static/css/feed.css'/>
 <script src="/static/js/feed.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 {% endblock post_login_links %}
 
 {% block post_login_body -%}
 <div class="d-flex flex-row justify-content-center" style="padding-top: 70px">
-    <div class="form-inline my-2 my-lg-0" style="min-width: 50%">
-        <input id="broadcast-message-box" class="form-control mr-sm-2" style="min-width: 70%" type="text" placeholder="Type a message... "
-               aria-label="message-to-send">
-        <button onclick="sendBroadcast()" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-3" type="submit">
-            Post Broadcast
-        </button>
+    <div class="form-inline my-2 my-lg-0" style="min-width: 80%">
+        <p class="lead emoji-picker-container" id="outer-message-container" style="width: 100%">
+        <textarea id="broadcast-message-box" data-provide="markdown" data-emojiable="true"
+                  class="form-control textarea-control mr-sm-2 mdhtmlform-md"
+                  style="min-width: 70%" type="text" placeholder="Type a message... "
+                  rows="3" aria-label="message-to-send">
+        </textarea>
+        </p>
     </div>
 </div>
+
+
+<div class="d-flex flex-row justify-content-center">
+    <div class="card-body mb-0 pb-0 text-center">
+        <h5 class="card-title">
+            <u>Markdown Preview</u>
+        </h5>
+        <p class="card-text pb-0" style="overflow-y: auto; max-height: 50vh;">
+        <div id="markdown-preview" class="mdhtmlform-html"></div>
+        </p>
+        <p class="card-text">
+            <button onclick="sendBroadcast()" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-3" type="submit">
+                Post Broadcast
+            </button>
+        </p>
+    </div>
+</div>
+
+
+
 <div class="d-flex flex-row justify-content-between flex-wrap">
 
     <div id="broadcasts" class="d-flex flex-column align-content-start flex-wrap ml-lg-5 ml-4 mb-sm-3 mt-3"
@@ -52,4 +76,24 @@
         </ul>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/static/js/config.js"></script>
+<script src="/static/js/util.js"></script>
+<script src="/static/js/jquery.emojiarea.js"></script>
+<script src="/static/js/emoji-picker.js"></script>
+<script>
+    $(function () {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+            emojiable_selector: '[data-emojiable=true]',
+            assetsPath: 'static/img/',
+            popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+    });
+</script>
+
 {% endblock post_login_body -%}

@@ -5,7 +5,7 @@ import json
 import pickle
 from jinja2 import Environment, FileSystemLoader
 import ApisAndHelpers.loginServerApis as loginApi
-from main import LOCATION
+import main
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
 
@@ -58,7 +58,7 @@ class Login:
         try:
             # Set the user status to offline before signing out
             keys = pickle.loads(pickled_keys)
-            loginApi.report(location=LOCATION, username=username, keys=keys, status="offline",
+            loginApi.report(location=main.LOCATION, username=username, keys=keys, status="offline",
                             api_key=api_key)
         except Exception:
             pass
@@ -123,7 +123,7 @@ def authorise_user_login(username, password, key_type, key_value):
         return 6, api_key, None
 
     # _________________________ Report the associated public key_______________________________________
-    report_status = loginApi.report(location=LOCATION, username=username, keys=keys, status="online",
+    report_status = loginApi.report(location=main.LOCATION, username=username, keys=keys, status="online",
                                     api_key=api_key, password=password)
     if not report_status:
         return 4, api_key, keys

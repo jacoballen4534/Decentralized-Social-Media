@@ -4,6 +4,7 @@ import cherrypy
 import ApisAndHelpers.loginServerApis as loginApi
 import json
 import pickle
+import markupsafe
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 

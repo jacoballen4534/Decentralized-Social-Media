@@ -126,5 +126,24 @@ def test_overwrite_private_data():
                                      encryption_key=encryption_key, api_key=api_key, password=password)
 
 
-# test_report(status='away')
-test_add_private_data()
+def test_call_ping_check_on_one_person():
+    target_name = "tmag741"
+    # target_ip = "122.58.162.166:5001"
+    target_user = None
+    users = loginServerApis.list_users(username=username, api_key=None, password=password)
+    """Try to find the target user from the list of online users. If it cant, return false."""
+    for user in users:
+        if 'username' in user and user.get('username') == target_name:
+            target_user = user
+    if target_user is None:
+        return False
+
+    myApis.call_ping_check(send_to_dict=[target_user])
+
+
+def test_call_ping_check():
+    users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
+    myApis.call_ping_check(send_to_dict=users)
+
+
+test_call_ping_check_on_one_person()

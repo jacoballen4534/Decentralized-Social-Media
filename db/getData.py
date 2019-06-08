@@ -33,7 +33,7 @@ def get_public_broadcast(last_broadcast_id, limit):
 
 
 def search_database(message_from):
-    """This returns all the broadcasts sent from "message_from"""
+    """This returns all the broadcasts sent from people with username containing 'message_from' """
     conn = None
     broadcasts = []
     try:
