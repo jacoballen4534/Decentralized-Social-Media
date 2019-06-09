@@ -371,7 +371,7 @@ def send_private_message(sender_username, plain_text_message, send_to_dict, keys
     for user in send_to_dict:
         broadcast_thread = threading.Thread(target=individual_thread_private_message, args=([user, byte_payload, header,
                                                                                              api_key, password, sender_username]))
-        broadcast_thread.daemon = True
+        # broadcast_thread.daemon = True
         broadcast_thread.start()
     return True
 
@@ -381,8 +381,8 @@ def individual_thread_private_message(user, byte_payload, header, api_key=None, 
     if 'http' not in con_address[:4]:
         con_address = "http://" + con_address
 
-    broadcast_url = con_address + "/api/privatemessage"
-
+    broadcast_url = con_address + "/api/rx_privatemessage"
+    print("sending message to: " + con_address)
     if user['username'] == 'admin':
         if api_key is not None:
             print("getting record with api_key")

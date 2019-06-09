@@ -59,7 +59,9 @@
         </div>
         <select id="user_list" class="custom-select" onchange="LoadPrivateMessage(this)">
             {% for user in user_list -%}
-            <option class="list-group-item" data-target-pubkey="{{user['incoming_pubkey']}}">{{user['username']}}</option>
+            <option class="list-group-item" id="target-username-{{user['username']}}" data-target-pubkey="{{user['incoming_pubkey']}}">
+                {{user['username']}}
+            </option>
             {%- endfor %}
         </select>
     </div>

@@ -31,7 +31,6 @@ class PrivateMessages:
         if username is None or api_key is None or pickled_keys is None:
             raise cherrypy.HTTPRedirect('/')
 
-        online_users = loginApi.list_users(username=username, api_key=api_key)
         # Get a list of all users to message
         user_list = getData.get_all_seen_users()
         return private_template.render(username=username, user_list=user_list, page_title="Private Messages")

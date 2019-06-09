@@ -128,8 +128,9 @@ def retreive_private_messages(sender, receiver):
         c = conn.cursor()
         c.execute(
             """SELECT id, message, sender, receiver, timestamp, sender_pubkey, receiver_pubkey, signature FROM 
-            private_messages WHERE sender = ? AND receiver = ?""", (sender, receiver,))
+            private_messages WHERE (sender = ? AND receiver = ?) OR ((sender = ? AND receiver = ?))""", (sender, receiver, receiver, sender,))
         rows = c.fetchall()
+        # Look at both direction to get all messages to and from.
         print("Retrieving new messages from db")
 
         for row in rows:

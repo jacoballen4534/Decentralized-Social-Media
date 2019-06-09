@@ -154,8 +154,12 @@ function retrevePrivateMessage(from) {
 
 
 function sendPrivateMessage() {
+    let userList = document.getElementById("user_list");
+    let target_selection_box = document.getElementById("target-username-" + userList.value);
+    let target_username = userList.value;
+    let target_pubkey = target_selection_box.getAttribute("data-target-pubkey");
 
-    let message = document.getElementById("broadcast-message-box").value;
+    let message = document.getElementById("broadcast-message-box").value.trim();
     if (message.length <= 0) {
         return
     }
@@ -168,6 +172,8 @@ function sendPrivateMessage() {
     let payload = {
         'request': 'send_private_message',
         'message': message,
+        'target_pubkey': target_pubkey,
+        'target_username': target_username,
     };
 
     const options = {
@@ -178,7 +184,7 @@ function sendPrivateMessage() {
         body: JSON.stringify(payload)
     };
     // Dont need the result
-    fetch('/updates/send_broadcast', options).catch(() => {
+    fetch('/updates/send_private_message', options).catch(() => {
 
     })
 }
@@ -226,20 +232,6 @@ function callPingCheck() {
 
         })
     }, 60000)
-}
-
-function likeMessage(button) {
-    let messageId = button.getAttribute('data-parent-id');
-    let parrentCard = document.getElementById("message-number-" + messageId);
-    if (parrentCard.children[1].children[0].children[0].children[0].classList.contains("fa-heart-o")) {
-        parrentCard.children[1].children[0].children[0].children[0].classList.remove("fa-heart-o");
-        parrentCard.children[1].children[0].children[0].children[0].classList.add("fa-heart");
-    } else if (parrentCard.children[1].children[0].children[0].children[0].classList.contains("fa-heart")){
-        parrentCard.children[1].children[0].children[0].children[0].classList.remove("fa-heart");
-        parrentCard.children[1].children[0].children[0].children[0].classList.add("fa-heart-o");
-    } else {
-        parrentCard.children[1].children[0].children[0].children[0].classList.add("fa-heart-o");
-    }
 }
 
 

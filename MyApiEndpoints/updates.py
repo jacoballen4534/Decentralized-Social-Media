@@ -127,8 +127,6 @@ class Updates(object):
         try:
             data = cherrypy.request.json
             message = data.get("message")
-            target_pubkey_str = data.get("target_pubkey")
-            target_username = data.get("target_username")
             if len(message) <= 0:  # Should be able to call with nothing, but check anyway
                 return
 
@@ -141,9 +139,8 @@ class Updates(object):
             keys = pickle.loads(pickled_keys)
             print("Request: " + str(data.get("request")) + " from: " + str(username))
             users = loginServerApis.list_users(username=username, api_key=api_key, password=None)
-            my_apis.send_private_message(sender_username=username, plain_text_message=message, send_to_dict=users,
-                                         keys=keys, target_pubkey_str=target_pubkey_str,
-                                         target_username=target_username, api_key=api_key, password=None)
+            my_apis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
+                                   password=None)
         except Exception as e:
             print(e)
 
@@ -200,13 +197,15 @@ class Updates(object):
     # @cherrypy.tools.json_out()
     @cherrypy.tools.json_in()
     def send_private_message(self):
-        """Clients call this endpoint via the send broadcast box. It will take a message and send it to all other
-        servers"""
+        """Clients call this endpoint via the send private message box. It will take a message, encrypt against the
+        target public key, and send it to all other servers"""
         import MyApiEndpoints.apis as my_apis
         import pickle
         try:
             data = cherrypy.request.json
             message = data.get("message")
+            target_pubkey_str = data.get("target_pubkey")
+            target_username = data.get("target_username")
             if len(message) <= 0:  # Should be able to call with nothing, but check anyway
                 return
 
@@ -219,7 +218,8 @@ class Updates(object):
             keys = pickle.loads(pickled_keys)
             print("Request: " + str(data.get("request")) + " from: " + str(username))
             users = loginServerApis.list_users(username=username, api_key=api_key, password=None)
-            my_apis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
-                                   password=None)
+            my_apis.send_private_message(sender_username=username, plain_text_message=message, send_to_dict=users,
+                                         keys=keys, target_pubkey_str=target_pubkey_str,
+                                         target_username=target_username, api_key=api_key, password=None)
         except Exception as e:
             print(e)
