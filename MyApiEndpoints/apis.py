@@ -65,6 +65,11 @@ class Api(object):
                 "method" : "POST",
                 "purpose": "Receives signed broadcasts from users, stores these in a database."
             },
+            "/rx_checkmessages": {
+                "method": "GET",
+                "purpose": "Returns message, sender_name, message_timestamp, sender_pubkey, message_signature of all"
+                           "stored messages with a timestamp greater than 'since'"
+            }
         }
         return response
 
@@ -193,14 +198,15 @@ class Api(object):
     @cherrypy.tools.allow(methods=["GET"])
     @cherrypy.tools.json_out()
     def checkmessages(self, since):
+        import db.getData
         try:
             print("check messages triggered")
             print("Asking for messages since: " + since)
             since = int(since)
-
+            boradcasts = db.getData.get_public_broadcasts_since(since)
             response = {
                 'response': 'ok',
-                'broadcasts': [""],
+                'broadcasts': boradcasts,
                 'private_messages': [""],
             }
 

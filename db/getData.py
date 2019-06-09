@@ -57,3 +57,33 @@ def search_database(message_from):
         if conn is not None:
             conn.close()
         return broadcasts
+
+
+def get_public_broadcasts_since(since):
+    """This returns all broadcasts after 'since'"""
+
+    conn = None
+    broadcasts = []
+    try:
+        conn = sqlite3.connect("./db/database.db")
+        c = conn.cursor()
+        c.execute("""SELECT message, sender, timestamp, sender_pubkey, signature FROM broadcasts WHERE timestamp > ?""",
+                  (since,))
+        rows = c.fetchall()
+        print("Retrieving new messages from db")
+
+        for row in rows:
+            broadcasts.append({
+                'message': row[0],
+                'sender': row[1],
+                'timestamp': row[2],
+                'sender_pubkey': row[3],
+                'message_signature': row[4]
+            })
+
+    except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
+        return broadcasts
