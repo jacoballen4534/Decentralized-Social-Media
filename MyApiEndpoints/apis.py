@@ -204,7 +204,7 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
         "signature"         : signature_hex_str
     }
     byte_payload = bytes(json.dumps(payload), "utf-8")
-    db.addData.add_public_broadcast(loginserver_record, message, current_time)
+    db.addData.add_public_broadcast(loginserver_record, message, current_time, signature_hex_str)
     for user in send_to_dict:
         broadcast_thread = threading.Thread(target=individual_thread_broadcast, args=([user, byte_payload, header,
                                                                                        api_key, password, username]))

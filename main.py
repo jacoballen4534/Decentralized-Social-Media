@@ -38,6 +38,7 @@ def init_db():
     conn = None
     try:
         conn = sqlite3.connect("./db/database.db")
+        conn.execute("PRAGMA foreign_key = 1")
         c = conn.cursor()
         c.execute("""CREATE TABLE IF NOT EXISTS `broadcasts` (
                     `id`            INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -68,9 +69,13 @@ def init_db():
                             `username`      VARCHAR(100) NOT NULL,
                             `pubkey`        TEXT NOT NULL,
                             `timestamp`     INTEGER NOT NULL,
-                            `signature`     TEXT NOT NULL UNIQUE, 
-                            FOREIGN KEY (signature) REFERENCES broadcasts(signature)
+                            `favourite_signature` TEXT NOT NULL, 
+                            FOREIGN KEY (favourite_signature) REFERENCES broadcasts(signature)
+                            ON UPDATE set null
+                            ON DELETE CASCADE 
                         );""")
+        # To limit people favouring a tweet once
+        c.execute("""CREATE UNIQUE INDEX username_favourite ON favourite_broadcast (username, favourite_signature)""")
     except Exception as e:
         print(e)
     finally:

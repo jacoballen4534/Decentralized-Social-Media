@@ -146,4 +146,4 @@ def test_call_ping_check():
     myApis.call_ping_check(send_to_dict=users)
 
 
-test_send_broadcast_to_one_person()
+test_report(status='away')

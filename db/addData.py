@@ -16,12 +16,13 @@ def add_public_broadcast(loginserver_record, message, timestamp, broadcast_signa
         return False
 
     try:
-        if message[:5] == '!META':
+        if message[:5] == '!Meta':
             tokens = message.split(':')
             if len(tokens) < 3:
                 return  # This means there was the meta tag, with nothing after it.
             # What is this meta message acting on. for favorite, this is the broadcast they are liking
             acting_on = tokens[2]
+            acting_on = acting_on.replace("[", "").replace("]", "")
             message_type = tokens[1]
             if message_type == 'favourite_broadcast':
                 add_favourite_broadcast(signature_of_message_to_favorite=acting_on, sender=sender,
@@ -45,7 +46,7 @@ def add_broadcast_message(message, sender, sender_pubkey, time_stamp, signature)
     try:
         conn = sqlite3.connect("./db/database.db")
         c = conn.cursor()
-        c.execute("""INSERT INTO broadcasts
+        c.execute("""INSERT INTO broadcasts_old
                     (message, sender, timestamp, sender_pubkey, signature)
                     VALUES
                     (?,?,?,?,?)""", (message, sender, time_stamp, sender_pubkey, signature,))
@@ -66,7 +67,7 @@ def add_favourite_broadcast(signature_of_message_to_favorite, sender, sender_pub
         conn = sqlite3.connect("./db/database.db")
         c = conn.cursor()
         c.execute("""INSERT INTO favourite_broadcast
-                        (username, pubkey, timestamp, signature)
+                        (username, pubkey, timestamp, favourite_signature)
                         VALUES
                         (?,?,?,?)""", (sender, sender_pubkey, time_stamp, signature_of_message_to_favorite,))
         conn.commit()

@@ -13,12 +13,12 @@ let listUsersInterval;
 let updateMessagesInterval;
 let converter;
 let pingCheckinterval;
-let missed_reports;
 
 
 function startReportTimer() {
     //This function will be called on page load, It will periodically report the user to my server by calling the
     // report api. This will be every 35 seconds
+    let missed_reports = 0;
     reportInterval = setInterval(() => {
         //Define a generic payload to send to the server.
         const payload = {
