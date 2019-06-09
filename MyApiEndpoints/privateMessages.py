@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
 
-class Feed:
+class PrivateMessages:
     @cherrypy.expose
     def default(self, *args, **kwargs):
         """The default page, given when we don't recognise where the request is for."""
@@ -21,7 +21,7 @@ class Feed:
     def index(self, *args, **kwargs):
         """This is where the user can see their private messages."""
         import db.getData as getData
-        feed_template = env.get_template('/html/feed.html')
+        private_template = env.get_template('/html/privateMessages.html')
 
         username = cherrypy.session.get('username')
         api_key = cherrypy.session.get('api_key')
@@ -32,6 +32,6 @@ class Feed:
             raise cherrypy.HTTPRedirect('/')
 
         online_users = loginApi.list_users(username=username, api_key=api_key)
-        # Get the last (upto) 20 messages to display on the home page.
-        broadcasts = getData.get_public_broadcast(last_broadcast_id=0, limit=20)
-        return feed_template.render(username=username, users=online_users, broadcasts=broadcasts, page_title="Public Broadcasts")
+        # Get a list of all users to message
+        user_list = getData.get_all_seen_users()
+        return private_template.render(username=username, user_list=user_list, page_title="Private Messages")

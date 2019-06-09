@@ -156,26 +156,30 @@ def report(location, username, keys, status="online", api_key=None, password=Non
 def list_users(username, api_key=None, password=None):
     """takes a username and password to use as authorisation to get all online users. Returns this in a dictionary"""
     list_users_url = "http://cs302.kiwi.land/api/list_users"
-    if api_key is not None:
-        print("listing users with api_key")
-        header = request_helper.create_api_header(x_username=username, api_key=api_key)
-    elif password is not None:
-        print("listing users with HTTP Basic")
-        header = request_helper.create_basic_header(username=username, password=password)
-    else:
-        return {[]}
+    try:
+        if api_key is not None:
+            print("listing users with api_key")
+            header = request_helper.create_api_header(x_username=username, api_key=api_key)
+        elif password is not None:
+            print("listing users with HTTP Basic")
+            header = request_helper.create_basic_header(username=username, password=password)
+        else:
+            return {}
 
-    req = urllib.request.Request(url=list_users_url, headers=header)
-    list_users_object = request_helper.query_server(req)
-    if list_users_object['response'] == 'ok':
-        users = list_users_object['users']
-        # pprint.pprint(list_users_object)
-        for user in users:
-            database.update_user_list(user)
+        req = urllib.request.Request(url=list_users_url, headers=header)
+        list_users_object = request_helper.query_server(req)
+        if list_users_object['response'] == 'ok':
+            users = list_users_object['users']
+            # pprint.pprint(list_users_object)
+            for user in users:
+                database.update_user_list(user)
 
-        return users
-    else:
-        return {[]}
+            return users
+        else:
+            return {}
+    except Exception as e:
+        print(e)
+        return {}
 
 
 def add_pub_key(keys, username, api_key=None, password=None):

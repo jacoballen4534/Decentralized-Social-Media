@@ -1,4 +1,4 @@
-{% macro display_broadcast(broadcasts) -%}
+{% macro display_broadcast(broadcasts, isBroadcast) -%}
 {% for broadcast in broadcasts -%}
 <div class="card mr-4 mb-4" id="message-number-{{broadcast['id']}}" data-message-id="{{broadcast['id']}}"
      style="width: 100%;">
@@ -16,6 +16,7 @@
     <div class="card-footer">
         <div class="d-flex justify-content-between flex-wrap" style="width: 100%">
                 <div class="">
+                    {% if isBroadcast %}
                     {% if broadcast['liked'] -%}
                     <i class="fa fa-heart"></i>
                     {% else -%}
@@ -23,6 +24,7 @@
                     {%- endif %}
                     <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0 ml-1 mr-3"
                             data-parent-id="{{ broadcast['id'] }}" onclick="likeMessage(this)">Favorite</button>
+                    {% endif %}
                 </div>
                 <div class="text-center">
                     <button data-parent-id="{{ broadcast['id'] }}" class="btn btn-outline-info btn-sm my-2 my-sm-0"
@@ -30,8 +32,10 @@
                     </button>
                 </div>
                 <div class="">
+                    {% if isBroadcast %}
                     <i class="fa fa-ban "></i>
                     <button href="#" class="btn btn-outline-danger btn-sm my-2 my-sm-0 ml-1 mr-3"> Block</button>
+                    {% endif %}
                 </div>
         </div>
     </div>

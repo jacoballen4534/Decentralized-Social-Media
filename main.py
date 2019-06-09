@@ -20,6 +20,7 @@ import MyApiEndpoints.feed
 import MyApiEndpoints.login
 import MyApiEndpoints.apis
 import MyApiEndpoints.updates
+import MyApiEndpoints.privateMessages
 import sqlite3
 import db.addData as addData
 
@@ -125,6 +126,7 @@ def runMainApp():
     cherrypy.tree.mount(MyApiEndpoints.landingPage.LandingPage(), "/", conf)
     cherrypy.tree.mount(MyApiEndpoints.login.Login(), "/login", conf)
     cherrypy.tree.mount(MyApiEndpoints.feed.Feed(), "/feed", conf)
+    cherrypy.tree.mount(MyApiEndpoints.privateMessages.PrivateMessages(), "/privateMessages", conf)
     cherrypy.tree.mount(MyApiEndpoints.apis.Api(), "/api", conf)
     cherrypy.tree.mount(MyApiEndpoints.updates.Updates(), "/updates", conf)
 

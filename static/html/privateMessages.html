@@ -2,11 +2,11 @@
 {% from '/html/newMessage.html' import display_broadcast %}
 
 {% block base_title %}
-<title>{{ username }} - Feed</title>
+<title>{{ username }} - Private</title>
 {% endblock base_title%}
 
 {% block post_login_links -%}
-<script src="/static/js/feed.js"></script>
+<script src="/static/js/privateMessages.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -36,8 +36,8 @@
         </p>
         <p class="card-text">
             <button onclick="previewMarkdownMessage()" class="btn btn-outline-primary my-2 my-sm-0 ml-1 mr-3" type="button">Markdown Preview</button>
-            <button onclick="sendBroadcast()" class="btn btn-outline-success my-2 my-sm-0 ml-1 mr-3" type="submit">
-                Post Broadcast
+            <button onclick="sendPrivateMessage()" class="btn btn-outline-success my-2 my-sm-0 ml-1 mr-3" type="submit">
+                Send Message
             </button>
         </p>
     </div>
@@ -55,25 +55,13 @@
 
     <div class="d-flex flex-column flex-wrap mx-sm-4 mr-lg-4 ml-lg-5 ml-4 mt-3">
         <div class="flex-row">
-            {% if users and users[0] %}
-            Here is a list of other users who have reported in the last 5 minutes:
-            {% else %}
-            It doesnt look like anyone else is online.
-            {% endif %}
+            Select someone to message:
         </div>
-        <ul id="user_list" class="list-group">
-            {% for user in users -%}
-            {% if user['status'] == 'online' %}
-            <li class="list-group-item-success">{{user['username']}} - {{user['status']}}</li>
-            {% elif user['status'] == 'away' %}
-            <li class="list-group-item-warning">{{user['username']}} - {{user['status']}}</li>
-            {% elif user['status'] == 'busy' %}
-            <li class="list-group-item-info">{{user['username']}} - {{user['status']}}</li>
-            {% else %}
-            <li class="list-group-item-danger">{{user['username']}} - {{user['status']}}</li>
-            {% endif %}
+        <select id="user_list" class="custom-select" onchange="LoadPrivateMessage(this)">
+            {% for user in user_list -%}
+            <option class="list-group-item" data-target-pubkey="{{user['incoming_pubkey']}}">{{user['username']}}</option>
             {%- endfor %}
-        </ul>
+        </select>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
