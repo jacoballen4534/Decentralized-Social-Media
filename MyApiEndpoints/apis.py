@@ -134,18 +134,26 @@ class Api(object):
     @cherrypy.tools.allow(methods=["POST"])
     @cherrypy.tools.json_out()
     def rx_privatemessage(self):
+        import db.addData
         try:
             print("privatemessage triggered")
             received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
 
-            message = received_data.get('message').encode('utf-8')
-            print("Broadcast:")
-            print(message)
+            loginserver_record = received_data.get('loginserver_record')
+            target_pubkey = received_data.get('target_pubkey')
+            target_username = received_data.get('target_username')
+            encrypted_message = received_data.get('encrypted_message')
+            sender_created_at = received_data.get('sender_created_at')
+            signature = received_data.get('signature')
 
-            response = {'response': 'ok'}
+            if None in (loginserver_record, target_pubkey, target_username, encrypted_message, sender_created_at, signature):
+                return {'response': 'error'}
 
-            response = json.dumps(response)
-            return response
+            db.addData.add_private_message(loginserver_record=loginserver_record, target_pubkey_str=target_pubkey,
+                                           target_username=target_username, encrypted_message_string=encrypted_message,
+                                           sender_created_at=sender_created_at, message_signature=signature)
+
+            return {'response': 'ok'}
         except Exception as e:
             return {'response': 'error'}
 
@@ -162,8 +170,15 @@ class Api(object):
             api_key = cherrypy.session.get("api_key")
             pickled_keys = cherrypy.session.get("pickled_keys")
             report_as = cherrypy.session.get('report_as')
-            if report_as is None:
-                report_as = 'away'
+            last_activity_time = cherrypy.session.get('last_activity_time')
+            try:
+                last_activity_time = float(last_activity_time)
+                if (time.time() - last_activity_time) > 120:  # no reset for 2 mins
+                    report_as = 'away'
+                else:
+                    report_as = 'online'
+            except Exception:
+                report_as = 'busy'
 
             keys = None
             if pickled_keys is not None:
@@ -366,7 +381,7 @@ def send_private_message(sender_username, plain_text_message, send_to_dict, keys
     byte_payload = bytes(json.dumps(payload), "utf-8")
 
     db.addData.add_private_message(loginserver_record, target_pubkey_str, target_username, encrypted_message_string,
-                                   sender_created_at, message_signature, sender_username)
+                                   sender_created_at, message_signature)
 
     for user in send_to_dict:
         broadcast_thread = threading.Thread(target=individual_thread_private_message, args=([user, byte_payload, header,

@@ -1,7 +1,7 @@
 {% macro display_broadcast(broadcasts, isBroadcast) -%}
 {% for broadcast in broadcasts -%}
 <div class="card mr-4 mb-4" id="message-number-{{broadcast['id']}}" data-message-id="{{broadcast['id']}}"
-     style="width: 100%;">
+     data-decrypted="false" style="width: 100%;">
     <div class="card-body mb-0 pb-0">
         <h5 class="card-title">
             {{ broadcast['sender'] }}

@@ -1,5 +1,4 @@
 import pprint
-import urllib.request
 import json
 import base64
 import binascii
@@ -10,7 +9,7 @@ import nacl.utils
 import nacl.pwhash
 import nacl.hash
 import nacl.exceptions
-import time
+import nacl.public
 
 
 def sign_message(message_string, private_key):
@@ -125,7 +124,6 @@ def encrypt_private_data(private_data_plain_text_bytes, encryption_key):
 
 def create_private_message(target_public_key_bytes, plain_text_message_string):
     """Take the target public key and encrypt a message against it."""
-    import nacl.public
     try:
         verify_key = nacl.signing.VerifyKey(target_public_key_bytes, encoder=nacl.encoding.HexEncoder)
         target_public_key_curve = verify_key.to_curve25519_public_key()
@@ -138,9 +136,24 @@ def create_private_message(target_public_key_bytes, plain_text_message_string):
         return False, None
 
 
+def decrypt_private_messages(encrypted_messages, recipient, private_key):
+    """This takes a list of encrypted messages and will decrypt all the messages sent to this client"""
+    for encrypted_message in encrypted_messages:
+        if "receiver" in encrypted_message and encrypted_message["receiver"] == recipient and "message" in encrypted_message:
+            encrypted_message_text = encrypted_message["message"]
+            decrypted_message = decrypt_priv_message(private_key=private_key, message=encrypted_message_text)
+            encrypted_message["message"] = decrypted_message
+    return encrypted_messages
 
 
+def decrypt_priv_message(private_key, message):
+    """Takes a private message, and decrypts it using curve keys and sealed box"""
+    try:
+        curved_private_key = private_key.to_curve25519_private_key()
+        decrypt_sealed_box = nacl.public.SealedBox(curved_private_key)
 
-
-
-
+        message = decrypt_sealed_box.decrypt(message, encoder=nacl.encoding.HexEncoder)
+        message_string = message.decode('utf-8')
+        return message_string
+    except Exception as e:
+        return message

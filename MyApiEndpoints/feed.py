@@ -4,7 +4,7 @@ import cherrypy
 import ApisAndHelpers.loginServerApis as loginApi
 import json
 import pickle
-import markupsafe
+import time
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
@@ -31,7 +31,9 @@ class Feed:
         if username is None or api_key is None or pickled_keys is None:
             raise cherrypy.HTTPRedirect('/')
 
+        cherrypy.session['last_activity_time'] = str(time.time())
         online_users = loginApi.list_users(username=username, api_key=api_key)
         # Get the last (upto) 20 messages to display on the home page.
         broadcasts = getData.get_public_broadcast(last_broadcast_id=0, limit=20)
-        return feed_template.render(username=username, users=online_users, broadcasts=broadcasts, page_title="Public Broadcasts")
+        return feed_template.render(username=username, users=online_users, broadcasts=broadcasts,
+                                    page_title="Public Broadcasts", isBroadcast=True)

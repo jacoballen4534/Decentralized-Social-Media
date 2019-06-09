@@ -122,9 +122,9 @@ def update_user_list(user):
 
 
 def add_private_message(loginserver_record, target_pubkey_str, target_username, encrypted_message_string,
-        sender_created_at, message_signature, sender_username):
-
-    status, sender, sender_pubkey, time_stamp = pre_process_broadcast(loginserver_record, sender_created_at)
+                        sender_created_at, message_signature):
+    """Takes a private message and stores the reletive components for later distribution."""
+    status, sender_username, sender_pubkey, time_stamp = pre_process_broadcast(loginserver_record, sender_created_at)
     if not status:
         return False
 
@@ -147,4 +147,3 @@ def add_private_message(loginserver_record, target_pubkey_str, target_username, 
     finally:
         if conn is not None:
             conn.close()
-

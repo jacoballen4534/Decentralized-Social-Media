@@ -4,7 +4,7 @@ import cherrypy
 import ApisAndHelpers.loginServerApis as loginApi
 import json
 import pickle
-import markupsafe
+import time
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
@@ -31,6 +31,7 @@ class PrivateMessages:
         if username is None or api_key is None or pickled_keys is None:
             raise cherrypy.HTTPRedirect('/')
 
+        cherrypy.session['last_activity_time'] = str(time.time())
         # Get a list of all users to message
         user_list = getData.get_all_seen_users()
-        return private_template.render(username=username, user_list=user_list, page_title="Private Messages")
+        return private_template.render(username=username, user_list=user_list, page_title="Private Messages", isBroadcast=False)

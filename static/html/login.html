@@ -7,12 +7,13 @@
 {% block base_links %}
 <link rel='stylesheet' type="text/css" href='/static/css/login.css'/>
 <script type="text/javascript" src="/static/js/login.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 {% endblock base_links%}
 
 
 {% block base_body %}
-<div class="container justify-content-center">
+<div class="container justify-content-center mx-xg-5 px-lg-5">
     <div class="flex-column mt-3">
         <form action="/login/signin" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
             <div class="row mb-lg-3 mb-2">
@@ -117,6 +118,30 @@
         </form>
     </div>
 
+    <div>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+
+    <div class="row mb-lg-3 mb-2 text-center">
+        <div class="col">
+            <span style="width: 100%"><u>Create new key and encryption key</u></span><br/><br/>
+            <span style="width: 100%"><u>Warning. This will overwride your private data and and another key to your account</u></span>
+            <br/><br/>
+            <input type="text" class="form-control" id="create-new-password" name="new-password" style="width: 100%"
+                   placeholder="Password" aria-describedby="create-new-password-help">
+
+            <br/>
+            <br/>
+            <div>
+                <button style="width: 100%" type="submit" id="overwrite-button" class="btn btn-danger btn-block">
+                    Create New Key and Private Data
+                </button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 {% endblock base_body%}

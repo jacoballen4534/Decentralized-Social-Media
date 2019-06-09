@@ -19,7 +19,7 @@ class Updates(object):
         import pickle
         try:
             data = cherrypy.request.json
-            feed_template = env.get_template('/html/online_user_module.html')
+            online_users_template = env.get_template('/html/online_user_module.html')
 
             username = cherrypy.session.get('username')
             api_key = cherrypy.session.get('api_key')
@@ -50,7 +50,7 @@ class Updates(object):
                 print(e)
 
             online_users = loginServerApis.list_users(username=username, api_key=api_key)
-            temp = json.dumps(feed_template.render(username=username, users=online_users))
+            temp = json.dumps(online_users_template.render(username=username, users=online_users))
             return temp
         except Exception as e:
             print(e)
@@ -168,6 +168,8 @@ class Updates(object):
     @cherrypy.tools.json_in()
     def retreive_private_messages(self):
         """Retrieve all private messages from a user"""
+        import pickle
+        import ApisAndHelpers.crypto as crypto
         try:
             data = cherrypy.request.json
             messages_from = data.get("message_from")
@@ -179,14 +181,16 @@ class Updates(object):
             username = cherrypy.session.get('username')
             api_key = cherrypy.session.get('api_key')
             cherrypy.session['last_activity_time'] = str(time.time())
+            pickled_keys = cherrypy.session.get("pickled_keys")
 
             # If they shouldnt be here. Kick them back to login.
-            if username is None or api_key is None:
+            if username is None or api_key is None or pickled_keys is None:
                 raise cherrypy.HTTPRedirect('/')
             print("Request: " + str(data.get("request")) + " from: " + str(username))
+            keys = pickle.loads(pickled_keys)
 
-            messages = getData.retreive_private_messages(sender=messages_from, receiver=username)
-
+            encrypted_messages = getData.retreive_private_messages(sender=messages_from, receiver=username)
+            messages = crypto.decrypt_private_messages(encrypted_messages, username, keys['private_key'])
             temp = json.dumps(message_template.module.display_broadcast(broadcasts=messages, isBroadcast=False))
             return temp
         except Exception as e:

@@ -97,7 +97,8 @@ def get_all_seen_users():
     try:
         conn = sqlite3.connect("./db/database.db")
         c = conn.cursor()
-        c.execute("""SELECT username, incoming_pubkey, connection_updated_at, connection_address, connection_location FROM all_seen_users""")
+        c.execute("""SELECT username, incoming_pubkey, connection_updated_at, connection_address, connection_location FROM
+                all_seen_users ORDER BY username COLLATE NOCASE ASc""")
         rows = c.fetchall()
         print("Retrieving new messages from db")
 
@@ -122,19 +123,19 @@ def retreive_private_messages(sender, receiver):
     """Returns a list of all private messages from another user'"""
 
     conn = None
-    user_list = []
+    private_messages = []
     try:
         conn = sqlite3.connect("./db/database.db")
         c = conn.cursor()
         c.execute(
             """SELECT id, message, sender, receiver, timestamp, sender_pubkey, receiver_pubkey, signature FROM 
-            private_messages WHERE (sender = ? AND receiver = ?) OR ((sender = ? AND receiver = ?))""", (sender, receiver, receiver, sender,))
+            private_messages WHERE (sender = ? AND receiver = ?) OR ((sender = ? AND receiver = ?)) ORDER BY id DESC""", (sender, receiver, receiver, sender,))
         rows = c.fetchall()
         # Look at both direction to get all messages to and from.
         print("Retrieving new messages from db")
 
         for row in rows:
-            user_list.append({
+            private_messages.append({
                 'id': row[0],
                 'message': row[1],
                 'sender': row[2],
@@ -150,4 +151,4 @@ def retreive_private_messages(sender, receiver):
     finally:
         if conn is not None:
             conn.close()
-        return user_list
+        return private_messages
