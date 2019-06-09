@@ -71,7 +71,7 @@ function pollListUsers() {
             let list = document.getElementById('user_list');
             list.innerHTML = html_list;
             console.log("Updated user list")
-        }).catch( () => {
+        }).catch(() => {
 
         })
     }, 8000)
@@ -121,7 +121,7 @@ function pollNewMessages() {
             }).catch(() => {
 
             })
-        },3000
+        }, 3000
     )
 }
 
@@ -153,7 +153,7 @@ function searchMessage() {
         let list = document.getElementById('broadcasts');
         list.innerHTML = md_messages;
         console.log("Searched New messages")
-    }).catch( () => {
+    }).catch(() => {
 
     })
 }
@@ -184,7 +184,7 @@ function sendBroadcast() {
         body: JSON.stringify(payload)
     };
     // Dont need the result
-    fetch('/updates/send_broadcast', options).catch( () => {
+    fetch('/updates/send_broadcast', options).catch(() => {
 
     })
 }
@@ -232,4 +232,18 @@ function callPingCheck() {
 
         })
     }, 60000)
+}
+
+function likeMessage(button) {
+    let messageId = button.getAttribute('data-parent-id');
+    let parrentCard = document.getElementById("message-number-" + messageId);
+    if (parrentCard.children[1].children[0].children[0].children[0].classList.contains("fa-heart-o")) {
+        parrentCard.children[1].children[0].children[0].children[0].classList.remove("fa-heart-o");
+        parrentCard.children[1].children[0].children[0].children[0].classList.add("fa-heart");
+    } else if (parrentCard.children[1].children[0].children[0].children[0].classList.contains("fa-heart")){
+        parrentCard.children[1].children[0].children[0].children[0].classList.remove("fa-heart");
+        parrentCard.children[1].children[0].children[0].children[0].classList.add("fa-heart-o");
+    } else {
+        parrentCard.children[1].children[0].children[0].children[0].classList.add("fa-heart-o");
+    }
 }

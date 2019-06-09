@@ -21,7 +21,8 @@
                     {% else -%}
                     <i class="fa fa-heart-o"></i>
                     {%- endif %}
-                    <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0 ml-1 mr-3">Favorite</button>
+                    <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0 ml-1 mr-3"
+                            data-parent-id="{{ broadcast['id'] }}" onclick="likeMessage(this)">Favorite</button>
                 </div>
                 <div class="text-center">
                     <button data-parent-id="{{ broadcast['id'] }}" class="btn btn-outline-info btn-sm my-2 my-sm-0"

@@ -187,9 +187,7 @@ class Api(object):
                 'user_id': username,
             }
         except Exception as e:
-            return {
-                'response': 'error',
-            }
+            raise cherrypy.HTTPRedirect('/login?status_code=7')
 
     @cherrypy.expose
     @cherrypy.tools.allow(methods=["GET"])
@@ -202,6 +200,8 @@ class Api(object):
 
             response = {
                 'response': 'ok',
+                'broadcasts': [""],
+                'private_messages': [""],
             }
 
             return response
