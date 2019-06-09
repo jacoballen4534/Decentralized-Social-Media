@@ -2,6 +2,7 @@ import cherrypy
 import json
 import ApisAndHelpers.loginServerApis as loginServerApis
 import db.getData as getData
+import time
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('static'), autoescape=True)
 
@@ -14,6 +15,8 @@ class Updates(object):
     @cherrypy.tools.json_in()
     def update_online_users(self):
         """This endpoint gets called by each client, from their browser. It will get a new list on online users"""
+        import main
+        import pickle
         try:
             data = cherrypy.request.json
             feed_template = env.get_template('/html/online_user_module.html')
@@ -25,6 +28,26 @@ class Updates(object):
             if username is None or api_key is None:
                 raise cherrypy.HTTPRedirect('/')
             print("Request: " + str(data) + " from: " + str(username))
+
+            # _________________________Update report status___________________________________#
+            last_activity_time = cherrypy.session.get('last_activity_time')
+            last_report_status = cherrypy.session.get('report_as')
+            try:
+                last_activity_time = float(last_activity_time)
+                if (time.time() - last_activity_time) > 60 and last_report_status == 'online':  # Just gone to
+                    # away state
+                    cherrypy.session['report_as'] = 'away'
+                    keys = pickle.loads(cherrypy.session.get("pickled_keys"))
+                    loginServerApis.report(location=main.LOCATION, username=username, keys=keys, status='away',
+                                           api_key=api_key)
+                elif (time.time() - last_activity_time) < 60 and last_report_status != 'online':  # Just come back
+                    # online
+                    cherrypy.session['report_as'] = 'online'
+                    keys = pickle.loads(cherrypy.session.get("pickled_keys"))
+                    loginServerApis.report(location=main.LOCATION, username=username, keys=keys, status='online',
+                                           api_key=api_key)
+            except Exception as e:
+                print(e)
 
             online_users = loginServerApis.list_users(username=username, api_key=api_key)
             temp = json.dumps(feed_template.render(username=username, users=online_users))
@@ -38,7 +61,8 @@ class Updates(object):
     # @cherrypy.tools.json_out()
     @cherrypy.tools.json_in()
     def update_new_broadcasts(self):
-        """This endpoint gets called by each client, from their browser. It will send any new messages in html string"""
+        """This endpoint gets called by each client, from their browser. It will send any new messages in html string
+        Also will update the users report status. If the user has just gone offline, reports this"""
         try:
             data = cherrypy.request.json
             last_message_id = int(data.get("last_message"))
@@ -54,7 +78,6 @@ class Updates(object):
             print("Request: " + str(data.get("request")) + " from: " + str(username))
 
             new_messages = getData.get_public_broadcast(last_broadcast_id=last_message_id, limit=-1)
-
             temp = json.dumps(message_template.module.display_broadcast(broadcasts=new_messages))
             return temp
         except Exception as e:
@@ -78,6 +101,7 @@ class Updates(object):
 
             username = cherrypy.session.get('username')
             api_key = cherrypy.session.get('api_key')
+            cherrypy.session['last_activity_time'] = str(time.time())
 
             # If they shouldnt be here. Kick them back to login.
             if username is None or api_key is None:
@@ -109,6 +133,7 @@ class Updates(object):
             username = cherrypy.session.get('username')
             api_key = cherrypy.session.get('api_key')
             pickled_keys = cherrypy.session.get("pickled_keys")
+            cherrypy.session['last_activity_time'] = str(time.time())
 
             # Set the user status to offline before signing out
             keys = pickle.loads(pickled_keys)

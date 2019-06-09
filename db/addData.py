@@ -46,7 +46,8 @@ def add_broadcast_message(message, sender, sender_pubkey, time_stamp, signature)
     try:
         conn = sqlite3.connect("./db/database.db")
         c = conn.cursor()
-        c.execute("""INSERT INTO broadcasts_old
+        conn.execute("PRAGMA foreign_key = true")
+        c.execute("""INSERT INTO broadcasts
                     (message, sender, timestamp, sender_pubkey, signature)
                     VALUES
                     (?,?,?,?,?)""", (message, sender, time_stamp, sender_pubkey, signature,))
@@ -66,6 +67,7 @@ def add_favourite_broadcast(signature_of_message_to_favorite, sender, sender_pub
     try:
         conn = sqlite3.connect("./db/database.db")
         c = conn.cursor()
+        conn.execute("PRAGMA foreign_key = true")
         c.execute("""INSERT INTO favourite_broadcast
                         (username, pubkey, timestamp, favourite_signature)
                         VALUES

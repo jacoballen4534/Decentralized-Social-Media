@@ -71,7 +71,9 @@ function pollListUsers() {
             let list = document.getElementById('user_list');
             list.innerHTML = html_list;
             console.log("Updated user list")
-        }).catch()
+        }).catch( () => {
+
+        })
     }, 8000)
 }
 
@@ -107,7 +109,7 @@ function pollNewMessages() {
                 }
 
                 let lastMessageAdded = list.children[0].getAttribute("data-message-id");
-                let newMessages = html_messages.split('<div class="card mr-4 mb-4" id=');
+                let newMessages = html_messages.split('<div class="card mr-4 mb-4" id="');
 
                 for (let i = 1; i < newMessages.length; i++) {
                     let newMessageNumber = newMessages[i].split("message-number-")[1].split('"')[0];
@@ -116,7 +118,9 @@ function pollNewMessages() {
                         list.innerHTML = '<div class="card mr-4 mb-4" id="' + newMessages[i] + list.innerHTML;
                     }
                 }
-            }).catch()
+            }).catch(() => {
+
+            })
         },3000
     )
 }
@@ -128,7 +132,7 @@ function searchMessage() {
     if (searchBoxContents.length <= 0) {
         return
     }
-    console.log("search pressed");
+
     clearInterval(updateMessagesInterval);
     let payload = {
         'request': 'search_broadcasts',
@@ -149,7 +153,9 @@ function searchMessage() {
         let list = document.getElementById('broadcasts');
         list.innerHTML = md_messages;
         console.log("Searched New messages")
-    }).catch()
+    }).catch( () => {
+
+    })
 }
 
 
@@ -159,7 +165,7 @@ function sendBroadcast() {
     if (message.length <= 0) {
         return
     }
-    console.log("Send message clicked");
+
     //Clear the message box and the markdown preview
     document.getElementById("broadcast-message-box").value = "";
     document.getElementById("outer-message-container").children[0].value = "";
@@ -178,7 +184,9 @@ function sendBroadcast() {
         body: JSON.stringify(payload)
     };
     // Dont need the result
-    fetch('/updates/send_broadcast', options).catch()
+    fetch('/updates/send_broadcast', options).catch( () => {
+
+    })
 }
 
 
@@ -220,6 +228,8 @@ function callPingCheck() {
             body: JSON.stringify(payload)
         };
 
-        fetch('/updates/call_ping_check', options).catch()
+        fetch('/updates/call_ping_check', options).catch(() => {
+
+        })
     }, 60000)
 }

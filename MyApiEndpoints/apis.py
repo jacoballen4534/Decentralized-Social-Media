@@ -129,17 +129,20 @@ class Api(object):
     @cherrypy.tools.allow(methods=["POST"])
     @cherrypy.tools.json_out()
     def rx_privatemessage(self):
-        print("privatemessage triggered")
-        received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
+        try:
+            print("privatemessage triggered")
+            received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
 
-        message = received_data.get('message').encode('utf-8')
-        print("Broadcast:")
-        print(message)
+            message = received_data.get('message').encode('utf-8')
+            print("Broadcast:")
+            print(message)
 
-        response = {'response': 'ok'}
+            response = {'response': 'ok'}
 
-        response = json.dumps(response)
-        return response
+            response = json.dumps(response)
+            return response
+        except Exception as e:
+            return {'response': 'error'}
 
     @cherrypy.expose
     @cherrypy.tools.allow(methods=["POST"])
@@ -147,35 +150,64 @@ class Api(object):
     def report(self):
         """This endpoint gets called by each client, from their browser. It will be called every 20 seconds, telling
         the server to report them to the login server"""
-        received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
-        username = cherrypy.session.get("username")
-        api_key = cherrypy.session.get("api_key")
-        pickled_keys = cherrypy.session.get("pickled_keys")
-        keys = None
-        if pickled_keys is not None:
-            keys = pickle.loads(pickled_keys)
-        debug_logger.debug("Request: " + str(received_data) + " from: " + str(username))
-        report_status = loginServerApis.report(location="2", username=username, keys=keys, status="online", api_key=api_key)
-        debug_logger.debug("Reporting " + str(username) + ": status " + "sucess" if report_status else "Failed")
+        import main
+        try:
+            received_data = json.loads(cherrypy.request.body.read().decode('utf-8'))
+            username = cherrypy.session.get("username")
+            api_key = cherrypy.session.get("api_key")
+            pickled_keys = cherrypy.session.get("pickled_keys")
+            report_as = cherrypy.session.get('report_as')
+            if report_as is None:
+                report_as = 'away'
 
-        """If the report failed. The user may have logged in on another computer. check if their api key is still valid.
-         If its not, send them back to the log in screed and tell them this is the case."""
-        if not report_status:
-            api_key_still_valid = False
-            if username is not None and api_key is not None:
-                api_key_still_valid = loginServerApis.ping(username=username, api_key=api_key)
-            if not api_key_still_valid:
-                # cherrypy.lib.sessions.expire()
-                cherrypy.session['username'] = None
-                cherrypy.session['api_key'] = None
-                cherrypy.session['pickled_keys'] = None
-                raise cherrypy.HTTPRedirect('/login?status_code=7')
+            keys = None
+            if pickled_keys is not None:
+                keys = pickle.loads(pickled_keys)
+            debug_logger.debug("Request: " + str(received_data) + " from: " + str(username))
+            report_status = loginServerApis.report(location=main.LOCATION, username=username, keys=keys,
+                                                   status=report_as, api_key=api_key)
+            debug_logger.debug("Reporting " + str(username) + ": status " + "sucess" if report_status else "Failed")
 
-        return {
-            'response': 'ok',
-            'report_status': 'success' if report_status else 'failed',
-            'user_id': username,
-        }
+            """If the report failed. The user may have logged in on another computer. check if their api key is still valid.
+             If its not, send them back to the log in screed and tell them this is the case."""
+            if not report_status:
+                api_key_still_valid = False
+                if username is not None and api_key is not None:
+                    api_key_still_valid = loginServerApis.ping(username=username, api_key=api_key)
+                if not api_key_still_valid:
+                    # cherrypy.lib.sessions.expire()
+                    cherrypy.session['username'] = None
+                    cherrypy.session['api_key'] = None
+                    cherrypy.session['pickled_keys'] = None
+                    raise cherrypy.HTTPRedirect('/login?status_code=7')
+
+            return {
+                'response': 'ok',
+                'report_status': 'success' if report_status else 'failed',
+                'user_id': username,
+            }
+        except Exception as e:
+            return {
+                'response': 'error',
+            }
+
+    @cherrypy.expose
+    @cherrypy.tools.allow(methods=["GET"])
+    @cherrypy.tools.json_out()
+    def checkmessages(self, since):
+        try:
+            print("check messages triggered")
+            print("Asking for messages since: " + since)
+            since = int(since)
+
+            response = {
+                'response': 'ok',
+            }
+
+            return response
+        except Exception as e:
+            print(e)
+            return {'response': 'error'}
 
 # ___________________________Non exposed functions_________________________________________#
 
@@ -208,6 +240,7 @@ def send_broadcast(username, message, send_to_dict, keys, api_key=None, password
     for user in send_to_dict:
         broadcast_thread = threading.Thread(target=individual_thread_broadcast, args=([user, byte_payload, header,
                                                                                        api_key, password, username]))
+        broadcast_thread.daemon = True
         broadcast_thread.start()
     return True
 
@@ -271,18 +304,22 @@ def call_ping_check(send_to_dict):
     byte_payload = bytes(json.dumps(payload), "utf-8")
 
     for user in send_to_dict:
-        broadcast_thread = threading.Thread(target=individual_call_ping_check, args=([user, byte_payload, header]))
-        broadcast_thread.start()
+        ping_check_thread = threading.Thread(target=individual_call_ping_check, args=([user, byte_payload, header]))
+        ping_check_thread.daemon = True
+        ping_check_thread.start()
     return True
 
 
 def individual_call_ping_check(user, byte_payload, header):
-    con_address = user['connection_address']
-    if 'http' not in con_address[:4]:
-        con_address = "http://" + con_address
+    try:
+        con_address = user['connection_address']
+        if 'http' not in con_address[:4]:
+            con_address = "http://" + con_address
 
-    ping_url = con_address + "/api/ping_check"
+        ping_url = con_address + "/api/ping_check"
 
-    broadcast_request = urllib.request.Request(url=ping_url, headers=header, data=byte_payload, method="POST")
-    json_object = request_helper.query_server(broadcast_request)
-    pprint.pprint("Result of request to " + ping_url + ": " + json_object['response'])
+        broadcast_request = urllib.request.Request(url=ping_url, headers=header, data=byte_payload, method="POST")
+        json_object = request_helper.query_server(broadcast_request)
+        pprint.pprint("Result of request to " + ping_url + ": " + json_object['response'])
+    except TypeError as e:
+        print(e)

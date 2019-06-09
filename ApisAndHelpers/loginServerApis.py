@@ -163,8 +163,7 @@ def list_users(username, api_key=None, password=None):
         print("listing users with HTTP Basic")
         header = request_helper.create_basic_header(username=username, password=password)
     else:
-        list_users_object = {'users': [{}]}
-        return list_users_object
+        return {[]}
 
     req = urllib.request.Request(url=list_users_url, headers=header)
     list_users_object = request_helper.query_server(req)
@@ -176,8 +175,7 @@ def list_users(username, api_key=None, password=None):
 
         return users
     else:
-        list_users_object['users'] = [{}]
-        return list_users_object
+        return {[]}
 
 
 def add_pub_key(keys, username, api_key=None, password=None):

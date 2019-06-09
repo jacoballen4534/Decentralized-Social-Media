@@ -83,10 +83,14 @@ def authorise_user_login(username, password, key_type, key_value):
     5 = Error retrieving private data, or no private data available.
     6 = Private key does not associate with the public key registered on your account"""
     import ApisAndHelpers.crypto as crypto
+    import time
     # Clear all credentials if the are already logged in, but try to log in again.
     cherrypy.session['username'] = None
     cherrypy.session['api_key'] = None
     cherrypy.session['pickled_keys'] = None
+    cherrypy.session['last_activity_time'] = str(time.time())
+    cherrypy.session['report_as'] = 'online'
+
     # _______________________________Check server is online __________________________________
     if not loginApi.ping():
         return 1, None, None  # Return status and new api key for the user. 1 indicates server is down

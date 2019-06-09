@@ -1,6 +1,6 @@
 {% macro display_broadcast(broadcasts) -%}
 {% for broadcast in broadcasts -%}
-<div class="card mr-4 mb-4" id="message-number-{{ broadcast['id'] }}" data-message-id="{{ broadcast['id'] }}"
+<div class="card mr-4 mb-4" id="message-number-{{broadcast['id']}}" data-message-id="{{broadcast['id']}}"
      style="width: 100%;">
     <div class="card-body mb-0 pb-0">
         <h5 class="card-title">
@@ -24,7 +24,7 @@
                     <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0 ml-1 mr-3">Favorite</button>
                 </div>
                 <div class="text-center">
-                    <button data-parent-id="{{ broadcast['id'] }}" class="btn btn-outline-danger btn-sm my-2 my-sm-0"
+                    <button data-parent-id="{{ broadcast['id'] }}" class="btn btn-outline-info btn-sm my-2 my-sm-0"
                             onclick="convertAllMessagesToMd(this)">Convert Markdown
                     </button>
                 </div>
