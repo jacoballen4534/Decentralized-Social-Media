@@ -123,3 +123,24 @@ def encrypt_private_data(private_data_plain_text_bytes, encryption_key):
     return True, encrypted_message
 
 
+def create_private_message(target_public_key_bytes, plain_text_message_string):
+    """Take the target public key and encrypt a message against it."""
+    import nacl.public
+    try:
+        verify_key = nacl.signing.VerifyKey(target_public_key_bytes, encoder=nacl.encoding.HexEncoder)
+        target_public_key_curve = verify_key.to_curve25519_public_key()
+        sealed_box = nacl.public.SealedBox(target_public_key_curve)
+        encrypted_message = sealed_box.encrypt(str.encode(plain_text_message_string), encoder=nacl.encoding.HexEncoder)
+        encrypted_message_string = encrypted_message.decode('utf-8')  # This is the message to send (string)
+        return True, encrypted_message_string
+    except Exception as e:
+        print(e)
+        return False, None
+
+
+
+
+
+
+
+

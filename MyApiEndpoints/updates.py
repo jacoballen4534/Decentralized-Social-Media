@@ -127,6 +127,8 @@ class Updates(object):
         try:
             data = cherrypy.request.json
             message = data.get("message")
+            target_pubkey_str = data.get("target_pubkey")
+            target_username = data.get("target_username")
             if len(message) <= 0:  # Should be able to call with nothing, but check anyway
                 return
 
@@ -139,8 +141,9 @@ class Updates(object):
             keys = pickle.loads(pickled_keys)
             print("Request: " + str(data.get("request")) + " from: " + str(username))
             users = loginServerApis.list_users(username=username, api_key=api_key, password=None)
-            my_apis.send_broadcast(username=username, message=message, send_to_dict=users, keys=keys, api_key=api_key,
-                                   password=None)
+            my_apis.send_private_message(sender_username=username, plain_text_message=message, send_to_dict=users,
+                                         keys=keys, target_pubkey_str=target_pubkey_str,
+                                         target_username=target_username, api_key=api_key, password=None)
         except Exception as e:
             print(e)
 

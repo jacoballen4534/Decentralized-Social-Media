@@ -146,4 +146,17 @@ def test_call_ping_check():
     myApis.call_ping_check(send_to_dict=users)
 
 
-test_report(status='away')
+def test_private_message():
+    target_pubkey_str='11c8c33b6052ad73a7a29e832e97e31f416dedb7c6731a6f456f83a344488ec0'
+    target_username="admin"
+    users = loginServerApis.list_users(username=username, api_key=api_key, password=password)
+    myApis.send_private_message(sender_username=username, plain_text_message=message, send_to_dict=users, keys=keys,
+                                target_pubkey_str=target_pubkey_str, target_username=target_username,
+                                api_key=api_key, password=None)
+
+
+def test_get_loginserver_pubkey():
+    loginServerApis.loginserver_pubkey()
+
+
+test_private_message()

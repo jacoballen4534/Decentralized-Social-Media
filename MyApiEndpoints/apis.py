@@ -329,3 +329,69 @@ def individual_call_ping_check(user, byte_payload, header):
         pprint.pprint("Result of request to " + ping_url + ": " + json_object['response'])
     except TypeError as e:
         print(e)
+
+
+def send_private_message(sender_username, plain_text_message, send_to_dict, keys, target_pubkey_str, target_username,
+        api_key=None, password=None):
+
+    import db.addData
+    status, loginserver_record = loginServerApis.get_loginserver_record(username=sender_username, api_key=api_key,
+                                                                        password=password)
+    if not status:
+        return False
+    plain_text_message_string = str(plain_text_message)
+    sender_created_at = str(time.time())
+    header = {
+        'Content-Type': 'application/json; charset=utf-8',
+    }
+
+    target_publickey_bytes = str.encode(target_pubkey_str)  # convert target_pubkey to bytes
+
+    encrypt_status, encrypted_message_string = crypto.create_private_message(
+        target_public_key_bytes=target_publickey_bytes, plain_text_message_string=plain_text_message_string)
+
+    if not encrypt_status:
+        return False
+    message_signature = crypto.sign_message(loginserver_record + target_pubkey_str + target_username +
+                                            encrypted_message_string + sender_created_at, keys['private_key'])
+
+    payload = {
+        'loginserver_record': loginserver_record,
+        'target_pubkey'     : target_pubkey_str,
+        'target_username'   : target_username,
+        "encrypted_message" : encrypted_message_string,
+        "sender_created_at" : sender_created_at,
+        "signature"         : message_signature
+    }
+    byte_payload = bytes(json.dumps(payload), "utf-8")
+
+    db.addData.add_private_message(loginserver_record, target_pubkey_str, target_username, encrypted_message_string,
+                                   sender_created_at, message_signature, sender_username)
+
+    for user in send_to_dict:
+        broadcast_thread = threading.Thread(target=individual_thread_private_message, args=([user, byte_payload, header,
+                                                                                             api_key, password, sender_username]))
+        broadcast_thread.daemon = True
+        broadcast_thread.start()
+    return True
+
+
+def individual_thread_private_message(user, byte_payload, header, api_key=None, password=None, username=None):
+    con_address = user['connection_address']
+    if 'http' not in con_address[:4]:
+        con_address = "http://" + con_address
+
+    broadcast_url = con_address + "/api/privatemessage"
+
+    if user['username'] == 'admin':
+        if api_key is not None:
+            print("getting record with api_key")
+            header = request_helper.create_api_header(x_username=username, api_key=api_key)
+        elif password is not None:
+            print("getting record with HTTP Basic")
+            header = request_helper.create_basic_header(username=username, password=password)
+        else:
+            return False
+    broadcast_request = urllib.request.Request(url=broadcast_url, data=byte_payload, headers=header, method="POST")
+    json_object = request_helper.query_server(broadcast_request)
+    pprint.pprint("Result of request to " + broadcast_url + ": " + json_object['response'])
