@@ -25,7 +25,8 @@ class Login:
         return login_template.render(server_down=(status_code == '1'), invalid_cridentials=(status_code == '2'),
                                      api_key_error=(status_code == '3'), private_key_error=(status_code == '4'),
                                      private_data_error=(status_code == '5'), key_missmathch=(status_code == '6'),
-                                     api_key_expired=(status_code == '7'))
+                                     api_key_expired=(status_code == '7'), new_pass_error=(status_code == '8'),
+                                     new_pass_sucess=(status_code == '9'))
 
     @cherrypy.expose
     def signin(self, username=None, password=None, key_type=None, key_value=None):
@@ -67,6 +68,51 @@ class Login:
             cherrypy.lib.sessions.expire()
 
         raise cherrypy.HTTPRedirect('/')
+
+    @cherrypy.expose
+    def overwrite_private_data(self, username=None, password=None, new_key=None):
+        """Takes - Username, (api_key or password), location, new Encryption key, new private_data
+        Generates a new public / private key pair.
+        Adds the new public key to the users account.
+        reports the new key as their incoming key.
+        Adds the new private data to their account
+        """
+        import ApisAndHelpers.crypto as crypto
+        status = 8
+        try:
+            if username is None or password is None or new_key is None:
+                raise Exception
+            new_key_status, new_keys = crypto.create_new_key_pair()
+            if not new_key_status:
+                raise Exception
+            add_key_status = loginApi.add_pub_key(keys=new_keys, username=username, api_key=None, password=password)
+            if not add_key_status:
+                raise Exception
+            report_status = loginApi.report(location=main.LOCATION, username=username, keys=new_keys, status="online",
+                                            api_key=None, password=password)
+            if not report_status:
+                raise Exception
+
+            private_data = {
+                'prikeys': [new_keys['private_key_hex_string'], ""],
+                'blocked_pubkeys': [""],
+                'blocked_usernames': [""],
+                'blocked_message_signatures': [""],
+                'blocked_words': [""],
+                'favourite_message_signatures': [""],
+                'friends_usernames': [""],
+            }
+
+            add_private_data_status = loginApi.add_private_data(username=username,
+                                                                plain_text_private_data_dictonary=private_data, keys=new_keys,
+                                                                encryption_key=new_key, api_key=None, password=password)
+            if add_private_data_status:
+                status = 9
+        except Exception as e:
+            print(e)
+            status = 8
+
+        raise cherrypy.HTTPRedirect('/login?status_code=' + str(status))
 
 
 def authorise_user_login(username, password, key_type, key_value):

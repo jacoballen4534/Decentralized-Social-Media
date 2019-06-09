@@ -120,27 +120,41 @@
 
     <div>
         <br/>
-        <br/>
-        <br/>
     </div>
 
-    <div class="row mb-lg-3 mb-2 text-center">
-        <div class="col">
-            <span style="width: 100%"><u>Create new key and encryption key</u></span><br/><br/>
-            <span style="width: 100%"><u>Warning. This will overwride your private data and and another key to your account</u></span>
-            <br/><br/>
-            <input type="text" class="form-control" id="create-new-password" name="new-password" style="width: 100%"
-                   placeholder="Password" aria-describedby="create-new-password-help">
+    <div class="row mb-lg-3 mb-2 ">
+        <form action="/login/overwrite_private_data" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate style="width: 100%">
 
-            <br/>
-            <br/>
-            <div>
-                <button style="width: 100%" type="submit" id="overwrite-button" class="btn btn-danger btn-block">
-                    Create New Key and Private Data
-                </button>
+            <div class="col">
+                <div class="text-center">
+                    <span style="width: 100%"><u>Create new key and encryption key</u></span><br/>
+                    <span style="width: 100%"><u>Warning. This will overwride your private data and and another key to your account</u></span>
+                    {% if new_pass_error %}
+                    <br/><span style="width: 100%">Unfortunatly something went wrong when creating your new key</span>
+                    {% elif new_pass_sucess %}
+                    <br/><span style="width: 100%">Sucess! Try logging in with this new encryption key</span>
+                    {% endif %}
+                </div>
+                <br/>
+                <label for="new-login-username">Username</label>
+                <input type="text" required class="form-control" id="new-login-username" name="username"
+                       placeholder="Username" aria-describedby="username-help">
+                <br/>
+                <label for="new-login-password">Password</label>
+                <input type="password" required class="form-control" id="new-login-password" name="password"
+                       placeholder="Password" aria-describedby="new-password-help">
+                <br/>
+                <label for="new-encryption-key">Username</label>
+                <input type="text" required class="form-control" id="new-encryption-key" name="new_key" style="width: 100%"
+                       placeholder="New Encryption Key" aria-describedby="create-new-password-help">
+                <br/>
+                <div>
+                    <button style="width: 100%" type="submit" id="overwrite-button" class="btn btn-danger btn-block">
+                        Create New Key and Private Data
+                    </button>
+                </div>
             </div>
-        </div>
-
+        </form>
     </div>
 </div>
 

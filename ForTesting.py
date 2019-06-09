@@ -9,8 +9,8 @@ username = "jall229"
 password = "jacoballen4534_205023320"
 encryption_key = "key"
 message = "Yo, what up"
-private_key_hex_bytes = '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc'
-status, keys = crypto.get_keys(private_key_hex_bytes)
+private_key_hex_string = '210dd82e0b535b7251ba1ababee90fc20a797e7d8d7c64dea8373e11f916fdbc'
+status, keys = crypto.get_keys(private_key_hex_string)
 api_key = loginServerApis.load_new_apikey(username, password)
 # api_key = None
 # x_signature = loginServerApis.ping(username="jall229", api_key=api_key)
@@ -160,4 +160,7 @@ def test_get_loginserver_pubkey():
     loginServerApis.loginserver_pubkey()
 
 
-test_private_message()
+# To get my old private key back (for private messages)
+test_report()
+test_add_private_data()
+test_get_private_data()

@@ -140,7 +140,7 @@ def retreive_private_messages(sender, receiver):
                 'message': row[1],
                 'sender': row[2],
                 'receiver': row[3],
-                'timestamp': row[4],
+                'timestamp': datetime.fromtimestamp(row[4]).strftime('%Y-%m-%d %H:%M:%S'),
                 'sender_pubkey': row[5],
                 'receiver_pubkey': row[6],
                 'signature': row[7],

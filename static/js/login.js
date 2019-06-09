@@ -10,6 +10,7 @@ function showPasswords(checkbox) {
     }
 }
 
+
 function changeLoginOption(selection) {
     if (selection.value === "Encryption Key") {
         document.getElementById("login-key-help").innerText = "This is what you used to encrypt your data.";
