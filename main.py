@@ -33,15 +33,12 @@ def getip():
 
 
 LOCATION = "0"
-LISTEN_IP = "192.168.1.68"
-LISTEN_PORT = 5001
+LISTEN_IP = getip()
+LISTEN_PORT = 10051
 
-if LOCATION == "0":
-    LISTEN_IP = getip()
-    LISTEN_PORT = 10051
-elif LOCATION == "1":
+
+if LOCATION == "1":
     LISTEN_IP = "0.0.0.0"
-    LISTEN_PORT = 10051
 
 
 # The address we listen for connections on
