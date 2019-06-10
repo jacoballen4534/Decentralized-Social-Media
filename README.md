@@ -26,7 +26,7 @@
     - Encryption Key = The password used to encrypt / decrypt private data
     - Private Key = Your private key that has been registered with the login server
     
-    
+    <br/>
 - Alternitavly create a new private key pair
   - Username = University UPI
   - Password = GitHub_Username _ University_ID
