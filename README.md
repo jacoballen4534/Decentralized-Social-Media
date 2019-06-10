@@ -31,3 +31,10 @@
   - Username = University UPI
   - Password = GitHub_Username _ University_ID
   - Encryption Key = The password that will be used to encrypt your private data
+
+
+## Feature Testing
+All features that require another user have been tested with the following UPI's
+- jyao413
+- tmag741
+
