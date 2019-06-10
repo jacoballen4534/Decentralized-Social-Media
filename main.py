@@ -22,14 +22,26 @@ import MyApiEndpoints.apis
 import MyApiEndpoints.updates
 import MyApiEndpoints.privateMessages
 import sqlite3
+import socket
 import db.addData as addData
 
 
-# The address we listen for connections on
-# LISTEN_IP = "0.0.0.0"
+def getip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    return s.getsockname()[0]
+
+
+LOCATION = "1"
 LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
-LOCATION = "2"
+
+if LOCATION == "0" or LOCATION == "1":
+    LISTEN_IP = getip()
+    LISTEN_PORT = 10001
+
+# The address we listen for connections on
+# LISTEN_IP = "0.0.0.0"
 
 
 # initialize database
