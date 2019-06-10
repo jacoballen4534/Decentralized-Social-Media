@@ -7,8 +7,8 @@
 - `pip3 install pynacl`
 
 ## Launch Instructions
-- Navigate to the roor directory of this project
-- Open a new Terminal window `ctrl + alt + t` and enter the following comands:
+- Navigate to the root directory of this project
+- Open a new Terminal window `ctrl + alt + t` and enter the following Navigate to the roor directory of this project
 - `python3 main.py`
 
 
