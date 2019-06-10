@@ -32,13 +32,17 @@ def getip():
     return s.getsockname()[0]
 
 
-LOCATION = "1"
+LOCATION = "0"
 LISTEN_IP = "192.168.1.68"
 LISTEN_PORT = 5001
 
-if LOCATION == "0" or LOCATION == "1":
+if LOCATION == "0":
     LISTEN_IP = getip()
-    LISTEN_PORT = 10001
+    LISTEN_PORT = 10051
+elif LOCATION == "1":
+    LISTEN_PORT = "0.0.0.0"
+    LISTEN_PORT = 10051
+
 
 # The address we listen for connections on
 # LISTEN_IP = "0.0.0.0"
