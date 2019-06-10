@@ -9,7 +9,7 @@
 ## Launch Instructions
 - Navigate to the root directory of this project
 - Open a new Terminal window `ctrl + alt + t`
-- `python3 main.py`
+- Run the command `python3 main.py`
 
 
 #### Prerequisites:
