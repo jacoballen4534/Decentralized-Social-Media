@@ -40,7 +40,7 @@ if LOCATION == "0":
     LISTEN_IP = getip()
     LISTEN_PORT = 10051
 elif LOCATION == "1":
-    LISTEN_PORT = "0.0.0.0"
+    LISTEN_IP = "0.0.0.0"
     LISTEN_PORT = 10051
 
 
