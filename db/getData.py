@@ -89,6 +89,38 @@ def get_public_broadcasts_since(since):
         return broadcasts
 
 
+def get_private_messages_since(since):
+    """This returns all private messages after 'since'"""
+
+    conn = None
+    broadcasts = []
+    try:
+        conn = sqlite3.connect("./db/database.db")
+        c = conn.cursor()
+        c.execute("""SELECT message, sender, receiver, timestamp, sender_pubkey, receiver_pubkey, signature FROM private_messages WHERE timestamp > ?""",
+                  (since,))
+        rows = c.fetchall()
+        print("Retrieving private messages since from db")
+
+        for row in rows:
+            broadcasts.append({
+                'message': row[0],
+                'sender': row[1],
+                'receiver': row[2],
+                'timestamp': row[3],
+                'sender_pubkey': row[4],
+                'receiver_pubkey': row[5],
+                'message_signature': row[4]
+            })
+
+    except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
+        print(e)
+    finally:
+        if conn is not None:
+            conn.close()
+        return broadcasts
+
+
 def get_all_seen_users():
     """Returns a list of all users that have been seen (reported)'"""
 

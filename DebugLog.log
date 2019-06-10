@@ -8207,3 +8207,16 @@ PUBLIC MESSAGE FAILED
 2019-06-10 06:31:53,651 DEBUG Reporting jall229: status sucess
 2019-06-10 06:32:27,607 DEBUG Request: {'request': 'report'} from: jall229
 2019-06-10 06:32:28,893 DEBUG Reporting jall229: status sucess
+2019-06-10 12:27:18,714 DEBUG Received broadcast message: Time and relative dimensions in space
+2019-06-10 12:27:44,558 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-10 12:27:47,047 DEBUG Reporting jall229: status sucess
+2019-06-10 12:28:12,268 DEBUG Received broadcast message: test
+
+2019-06-10 12:28:14,518 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-10 12:28:16,537 DEBUG Reporting jall229: status sucess
+2019-06-10 12:28:52,050 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-10 12:28:54,324 DEBUG Reporting jall229: status sucess
+2019-06-10 12:29:01,107 DEBUG Received broadcast message:  
+2019-06-10 12:29:04,534 DEBUG Received broadcast message: frick
+2019-06-10 12:29:24,628 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-10 12:29:26,590 DEBUG Reporting jall229: status sucess

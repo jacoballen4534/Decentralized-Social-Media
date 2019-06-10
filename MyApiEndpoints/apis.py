@@ -219,10 +219,11 @@ class Api(object):
             print("Asking for messages since: " + since)
             since = int(since)
             boradcasts = db.getData.get_public_broadcasts_since(since)
+            private_messages_since = db.getData.get_private_messages_since(since)
             response = {
                 'response': 'ok',
                 'broadcasts': boradcasts,
-                'private_messages': [""],
+                'private_messages': private_messages_since,
             }
 
             return response
