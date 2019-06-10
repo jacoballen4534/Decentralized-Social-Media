@@ -17,7 +17,7 @@
 - Run the command `python3 main.py`
 
 ## Connecting to the Server
-- Open your favorite browser and navigate to the url listed in the terminal window.
+- Open your favorite browser and navigate to the connection_url listed in the terminal window.
 (This wil have "Serving on 'connection_url')
 - To Login, fill out the required fields
   - Username = University UPI
