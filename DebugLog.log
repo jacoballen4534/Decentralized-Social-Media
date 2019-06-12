@@ -8510,3 +8510,9 @@ PUBLIC MESSAGE FAILED
 2019-06-10 21:04:13,355 DEBUG Reporting jall229: status sucess
 2019-06-10 21:04:48,838 DEBUG Request: {'request': 'report'} from: jall229
 2019-06-10 21:04:49,162 DEBUG Reporting jall229: status sucess
+2019-06-11 23:42:56,587 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-11 23:42:56,768 DEBUG Reporting jall229: status sucess
+2019-06-11 23:43:41,909 DEBUG Request: {'request': 'report'} from: None
+2019-06-11 23:43:41,910 DEBUG Failed
+2019-06-12 12:13:32,215 DEBUG Request: {'request': 'report'} from: jall229
+2019-06-12 12:13:32,461 DEBUG Failed
